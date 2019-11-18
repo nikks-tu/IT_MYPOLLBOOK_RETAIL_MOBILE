@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/imageUnselectCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBottom="@+id/imageSelectCategory"
+        android:layout_alignParentLeft="true"
+
+
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/imageSelectCategory"
+        android:src="@drawable/ic_unselect_category"
+        android:visibility="visible" />
+
+
+    <ImageView
+        android:id="@+id/imageSelectCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imgOptions"
+        android:layout_alignParentTop="true"
+
+        android:layout_toLeftOf="@+id/imgOptions"
+        android:layout_toStartOf="@+id/imgOptions"
+        android:src="@drawable/ic_select_category"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/imgOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtDetails"
+        android:layout_alignTop="@+id/txtGroup"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@+id/imageUnselectCategory"
+        android:layout_toRightOf="@+id/imageUnselectCategory"
+        android:src="@drawable/ic_public_gray" />
+
+    <TextView
+        android:id="@+id/txtGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_toEndOf="@+id/imgOptions"
+
+        android:layout_toRightOf="@+id/imgOptions"
+        android:text="Public"
+        android:textSize="@dimen/activity_textSize_large"
+
+       />
+
+    <TextView
+        android:id="@+id/txtDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtGroup"
+        android:layout_alignStart="@+id/txtGroup"
+        android:layout_below="@+id/txtGroup"
+        android:text="Anyone on or off MyPollBook"
+        android:textColor="@color/helvetica_light_greycolor"
+        android:textSize="14sp"
+      />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtDetails"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/txtGroup"
+        android:src="@drawable/arrow_left" />
+</RelativeLayout>

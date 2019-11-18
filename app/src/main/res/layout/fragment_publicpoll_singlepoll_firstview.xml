@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background_color"
+    >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_color"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/poll_results"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"/>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="5dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/adView"
+        android:layout_centerInParent="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarThumbVertical="@drawable/custom_scrollbar"
+        android:scrollingCache="false"
+        android:smoothScrollbar="true"
+        android:visibility="invisible">
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:id="@+id/relativeLayout">
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/imgTime"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitXY"
+            />
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imgProfile"
+            android:layout_toRightOf="@+id/imgProfile"
+            android:text="@string/dummy_text"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/blue_color"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="@dimen/activity_textSize_small"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp" />
+
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtName"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imgTime"
+            android:layout_toRightOf="@+id/imgTime"
+            android:text="@string/dummy_last_time"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small_16"
+            android:layout_marginStart="10dp" />
+
+        <ImageView
+            android:id="@+id/imgShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_share"
+            android:background="@drawable/click_background"/>
+
+        <TextView
+            android:id="@+id/txtStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imgTime"
+            android:layout_marginTop="10dp"
+            android:textSize="@dimen/activity_textSize_small"
+            android:textColor="@android:color/black"
+          />
+
+
+        <LinearLayout
+            android:id="@+id/linearImagesQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtStatus"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:weightSum="2">
+
+            <ImageView
+                android:id="@+id/singleOption"
+                android:layout_width="200dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="2"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name" />
+
+            <ImageView
+                android:id="@+id/choose"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name" />
+
+
+            <ImageView
+                android:id="@+id/ChooseAdditional"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:layout_marginStart="3dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtTime"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imgCategory"
+            android:layout_toRightOf="@+id/imgCategory"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small_16"
+            android:layout_marginStart="10dp" />
+
+        <ImageView
+            android:id="@+id/imgTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtTime"
+            android:layout_alignLeft="@+id/txtName"
+            android:layout_alignStart="@+id/txtName"
+            android:layout_alignTop="@+id/txtTime"
+            android:src="@drawable/ic_timer" />
+
+        <ImageView
+            android:id="@+id/imgCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/txtStatus"
+            android:layout_alignTop="@+id/txtTime"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/txtTime"
+            android:layout_toRightOf="@+id/txtTime"
+            android:src="@drawable/ic_category" />
+<RelativeLayout
+    android:id="@+id/relativeOption"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/linearImagesQuestion">
+        <TextView
+            android:id="@+id/option1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:textStyle="normal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pollGroupAnswer"
+        android:textSize="16sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="@string/text_demo"
+        android:drawableLeft="@drawable/ic_group_poll"
+        android:background="@drawable/click_background"
+        android:layout_marginLeft="@dimen/margin_five"
+        android:textColor="@color/helvetica_light_greycolor"
+        android:layout_alignParentBottom="true"
+        android:drawableStart="@drawable/ic_group_poll"
+        android:layout_marginStart="5dp" />
+</RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeProgressbar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeOption"
+            android:paddingTop="@dimen/margin_five"
+            android:paddingBottom="@dimen/margin_five"
+            android:paddingRight="@dimen/margin_five"
+            android:paddingEnd="@dimen/margin_five"
+            tools:ignore="RtlSymmetry">
+            <ProgressBar
+                android:id="@+id/progressbarFirstOption"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:max="100"
+                android:progressDrawable="@drawable/custom_progressbar"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/txtFirstOptionCount"
+                android:layout_toStartOf="@+id/txtFirstOptionCount"
+                android:layout_marginEnd="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtFirstOptionCount"
+                android:textColor="@color/blue_color"
+                android:textSize="16sp"
+                android:text="0%"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeOption1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeProgressbar1"
+            android:paddingTop="@dimen/margin_five"
+            android:paddingBottom="@dimen/margin_five"
+            android:paddingRight="@dimen/margin_five"
+            android:paddingEnd="@dimen/margin_five"
+            tools:ignore="RtlSymmetry">
+        <TextView
+            android:id="@+id/option2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:textStyle="normal"  />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pollGroupAnswer1"
+                android:textSize="16sp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/click_background"
+                android:layout_marginLeft="@dimen/margin_five"
+                android:drawableLeft="@drawable/ic_group_poll"
+                android:text="@string/text_zero"
+                android:textColor="@color/helvetica_light_greycolor"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="5dp"
+                android:drawableStart="@drawable/ic_group_poll" />
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeProgressbar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeOption1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            >
+            <ProgressBar
+                android:id="@+id/progressbarSecondOption"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:max="100"
+                android:progressDrawable="@drawable/custom_progressbar"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/txtSecondOptionCount"
+                android:layout_toStartOf="@+id/txtSecondOptionCount" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0%"
+                android:id="@+id/txtSecondOptionCount"
+                android:textColor="@color/blue_color"
+                android:textSize="16sp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+               />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/polldetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/txtLike2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="123"
+            android:background="@drawable/click_background"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:layout_alignTop="@+id/txtCommentsCounts"
+            android:layout_toLeftOf="@+id/txtCommentsCounts"
+            android:layout_toStartOf="@+id/txtCommentsCounts" />
+
+        <CheckBox
+            android:id="@+id/unLikeDislike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/checkbox_selector"
+            android:layout_alignBottom="@+id/txtLike2"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/txtLike2"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/txtCommentsCounts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="5dp"
+            android:drawableLeft="@drawable/ic_comments"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:text="72"
+            android:background="@drawable/click_background"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+          />
+
+        <TextView
+            android:id="@+id/txtParticcipation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:drawableLeft="@drawable/ic_group_poll"
+            android:drawablePadding="5dp"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:background="@drawable/click_background"
+            android:textSize="@dimen/activity_textSize_small"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
+    </ScrollView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imagBackArrow"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_back"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/adView"
+        android:onClick="onClick"
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@android:color/white"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imgTime"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+      />
+
+        <Textview
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imgProfile"
+            android:layout_toRightOf="@+id/imgProfile"
+            android:text="Pepsi"
+            android:textColor="@color/blue_color"
+            android:textSize="@dimen/activity_textSize_large"
+          />
+
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtName"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imgTime"
+            android:layout_toRightOf="@+id/imgTime"
+            android:text="11 mins ago"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+        />
+
+        <ImageView
+            android:id="@+id/imgShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_share" />
+
+        <com.contus.views.FontableTextview
+            android:id="@+id/txtStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imgTime"
+            android:layout_marginTop="10dp"
+            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            android:textSize="@dimen/activity_textSize_large"
+            app:canLoadFont="true"
+            app:fontSource="Roboto-Regular.ttf" />
+
+
+        <LinearLayout
+            android:id="@+id/linearImagesQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtStatus"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/singleOption"
+                android:layout_width="200dp"
+                android:layout_height="160dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                android:layout_weight="2"
+                android:clickable="true"
+                android:visibility="gone"
+                fresco:placeholderImage="@drawable/placeholder_image"
+                fresco:roundedCornerRadius="10dp" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/choose"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                fresco:placeholderImage="@drawable/placeholder_image"
+                fresco:roundedCornerRadius="10dp"
+
+                />
+
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/ChooseAdditional"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/choose"
+                android:layout_toRightOf="@+id/choose"
+                android:layout_weight="1"
+                fresco:placeholderImage="@drawable/placeholder_image"
+                fresco:roundedCornerRadius="10dp" />
+        </LinearLayout>
+
+        <com.contus.views.FontableTextview
+            android:id="@+id/txtCommentsCounts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/progressbarFourthOption"
+            android:layout_marginLeft="5dp"
+            android:text="72"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            app:canLoadFont="true"
+            app:fontSource="Roboto-Light.ttf" />
+
+        <ImageView
+            android:id="@+id/imgComments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtCommentsCounts"
+            android:layout_alignTop="@+id/txtCommentsCounts"
+            android:layout_marginLeft="20dp"
+            android:layout_toLeftOf="@+id/txtCommentsCounts"
+            android:layout_toStartOf="@+id/txtCommentsCounts"
+            android:src="@drawable/ic_comments" />
+
+        <com.contus.views.FontableTextview
+            android:id="@+id/txtLike2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgComments"
+            android:layout_marginLeft="5dp"
+            android:layout_toLeftOf="@+id/imgComments"
+            android:layout_toStartOf="@+id/imgComments"
+            android:text="123"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            app:canLoadFont="true"
+            app:fontSource="Roboto-Light.ttf"
+            android:layout_below="@+id/progressbarThirdOption" />
+
+        <ImageView
+            android:id="@+id/imgLikes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtLike2"
+            android:layout_alignTop="@+id/txtCommentsCounts"
+            android:layout_toLeftOf="@+id/txtLike2"
+            android:layout_toStartOf="@+id/txtLike2"
+            android:src="@drawable/ic_like_2"
+            android:layout_below="@+id/progressbarThirdOption" />
+
+        <com.contus.views.FontableTextview
+            android:id="@+id/txtCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtTime"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imgCategory"
+            android:layout_toRightOf="@+id/imgCategory"
+            android:text="Mobiles"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            app:canLoadFont="true"
+            app:fontSource="Roboto-Light.ttf" />
+
+        <ImageView
+            android:id="@+id/imgTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtTime"
+            android:layout_alignLeft="@+id/txtName"
+            android:layout_alignStart="@+id/txtName"
+            android:layout_alignTop="@+id/txtTime"
+            android:src="@drawable/ic_timer" />
+
+        <ImageView
+            android:id="@+id/imgCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/txtStatus"
+            android:layout_alignTop="@+id/txtTime"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/txtTime"
+            android:layout_toRightOf="@+id/txtTime"
+            android:src="@drawable/ic_category" />
+
+        <RadioButton
+            android:id="@+id/option1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearImagesQuestion"
+            android:layout_alignLeft="@+id/imgBanner"
+            android:layout_alignStart="@+id/imgBanner"
+
+            android:button="@drawable/radiobuttonbackground"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:textStyle="normal" />
+
+        <!--<com.contus.Views.FontableTextview
+            android:id="@+id/txtFirstButtonDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearImagesQuestion"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/imgFirstButton"
+            android:layout_toRightOf="@+id/imgFirstButton"
+            android:text="Nexus"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            app:canLoadFont="true"
+            app:fontSource="roboto-light.ttf" />-->
+
+        <ProgressBar
+            android:id="@+id/progressbarFirstOption"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/option1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:max="100"
+            android:progress="70"
+            android:progressDrawable="@drawable/custom_progressbar" />
+
+
+        <RadioButton
+            android:id="@+id/option2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/option1"
+            android:layout_alignStart="@+id/option1"
+            android:layout_below="@+id/progressbarFirstOption"
+            android:button="@drawable/radiobuttonbackground"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:textStyle="normal"  />
+
+        <ProgressBar
+            android:id="@+id/progressbarSecondOption"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:max="100"
+            android:progress="20"
+            android:progressDrawable="@drawable/custom_progressbar"
+            android:layout_below="@+id/option2" />
+
+        <RadioButton
+            android:id="@+id/option3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/option2"
+            android:layout_alignStart="@+id/option2"
+            android:button="@drawable/radiobuttonbackground"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:textStyle="normal"
+            android:layout_below="@+id/progressbarSecondOption" />
+
+        <ProgressBar
+            android:id="@+id/progressbarThirdOption"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:max="100"
+            android:progress="90"
+            android:progressDrawable="@drawable/custom_progressbar"
+            android:layout_below="@+id/option3" />
+
+        <RadioButton
+            android:id="@+id/option4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/radiobuttonbackground"
+            android:layout_alignLeft="@+id/option3"
+            android:layout_alignStart="@+id/option3"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:textStyle="normal"
+            android:layout_below="@+id/progressbarThirdOption"/>
+
+        <ProgressBar
+            android:id="@+id/progressbarFourthOption"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/custom_progressbar"
+            android:layout_below="@+id/option4"
+            android:indeterminate="false" />
+
+        <ImageView
+            android:id="@+id/imgCounts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtCounts"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/txtCounts"
+            android:src="@drawable/ic_participations_2" />
+
+        <com.contus.views.FontableTextview
+            android:id="@+id/txtCounts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgLikes"
+            android:layout_toLeftOf="@+id/txtTime"
+            android:layout_toStartOf="@+id/txtTime"
+            android:text="123"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            app:canLoadFont="true"
+            app:fontSource="Roboto-Light.ttf" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:layout_below="@+id/relative"
+        android:layout_marginTop="@dimen/activity_register_margin"
+        android:background="@color/background_color" />
+
+    <com.contus.views.FontableTextview
+        android:id="@+id/txtComments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/view"
+        android:padding="10dp"
+        android:text="72 Comments"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/activity_textSize_small"
+        app:canLoadFont="true"
+        app:fontSource="Roboto-Regular.ttf" />
+
+    <com.contus.views.FontableTextview
+        android:id="@+id/txtViewAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/view"
+        android:padding="10dp"
+        android:text="@string/activity_header_viewall"
+        android:textColor="@color/blue_color"
+        android:textSize="@dimen/activity_textSize_small"
+
+        app:canLoadFont="true"
+        app:fontSource="Roboto-Regular.ttf" />
+
+</RelativeLayout>

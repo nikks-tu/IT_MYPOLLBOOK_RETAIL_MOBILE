@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/row_chat_text"
+    style="@style/ChatView">
+
+    <LinearLayout
+        android:id="@+id/view_chat_rev_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_whiteboxbg"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:visibility="visible">
+
+        <com.contusfly.views.CustomTextView
+            android:id="@+id/txt_rev_txt_name"
+            style="@style/ChatRevNameView"
+            app:font_name="@string/font_roboto_medium" />
+
+
+        <LinearLayout
+            android:id="@+id/view_chat_rev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <com.contusfly.views.CustomTextView
+                android:id="@+id/txt_rev_chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:maxWidth="300dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:emojiconSize="19sp"
+                app:font_name="@string/font_roboto_regular" />
+
+            <com.contusfly.views.CustomTextView
+                android:id="@+id/txt_rev_txt_time"
+                style="@style/ChatTimeView"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginLeft="6dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="1dp"
+                android:gravity="end|center_vertical"
+                app:font_name="@string/font_roboto_regular" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/view_chat_sender_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical"
+        android:background="@drawable/ic_bluerightboxbg"
+        android:gravity="center_vertical|end"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:visibility="visible">
+
+        <com.contusfly.views.CustomTextView
+            android:id="@+id/txt_send_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:maxWidth="250dp"
+            android:textColor="@color/color_chat_sender"
+            android:textSize="16sp"
+            app:emojiconSize="19sp"
+            app:font_name="@string/font_roboto_regular" />
+
+        <LinearLayout
+            android:id="@+id/view_txt_sender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginLeft="6dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical"
+            android:minWidth="20dp"
+            android:orientation="horizontal">
+
+            <com.contusfly.views.CustomTextView
+                android:id="@+id/txt_send_txt_time"
+                style="@style/ChatTimeView"
+                app:font_name="@string/font_roboto_regular" />
+
+            <ImageView
+                android:id="@+id/img_txt_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:contentDescription="@string/text_content_discription"
+                android:minWidth="20dp"
+                android:src="@drawable/ic_timer" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

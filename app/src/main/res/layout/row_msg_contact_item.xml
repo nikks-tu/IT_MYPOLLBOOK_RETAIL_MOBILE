@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/row_chat_contact"
+    style="@style/ChatView">
+
+    <LinearLayout
+        android:id="@+id/view_rev_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_whiteboxbg"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <com.contusfly.views.CustomTextView
+            android:id="@+id/txt_contact_rev_name"
+            style="@style/ChatRevNameView"
+            app:font_name="@string/font_roboto_regular" />
+
+        <LinearLayout
+            android:id="@+id/view_rev_contact_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.contusfly.views.CustomTextView
+                android:id="@+id/txt_avator_rev_img"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/shape_circle"
+                android:gravity="center"
+                android:textColor="@color/color_white"
+                android:textSize="24sp"
+                app:font_name="@string/font_roboto_medium" />
+
+            <com.contusfly.views.CustomTextView
+                android:id="@+id/txt_contact_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical|start"
+                android:maxLength="20"
+                android:minEms="3"
+                android:singleLine="true"
+                android:textColor="@color/color_chat_sender"
+                android:textSize="16sp"
+                app:font_name="@string/font_roboto_regular" />
+
+            <com.contusfly.views.CustomTextView
+                android:id="@+id/txt_contact_rev_time"
+                style="@style/ChatTimeView"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                app:font_name="@string/font_roboto_light" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_send_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@drawable/ic_bluerightboxbg"
+        android:gravity="center_vertical"
+        android:padding="8dp">
+
+        <com.contusfly.views.CustomTextView
+            android:id="@+id/txt_avator_send_img"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/shape_circle"
+            android:gravity="center"
+            android:textColor="@color/color_white"
+            android:textSize="24sp"
+            app:font_name="@string/font_roboto_medium" />
+
+        <com.contusfly.views.CustomTextView
+            android:id="@+id/txt_contact_sendname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical|start"
+            android:maxLength="20"
+            android:minEms="3"
+            android:singleLine="true"
+            android:textColor="@color/color_chat_sender"
+            android:textSize="16sp"
+            app:font_name="@string/font_roboto_regular" />
+
+        <com.contusfly.views.CustomTextView
+            android:id="@+id/txt_contact_send_time"
+            style="@style/ChatTimeView"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="1dp"
+            app:font_name="@string/font_roboto_light" />
+
+
+        <ImageView
+            android:id="@+id/img_contact_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="1dp"
+            android:contentDescription="@string/text_content_discription"
+            android:minWidth="20dp"
+            android:src="@drawable/ic_timer" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<github.ankushsachdeva.emojicon.CustomTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rowTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:padding="20dp"
+    android:textColor="@android:color/black"
+    android:textSize="16sp"
+    app:emojiconSize="19sp">
+
+</github.ankushsachdeva.emojicon.CustomTextView>

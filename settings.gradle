@@ -1,0 +1,1 @@
+include ':app', ':simple-crop-image-lib', ':ffmpeg4android_lib', ':chatlib'

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:layout_height="match_parent"
+                android:background="@android:color/black">
+
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_centerHorizontal="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"/>
+
+
+    <com.contusfly.frescoimagezoomable.ZoomableDraweeView
+        android:id="@+id/imgFullView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/adView" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onClick"
+            android:scaleType="fitXY"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/imgBackArrow"
+            android:layout_toEndOf="@+id/imgBackArrow" />
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imgProfile"
+            android:layout_toRightOf="@+id/imgProfile"
+            android:text="Pepsi"
+            android:ellipsize="end"
+            android:layout_marginRight="20dp"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/activity_textSize_small"
+            android:singleLine="true"
+            />
+
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtName"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imgTime"
+            android:layout_toRightOf="@+id/imgTime"
+            android:text="11 mins ago"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small_16"
+         />
+
+        <ImageView
+            android:id="@+id/imgTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtTime"
+            android:layout_alignLeft="@+id/txtName"
+            android:layout_alignStart="@+id/txtName"
+            android:layout_below="@+id/txtName"
+            android:src="@drawable/ic_timer" />
+
+        <ImageView
+            android:id="@+id/imgCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtTime"
+            android:layout_alignTop="@+id/txtTime"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/txtTime"
+            android:layout_toRightOf="@+id/txtTime"
+            android:src="@drawable/ic_category" />
+
+        <TextView
+            android:id="@+id/txtCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtTime"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/imgCategory"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/imgCategory"
+            android:ellipsize="end"
+            android:singleLine="true"
+             android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small_16"
+           />
+
+
+        <ImageView
+            android:id="@+id/imgBackArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:src="@drawable/ic_back"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

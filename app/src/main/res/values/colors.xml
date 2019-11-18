@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1C96EE</color>
+    <!--59b0f0-->
+    <color name="colorPrimaryDark">#59b0f0</color>
+    <color name="color_light_gray">#d5dada</color>
+    <color name="color_dim_gray">#88FFFFFF</color>
+    <color name="color_dark_gray">#7C7C7C</color>
+    <color name="color_gray_shadow">#99000000</color>
+    <color name="color_transperent_bg">#23000000</color>
+
+    <color name="color_primary">#0a80d5</color>
+    <color name="blue_color">#1C96EE</color>
+    <color name="red_color">#D76060</color>
+    <color name="grey_color">#818181</color>
+    <color name="navigation_greycolor">#C0AEAE</color>
+    <color name="custom_dialog_dropdown_border">#aaaaaa</color>
+    <color name="background_color">#F2F2F2</color>
+    <color name="button_click_color">#A4D3F4</color>
+    <color name="helvetica_light_greycolor">#777777</color>
+    <color name="view_color">#CCCCCC</color>
+
+    <color name="colorPrimarylight">#58967e</color>
+
+    <color name="color_transparent_bg">#23000000</color>
+    <color name="color_white_hint">#77FFFFFF</color>
+    <color name="color_light_red">#d65142</color>
+    <color name="color_dark_red">#D04B3A</color>
+    <color name="color_chat_sender">#585858</color>
+    <color name="color_contact_name">#282828</color>
+    <color name="color_list_divider_color">#E4E4E4</color>
+    <color name="color_chat_bg">#EEEEEE</color>
+    <color name="color_white">#FFFFFF</color>
+
+
+    <integer-array name="gplus_colors">
+        <item>@color/gplus_color_1</item>
+        <item>@color/gplus_color_2</item>
+        <item>@color/gplus_color_3</item>
+        <item>@color/gplus_color_4</item>
+    </integer-array>
+
+
+    <color name="gplus_color_1">#f4b400</color>
+    <color name="gplus_color_2">#f4b400</color>
+    <color name="gplus_color_3">#f4b400</color>
+    <color name="gplus_color_4">#f4b400</color>
+
+    <color name="color_image_layer">#78000000</color>
+    <color name="colorPrimaryTransperant">#11000000</color>
+    <color name="black">#000000</color>
+    <color name="grey_back">#EAEAEC</color>
+</resources>

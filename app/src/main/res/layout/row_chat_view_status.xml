@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/row_chat_date"
+    style="@style/ChatView">
+    <com.contusfly.views.CustomTextView
+        android:id="@+id/text_chat_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:maxWidth="250dp"
+        android:padding="5dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/status_rounded_corner"
+        android:textSize="12sp"
+        android:text="status"
+        app:font_name="@string/font_roboto_regular" />
+</RelativeLayout>

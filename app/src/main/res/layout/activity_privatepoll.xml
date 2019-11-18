@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_color"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_color"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Chat Polls"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/imagBackArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="10dp"
+        android:onClick="onClick"
+        android:clickable="true"
+        android:src="@drawable/ic_back"
+        android:layout_alignBottom="@+id/title" />
+    <com.contusfly.smoothprogressbar.SmoothProgressBar
+        android:id="@+id/google_now"
+        style="@style/GNowProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@+id/title"
+        android:background="@android:color/white"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/google_now"
+        android:layout_centerHorizontal="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
+
+    <RelativeLayout
+        android:id="@+id/internetConnection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/txtInternetConnection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="40dp"
+            android:text="@string/check_internet_connection"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_large"
+            />
+
+        <TextView
+            android:id="@+id/internetRetry"
+            style="@style/app_btn_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtInternetConnection"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:text="Retry" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adView"
+        android:visibility="gone"
+
+        >
+
+            <com.contus.views.EndLessListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:divider="@color/background_color"
+                android:dividerHeight="10dp"
+                android:scrollbarSize="10dp"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbarThumbVertical="@drawable/custom_scrollbar"
+                ></com.contus.views.EndLessListView>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/noCampaignResults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:text="@string/user_polls_empty"
+        android:textColor="@color/helvetica_light_greycolor"
+        android:textSize="@dimen/activity_textSize_large"
+        android:visibility="invisible" />
+
+</RelativeLayout>

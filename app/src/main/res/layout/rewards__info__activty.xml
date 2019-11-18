@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eeeeee"
+    tools:context="com.new_chanages.activity.Rewards_Info_Activity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/MyTheme.PopupOverlay" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:id="@+id/back_iv"
+            android:paddingBottom="@dimen/view_margin"
+            android:paddingRight="@dimen/view_margin"
+            android:paddingLeft="@dimen/view_margin"
+            android:paddingTop="@dimen/view_margin"
+            android:src="@drawable/keyboard_backspace"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/info"
+            android:textColor="#fff"
+            android:layout_marginLeft="@dimen/activity_reside_menu_item_marginleft"
+            android:layout_marginRight="@dimen/activity_reside_menu_item_marginleft"
+            android:textSize="@dimen/activity_textSize_large"
+            android:layout_height="wrap_content" />
+
+    </androidx.appcompat.widget.Toolbar>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="@dimen/activity_textSize_large"
+        android:text="@string/your_earnings"
+        android:layout_marginTop="@dimen/view_margin"
+        android:layout_marginLeft="@dimen/margin_five"
+        android:layout_marginRight="@dimen/margin_five"
+        android:layout_marginBottom="@dimen/view_margin"
+        android:textColor="#000"
+        android:layout_height="wrap_content" />
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="@dimen/view_margin">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/reward_icon"
+                    android:contentDescription="@string/app_name"
+                    android:padding="@dimen/margin_five"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="@dimen/margin_five"
+                    android:layout_marginRight="@dimen/margin_five">
+
+                   <TextView
+                        android:id="@+id/today_points_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_zero"
+                        android:textColor="#000"
+                        android:textSize="@dimen/activity_navigation_large" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/today_credits" />
+
+                </LinearLayout>
+      </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:background="#eeeeee"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="@dimen/view_margin">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/reward_icon"
+                    android:contentDescription="@string/app_name"
+                    android:padding="@dimen/margin_five"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="@dimen/margin_five"
+                    android:layout_marginRight="@dimen/margin_five">
+
+
+                <TextView
+                        android:id="@+id/total_points_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_zero"
+                        android:textColor="#000"
+                        android:textSize="@dimen/activity_navigation_large" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_credits" />
+                </LinearLayout>
+ </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="@dimen/activity_textSize_large"
+        android:text="@string/earnings_actions"
+        android:layout_marginTop="@dimen/view_margin"
+        android:layout_marginLeft="@dimen/margin_five"
+        android:layout_marginBottom="@dimen/view_margin"
+        android:layout_marginRight="@dimen/margin_five"
+        android:textColor="#000"
+        android:layout_height="wrap_content" />
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:contentDescription="@string/app_name"
+                    android:layout_width="@dimen/activity_profile_margin"
+                    android:layout_height="@dimen/activity_profile_margin"
+                    android:src="@drawable/blue_arrow"
+                    android:padding="@dimen/margin_five"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/participating_in_a_poll"
+                    android:padding="@dimen/margin_five"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/activity_profile_margin"
+                    android:src="@drawable/blue_arrow"
+                    android:padding="@dimen/margin_five"
+                    android:visibility="invisible"
+                    android:layout_weight="0.2"
+                    android:contentDescription="@string/app_name" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_five"
+                    android:text="@string/admin_poll_tv"
+                    android:layout_weight="0.8"/>
+
+              <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_weight="1">
+                  <ImageView
+                      android:contentDescription="@string/app_name"
+                      android:layout_gravity="center"
+                      android:id="@+id/imageView2"
+                      android:layout_width="@dimen/activity_profile_margin"
+                      android:layout_height="@dimen/activity_profile_margin"
+                      android:src="@drawable/reward_icon"
+                      android:padding="@dimen/margin_five"/>
+
+                  <TextView
+                      android:id="@+id/adminpoll_tv"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:padding="@dimen/margin_five"
+                      android:layout_gravity="center"
+                      android:text="@string/_2_points"
+                      android:textColor="#000" />
+              </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <ImageView
+                    android:contentDescription="@string/app_name"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/activity_profile_margin"
+                    android:src="@drawable/blue_arrow"
+                    android:padding="@dimen/margin_five"
+                    android:visibility="invisible"
+                    android:layout_weight="0.2"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/customer_poll_tv"
+                    android:layout_weight="0.8"
+                    android:padding="@dimen/margin_five"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:contentDescription="@string/app_name"
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/activity_profile_margin"
+                        android:layout_height="@dimen/activity_profile_margin"
+                        android:padding="@dimen/margin_five"
+                        android:src="@drawable/reward_icon" />
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:id="@+id/cutomer_poll_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/margin_five"
+                        android:text="@string/_2_points"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:baselineAligned="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:contentDescription="@string/app_name"
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/activity_profile_margin"
+                        android:layout_height="@dimen/activity_profile_margin"
+                        android:src="@drawable/blue_arrow"
+                        android:padding="@dimen/margin_five"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/liking_a_poll"
+                        android:textColor="#000"
+                        android:padding="@dimen/margin_five"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:contentDescription="@string/app_name"
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/activity_profile_margin"
+                        android:layout_height="@dimen/activity_profile_margin"
+                        android:src="@drawable/reward_icon"
+                        android:padding="@dimen/margin_five"/>
+
+                    <TextView
+                        android:id="@+id/linkingpoll_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_2_points"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:padding="@dimen/margin_five"/>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+
+                    <ImageView  android:contentDescription="@string/app_name"
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/activity_profile_margin"
+                        android:layout_height="@dimen/activity_profile_margin"
+                        android:src="@drawable/blue_arrow"
+                        android:padding="@dimen/margin_five"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="5dp"
+                        android:layout_gravity="center"
+                        android:text="@string/comment_on_a_poll"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:contentDescription="@string/app_name"
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/activity_profile_margin"
+                        android:layout_height="@dimen/activity_profile_margin"
+                        android:src="@drawable/reward_icon"
+                        android:padding="@dimen/margin_five"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:id="@+id/comment_poll_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_2_points"
+                        android:textColor="#000"
+                        android:padding="@dimen/margin_five"/>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="@dimen/activity_profile_margin"
+                        android:layout_height="@dimen/activity_profile_margin"
+                        android:src="@drawable/blue_arrow"
+                        android:padding="@dimen/margin_five"
+                        android:contentDescription="@string/app_name"
+                        android:layout_gravity="center"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/creating_a_poll"
+                        android:layout_gravity="center"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="@dimen/activity_profile_margin"
+                        android:layout_height="@dimen/activity_profile_margin"
+                        android:contentDescription="@string/app_name"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/margin_five"
+                        android:src="@drawable/reward_icon" />
+
+                    <TextView
+                        android:id="@+id/create_poll_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/margin_five"
+                        android:text="@string/_2_points"
+                        android:layout_gravity="center"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

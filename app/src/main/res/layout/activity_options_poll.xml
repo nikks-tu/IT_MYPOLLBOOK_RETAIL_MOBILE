@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/blue_color"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/activity_options_polls_cretaTitle"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
+        />
+
+    <ImageView
+        android:id="@+id/imagBackArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:paddingLeft="10dp"
+        android:src="@drawable/ic_back" />
+
+    <com.contusfly.smoothprogressbar.SmoothProgressBar
+        android:id="@+id/google_now"
+        style="@style/GNowProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/title"
+        android:background="@android:color/white"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/google_now"
+        android:layout_centerHorizontal="true"
+
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
+
+    <ScrollView
+
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/adView"
+        android:paddingBottom="20dp"
+        android:scrollbarSize="10dp"
+        android:scrollbarThumbVertical="@drawable/custom_scrollbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title"
+            android:background="@android:color/white"
+            android:paddingBottom="20dp">
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/ll_public_groups">
+                    <TextView
+                        android:id="@+id/txtTo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/view_margin"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="onClick"
+                        android:text="@string/activity_multiple_options_polls_to"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/activity_textSize_small" />
+
+                    <TextView
+                        android:id="@+id/txtPublic"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:onClick="onClick"
+                        android:layout_margin="@dimen/margin_five"
+                        android:text="@string/activity_create_poll_public"
+                        android:textColor="@color/blue_color"
+                        android:textSize="@dimen/activity_textSize_small" />
+                    <View
+                        android:layout_width="0.2dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/margin_five"
+                        android:background="@color/view_color"/>
+                    <TextView
+                        android:id="@+id/txtGroup"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/margin_five"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:onClick="onClick"
+                        android:text="@string/group"
+                        android:textColor="@color/grey_color"
+                        android:textSize="@dimen/activity_textSize_small"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/txtContacts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/txtGroup"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_toEndOf="@+id/txtGroup"
+                        android:layout_toRightOf="@+id/txtGroup"
+                        android:drawableStart="@drawable/ic_contact_selected"
+                        android:drawableLeft="@drawable/ic_contact_selected"
+                        android:drawablePadding="5dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="@string/activity_create_poll_contacts"
+                        android:textColor="@color/blue_color"
+                        android:textSize="@dimen/activity_textSize_small"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone"
+                        android:background="@drawable/arrow_left"
+                        android:paddingRight="5dp" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/viewCountry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/ll_public_groups"
+                    android:layout_marginTop="2dp"
+                    android:background="@color/view_color" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativeLayout"
+                android:layout_margin="15dp">
+
+                <TextView
+                    android:id="@+id/selectCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/activity_multiple_options_polls_selectCategory"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/activity_textSize_small"
+                    />
+
+                <EditText
+                    android:id="@+id/txtCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/selectCategory"
+                    android:layout_marginTop="@dimen/activity_register_margin"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/arrow_down"
+                    android:editable="false"
+                    android:hint="Select the category"
+                    android:onClick="onClick"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_small"
+                    />
+
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/txtCategory"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/view_color" />
+
+                <TextView
+                    android:id="@+id/txtQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/activity_multiple_options_polls_createQuestion"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/activity_textSize_small"
+                    />
+
+                <EditText
+                    android:id="@+id/editQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtQuestion"
+                    android:layout_marginTop="@dimen/activity_register_margin"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/activity_multiple_options_polls_question"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_small"
+                    android:inputType="textCapSentences"
+                     />
+
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/editQuestion"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/view_color" />
+
+                <TextView
+                    android:id="@+id/txtAttachImages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view1"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/activity_multiple_options_polls_attachImages"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/activity_textSize_small"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtAttachImages"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/choose"
+                        android:layout_width="140dp"
+                        android:layout_height="120dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:onClick="onClick"
+                        fresco:placeholderImage="@drawable/img_upload"
+                        fresco:roundedCornerRadius="10dp" />
+
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/ChooseAdditional"
+                        android:layout_width="140dp"
+                        android:layout_height="120dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toEndOf="@+id/choose"
+                        android:layout_toRightOf="@+id/choose"
+                        android:layout_weight="1"
+                        android:clickable="true"
+
+                        android:onClick="onClick"
+                        fresco:placeholderImage="@drawable/img_upload"
+                        fresco:roundedCornerRadius="10dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtAnswers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linear"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/activity_multiple_options_polls_options"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/activity_textSize_large"
+                   />
+
+                <EditText
+                    android:id="@+id/editAnswer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtAnswers"
+                    android:layout_marginTop="@dimen/activity_register_margin"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/activity_multiple_options_polls_options1"
+                    android:inputType="textCapSentences"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_large"
+                    />
+
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/editAnswer1"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/view_color" />
+
+                <EditText
+                    android:id="@+id/editAnswer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view2"
+                    android:layout_marginTop="@dimen/activity_register_margin"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/activity_multiple_options_polls_options2"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_large"
+                    android:inputType="textCapSentences"
+                    />
+
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/editAnswer2"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/view_color" />
+
+                <EditText
+                    android:id="@+id/editAnswer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view3"
+                    android:layout_marginTop="@dimen/activity_register_margin"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/activity_multiple_options_polls_options3"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_large"
+                    android:inputType="textCapSentences"
+                     />
+
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/editAnswer3"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/view_color" />
+
+                <EditText
+                    android:id="@+id/editAnswer4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view4"
+                    android:layout_marginTop="@dimen/activity_register_margin"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/activity_multiple_options_polls_options4"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_large"
+                    android:inputType="textCapSentences"
+                />
+
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/editAnswer4"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/view_color" />
+
+
+                <Button
+                    android:id="@+id/create"
+                    style="@style/app_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/view5"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/publicpoll_button"
+                    android:onClick="onClick"
+                    android:text="@string/activity_multiple_options_polls_create" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

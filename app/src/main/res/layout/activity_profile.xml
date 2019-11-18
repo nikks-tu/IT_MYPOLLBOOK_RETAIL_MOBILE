@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/imageView">
+    <androidx.appcompat.widget.Toolbar
+        xmlns:local="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:minHeight="?attr/actionBarSize"
+        local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        local:theme="@style/CustomActionBar"
+        android:visibility="gone"/>
+
+    <ScrollView
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linear"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:id="@+id/rootlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp">
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/imageLogo"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/splash_screen_new_crop" />
+
+            <com.contusfly.views.CircularImageView
+                android:id="@+id/imageView"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="148dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_ic_user"
+                />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/view_margin"
+                android:layout_below="@+id/imageView"
+                android:padding="@dimen/padding_extra_small">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/username_text_input_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+
+                    <EditText
+                        android:id="@+id/editUserName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="@dimen/activity_profile_margin"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/full_name"
+                        android:imeOptions="actionDone"
+                        android:inputType="textCapSentences"
+                        android:singleLine="true"
+                        android:padding="@dimen/padding_extra_small"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/view_color"
+                        android:cursorVisible="false" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/username_text_input_layout"
+                    android:layout_marginTop="@dimen/activity_edittextmargin"
+                    android:background="@color/view_color" />
+
+
+                <RadioGroup
+                    android:id="@+id/gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/view"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginTop="@dimen/activity_profile_margin"
+                    android:paddingLeft="@dimen/padding_extra_small"
+                    android:paddingRight="@dimen/padding_extra_small">
+
+                    <RadioButton
+                        android:id="@+id/txtMale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:button="@drawable/radiobuttonbackground"
+                        android:textSize="@dimen/activity_textSize_small"
+                        android:text="@string/male"
+                        android:textColor="@color/view_color"
+                        android:textStyle="normal"
+                        android:paddingLeft="@dimen/view_margin"
+                        android:paddingRight="@dimen/view_margin"
+                        />
+                    <RadioButton
+                        android:id="@+id/txtFemale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobuttonbackground"
+                        android:textColor="@color/view_color"
+                        android:textSize="@dimen/activity_textSize_small"
+                        android:paddingLeft="@dimen/view_margin"
+                        android:paddingRight="@dimen/view_margin"
+                        android:text="@string/female"
+                        />
+
+                </RadioGroup>
+
+
+
+                <TextView
+                    android:id="@+id/editLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/gender"
+                    android:layout_marginTop="@dimen/activity_profile_margin"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:hint="@string/location"
+                    android:onClick="onClick"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@color/view_color"
+                    android:textSize="@dimen/activity_textSize_large"
+                    android:layout_toLeftOf="@+id/imgLocation"
+                    android:layout_toStartOf="@+id/imgLocation" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/editLocation"
+                    android:layout_marginTop="@dimen/activity_edittextmargin"
+                    android:background="@color/view_color" />
+
+                <ImageView
+                    android:id="@+id/imgLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/view1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+
+                    android:layout_alignTop="@+id/editLocation"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_location"
+                    android:contentDescription="@string/app_name" />
+
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/txtProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="@string/activity_profile"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/activity_textSize_large"
+                android:visibility="gone"
+                />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imgCancel"
+                android:src="@drawable/ic_cancel"
+                android:visibility="invisible"
+                android:layout_alignTop="@+id/imageView"
+                android:layout_alignLeft="@+id/imageView"
+                android:layout_alignStart="@+id/imageView"
+                android:contentDescription="@string/app_name" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_above="@+id/txtNext"
+        android:background="@color/view_color" />
+
+    <TextView
+        android:id="@+id/txtNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/buttonclick_color"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:padding="@dimen/activity_tearms_padding"
+        android:singleLine="true"
+        android:text="@string/activity_profile_complete"
+        android:textColor="@color/blue_color"
+        android:textSize="@dimen/activity_textSize_large"
+        />
+
+
+</RelativeLayout>

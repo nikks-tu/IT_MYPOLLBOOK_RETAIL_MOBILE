@@ -1,0 +1,621 @@
+<resources>
+    <string name="app_name" translatable="false">MyPollBook</string>
+    <string name="text_Ok" translatable="false">OK</string>
+    <string name="text_yes" translatable="false">Yes</string>
+    <string name="text_no" translatable="false">No</string>
+    <string name="text_cancel" translatable="false">Cancel</string>
+    <string name="text_connecting_with_google" translatable="false">Connecting with Google&#8230;</string>
+    <string name="text_invalid_account" translatable="false">You have entered an invalid EMail-ID</string>
+    <string name="text_new_group" translatable="false">New Group</string>
+    <string name="text_new_broadcast" translatable="false">New Broadcast</string>
+    <string name="text_custom_tone" translatable="false">Custom Tone</string>
+    <string name="text_msg_info" translatable="false">Message Information</string>
+    <string name="text_search" translatable="false">Search</string>
+    <string name="text_un_msg" translatable="false">Unread Messages</string>
+    <string name="text_typing" translatable="false">typing&#8230;</string>
+    <string name="text_admin" translatable="false">Admin</string>
+    <string name="text_not_participant" translatable="false">You can not send messages to this group.</string>
+    <string name="text_send" translatable="false">Send</string>
+    <string name="text_read_by" translatable="false">Read by</string>
+    <string name="text_delivered_to" translatable="false">Delivered to</string>
+    <string name="text_start" translatable="false">Start</string>
+    <string name="text_delete_bcast" translatable="false">Delete Broadcast</string>
+    <string name="text_no_countries_found" translatable="false">No countries found</string>
+    <string name="text_msg_conversation_with" translatable="false">Conversation with </string>
+    <string name="text_no_contacts_to_sync" translatable="false">You do not have any contacts to Sync</string>
+    <string name="text_bcast_msg_hint" translatable="false">Type broadcast name here&#8230;</string>
+    <string name="text_broadcast_info" translatable="false">Broadcast Information</string>
+    <string name="text_media_not_available" translatable="false">Media is not available right now</string>
+    <string name="text_location_disabled" translatable="false">Location Services must be enabled to track location. Do you want to enable?</string>
+    <string name="text_enable" translatable="false">Enable</string>
+    <string name="text_continue" translatable="false">Continue</string>
+    <string name="text_contus_msg" translatable="false">Contus Messenger</string>
+    <string name="text_mark_as_unread" translatable="false">Mark as Unread</string>
+    <string name="text_bcast_msg" translatable="false">Please provide Broadcast name</string>
+    <string name="text_view_medias" translatable="false">View All Media</string>
+    <string name="text_broadcast_created" translatable="false">Broadcast Created</string>
+    <string name="text_information" translatable="false">Information</string>
+    <string name="user_name_caps" translatable="false">User Name</string>
+    <string name="text_welcome_to_contalk" translatable="false">Welcome to ContusMessenger</string>
+    <string name="text_loading" translatable="false">\u0020\u0020Please Wait\u0020.\u0020.\u0020.</string>
+    <string name="text_content_discription" translatable="false">Image</string>
+    <string name="text_cross_platform" translatable="false">Cross-platform mobile messaging with\nfriends all over the world</string>
+    <string name="text_terms_and_conditions" translatable="false">Terms and Conditions</string>
+    <string name="text_agree_and_continue" translatable="false">Agree and Continue</string>
+    <string name="txt_location" translatable="false">Location</string>
+    <string name="text_splash_copy_right" translatable="false">\u00a9 2014 Contalk Inc. Powered by Contus\nAll rights reserved.</string>
+    <string name="text_welcome" translatable="false">Welcome</string>
+    <string name="text_new_chat_msg" translatable="false">To start messaging contacts who already have contusmessenger installed on their phone.</string>
+    <string name="text_accounts" translatable="false">Accounts</string>
+    <string name="text_select_country" translatable="false">Select Country</string>
+    <string name="text_new_chat" translatable="false">New Chat</string>
+    <string name="text_broadcast_list" translatable="false">New broadcast list</string>
+    <string name="text_contacts" translatable="false">Contacts</string>
+    <string name="text_polls" translatable="false">Polls</string>
+    <string name="text_settings" translatable="false">Settings</string>
+    <string name="text_help" translatable="false">Help</string>
+    <string name="txt_hold_talk" translatable="false">HOLD AND TALK</string>
+    <string name="text_status" translatable="false">Status</string>
+    <string name="text_chats" translatable="false">Chats</string>
+    <string name="text_phone_no" translatable="false">Phone Number</string>
+    <string name="text_next" translatable="false">Next</string>
+    <string name="text_msg_from" translatable="false">Message From\u0020</string>
+    <string name="text_register_title" translatable="false">Contalk Messenger will send a one time SMS message to verify your phone number in case you are a new member to Contalk. Carrier SMS charges may apply.</string>
+    <string name="text_register_message" translatable="false">Please confirm your country code and enter your phone number</string>
+    <string name="text_verify_phone" translatable="false">Verify your Phone Number</string>
+    <string name="text_no_internet" translatable="false">Please Check your Internet Connectivity</string>
+    <string name="text_verified_successfully" translatable="false">Verified Successfully</string>
+    <string name="text_profile_text" translatable="false">Please provide your name and an optional profile photo</string>
+    <string name="text_profile_name_hint" translatable="false">Type your name here</string>
+    <string name="text_profile_info" translatable="false">Profile info</string>
+    <string name="text_profile_photo" translatable="false">Profile Photo</string>
+    <string name="text_take_photo" translatable="false">Take Photo</string>
+    <string name="text_choose_gallery" translatable="false">Choose from Gallery</string>
+    <string name="text_remove_photo" translatable="false">Remove Photo</string>
+    <string name="text_otp_no" translatable="false">OTP</string>
+    <string name="text_complete_verficaton_title" translatable="false">Please enter the received One Time Password to complete the verification.</string>
+    <string name="text_about" translatable="false">About</string>
+    <string name="text_chat_settings" translatable="false">Chat Settings</string>
+    <string name="text_profile" translatable="false">Profile</string>
+    <string name="text_notification" translatable="false">Notification</string>
+    <string name="text_vib_type" translatable="false">Select Vibration Type</string>
+    <string name="text_faq" translatable="false">FAQ</string>
+    <string name="text_system_status" translatable="false">System Status</string>
+    <string name="text_contact_us" translatable="false">Contact Us</string>
+    <string name="text_about_us" translatable="false">About Us</string>
+    <string name="text_contact" translatable="false">Contact</string>
+    <string name="text_location" translatable="false">Location</string>
+    <string name="text_photo" translatable="false">Photo</string>
+    <string name="txt_hint_msg" translatable="false">Write a message</string>
+    <string name="text_invalid_user_name" translatable="false">Please enter a valid User Name</string>
+    <string name="text_user_name_short" translatable="false">User Name is too short</string>
+    <string name="text_group_msg" translatable="false">Please provide group subject and optional group icon</string>
+    <string name="text_group_msg_hint" translatable="false">Type group subject here&#8230;</string>
+    <string name="text_tap_hold" translatable="false">Tap and hold on a chat for more option</string>
+    <string name="text_view_contact" translatable="false">View Contact</string>
+    <string name="text_media" translatable="false">Media</string>
+    <string name="text_call" translatable="false">Call</string>
+    <string name="text_wallpaper" translatable="false">Wallpaper</string>
+    <string name="text_more" translatable="false">More</string>
+    <string name="text_camera" translatable="false">Camera</string>
+    <string name="text_online" translatable="false">Online</string>
+    <string name="text_offline" translatable="false">Offline</string>
+    <string name="text_video" translatable="false">Video</string>
+    <string name="text_take_video" translatable="false">Take Video</string>
+    <string name="text_audio" translatable="false">Audio</string>
+    <string name="txt_add_broadcast" translatable="false">ADD BROADCAST LIST RECIPIENTS</string>
+    <string name="txt_broadcast" translatable="false">DELETE BROADCAST</string>
+    <string name="txt_group_name" translatable="false">Group Name</string>
+    <string name="txt_group_created" translatable="false">Created Group</string>
+    <string name="txt_add_group_member" translatable="false">ADD GROUP PARTICIPANTS</string>
+    <string name="txt_broadcast_msg" translatable="false">New broadcast</string>
+    <string name="txt_new_group" translatable="false">New Group</string>
+    <string name="txt_new_msg" translatable="false">New Message</string>
+    <string name="txt_participants" translatable="false">Participants</string>
+    <string name="text_block" translatable="false">Block</string>
+    <string name="text_add_shortcut" translatable="false">Add Shortcut</string>
+    <string name="text_add_participants" translatable="false">Add Participant</string>
+    <string name="text_profile_msg" translatable="false">This is not your username or pin. This name will be visible to your Contalk contacts</string>
+    <string name="btn_logout_from_google" translatable="false">Logout from Google</string>
+    <string name="btn_revoke_access" translatable="false">Revoke Access</string>
+    <string name="circles_title" translatable="false">Visible circles:</string>
+    <string name="sign_out_button_name" translatable="false">Sign out</string>
+    <string name="revoke_access_button_name" translatable="false">Revoke</string>
+    <string name="status_sign_in_required" translatable="false">Sign-in required</string>
+    <string name="status_sign_in_error" translatable="false">Error signing in: %s</string>
+    <string name="status_loading" translatable="false">Loading…</string>
+    <string name="status_signing_in" translatable="false">Signing in with Google+…</string>
+    <string name="status_signed_out" translatable="false">Signed out</string>
+    <string name="status_revoke_access" translatable="false">Revoked access</string>
+    <string name="text_type_status" translatable="false">Type your status here</string>
+    <string name="status_revoke_access_error" translatable="false">Error revoking access: %s</string>
+    <string name="signed_in_as" translatable="false">Signed in as %s</string>
+    <string name="txt_type_grp_name" translatable="false">Type your group name here</string>
+    <string name="login_usernamehint" translatable="false">Username</string>
+    <string name="login_passwordhint" translatable="false">Password</string>
+    <string name="login_loginbutton" translatable="false">Login</string>
+    <string name="login_contus" translatable="false">Contus Messenger</string>
+    <string name="login_bottomtext" translatable="false">Sign in with your account and start messaging in seconds</string>
+    <string name="drawer_open" translatable="false">Open</string>
+    <string name="drawer_close" translatable="false">Close</string>
+    <string name="play_services_error" translatable="false">Google Error</string>
+    <string name="txt_no_results" translatable="false">No Contacts found </string>
+    <string name="txt_no_groups_results" translatable="false">No Groups found </string>
+    <string name="txt_no_chats" translatable="false">No Chats found</string>
+    <string name="txt_type_name_to_add" translatable="false">Type contact name or Click Add button to Add Contacts</string>
+    <string name="txt_choose_photo" translatable="false">Choose Photo</string>
+    <string name="txt_choose_option" translatable="false">Select Option</string>
+    <string name="txt_take_photo" translatable="false">Take Photo</string>
+    <string name="txt_menu" translatable="false">Menu</string>
+    <string name="txt_enter_valid_name" translatable="false">Enter Valid Name</string>
+    <string name="txt_broadcast_created" translatable="false">BroadCast List Created</string>
+    <string name="txt_add_two_contacts" translatable="false">Add at least two Contacts</string>
+    <string name="txt_are_you_want_add" translatable="false">Are you sure you want to add\u0020</string>
+    <string name="txt_adding" translatable="false">Adding</string>
+    <string name="txt_remoing" translatable="false">Removing</string>
+    <string name="txt_exiting" translatable="false">Exiting from Group..</string>
+    <string name="txt_remove_from_group" translatable="false">Remove from Group</string>
+    <string name="txt_are_you_sure_remove" translatable="false">Are you sure you want to remove\u0020</string>
+    <string name="txt_are_you_sure_exit" translatable="false">Are you sure you want to exit from group?\u0020</string>
+    <string name="txt_are_you_sure_delete" translatable="false">Are you sure you want to delete this group?\u0020</string>
+    <string name="txt_are_you_sure_delete_bcast" translatable="false">Are you sure you want to delete this broadcast?\u0020</string>
+    <string name="txt_are_you_sure_you_want_to_clear" translatable="false">Are you sure you want to clear the chat?</string>
+    <string name="txt_are_you_sure_you_want_to_clear_all" translatable="false">Are you sure you want to clear all chats?</string>
+    <string name="txt_are_you_sure_you_want_to_clear_conversation" translatable="false">Are you sure you want to clear all conversations?</string>
+    <string name="remove_the_photo" translatable="false">Are you sure you want to remove the photo?</string>
+    <string name="txt_are_you_sure_you_want_to_delete" translatable="false">Are you sure you want to delete the chat?</string>
+    <string name="txt_are_you_sure_you_want_to_delete_poll" translatable="false">Are you sure you want to delete the poll?</string>
+    <string name="txt_are_you_sure_you_want_to_message" translatable="false">Are you sure you want to delete the message?</string>
+    <string name="txt_are_you_sure_you_want_to_delete_ac" translatable="false">Are you sure you want to delete your account?</string>
+    <string name="text_retry" translatable="false">Retry</string>
+    <string name="txt_are_you_sure_you_want_to_delete_msg" translatable="false">Are you sure you want to delete the message?</string>
+    <string name="text_download_failed" translatable="false">Could not download due to no internet connectivity</string>
+    <string name="text_no_recent_chats" translatable="false">You have not made any chats yet, Click New Chat icon to start chat</string>
+    <string name="text_clear_conversation" translatable="false">Clear Chat</string>
+    <string name="text_email_conversation" translatable="false">Email Chat</string>
+    <string name="text_delete_chat" translatable="false">Delete</string>
+    <string name="text_view_info" translatable="false">View Info</string>
+    <string name="text_start_chat" translatable="false">Start Chat</string>
+    <string name="text_contus_msg_invite" translatable="false">MyPollBook Invite</string>
+    <string name="text_email_subject" translatable="false">Checkout the MyPollBook app for your smart phone.</string>
+    <string name="text_edit" translatable="false">Edit</string>
+    <string name="text_profile_photos" translatable="false">Profile Photos</string>
+    <string name="text_empty_subject" translatable="false">Please provide group subject</string>
+    <string name="text_refresh" translatable="false">Refresh</string>
+    <string name="text_you" translatable="false">You</string>
+    <string name="text_copy" translatable="false">Copy</string>
+    <string name="text_forward" translatable="false">Forward</string>
+    <string name="text_share" translatable="false">Share</string>
+    <string name="text_forward_error" translatable="false">You cannot forward to this Group, because you are not a participant</string>
+
+
+    <!--Login Form-->
+    <string name="default_status" translatable="false">I am using an MyPollBook</string>
+    <string name="contatcing_google" translatable="false">Connecting with Google&#8230;</string>
+    <string name="access_token" translatable="false">access_token</string>
+    <string name="google_api_url" translatable="false">https://www.googleapis.com/userinfo/v2/me</string>
+    <string name="authorization" translatable="false">Authorization</string>
+    <string name="bearer" translatable="false">Bearer </string>
+    <string name="email" translatable="false">email</string>
+    <string name="contus_in" translatable="false">contus.in</string>
+    <string name="username" translatable="false">username</string>
+    <string name="password" translatable="false">password</string>
+    <string name="invalid_email_id" translatable="false">Invalid email id</string>
+    <string name="network_error" translatable="false">Network Error</string>
+    <string name="code" translatable="false">code\</string>
+    <string name="error_accessdenied" translatable="false">error=access_denied</string>
+    <string name="error_occured" translatable="false">Error Occurred</string>
+    <string name="txt_exit_group" translatable="false">EXIT GROUP</string>
+    <string name="txt_delete_group" translatable="false">DELETE GROUP</string>
+    <string name="txt_image_is_uploading" translatable="false">Please Wait.</string>
+    <string name="txt_image" translatable="false">Image</string>
+    <string name="text_last_seen" translatable="false">last seen</string>
+    <string name="text_today" translatable="false">today at</string>
+    <string name="text_yesterday" translatable="false">yesterday at</string>
+    <string name="text_invite" translatable="false">INVITE</string>
+    <string name="text_current_status" translatable="false">Your current status</string>
+    <string name="text_select_status" translatable="false">Select your new status</string>
+    <string name="text_add_new_status" translatable="false">Add New Status</string>
+    <string name="text_group_created" translatable="false">Group Created</string>
+    <string name="text_group_updated" translatable="false">Group Updated</string>
+    <string name="text_new_group_name" translatable="false">Enter New Name</string>
+    <string name="text_max_video" translatable="false">Could not send this video, Since it is more than 3 minutes</string>
+    <string name="text_contact_supp" translatable="false">Contact, Support, FAQ</string>
+
+    <!-- Settings-->
+
+    <string name="text_name_set" translatable="false">Name, Set Picture, Status</string>
+    <string name="text_conversation_sound" translatable="false">Conversation Sound</string>
+    <string name="text_conversation_cleared" translatable="false">Conversation Cleared</string>
+    <string name="close" translatable="false">Close</string>
+
+    <string name="notif_tone" translatable="false">Notification Tone</string>
+    <!-- Notification Settings Page -->
+    <string name="text_msg_notification" translatable="false">Message Notifications</string>
+    <string name="notif_messages" translatable="false">Play sounds for incoming and outgoing messages</string>
+    <string name="notif_not" translatable="false">Notification</string>
+    <string name="notif_sound" translatable="false">Select a sound to play for a new notification message</string>
+    <string name="notif_ringtone" translatable="false">Contact RingTone</string>
+    <string name="notif_customring" translatable="false">Use contact custom ringtone as the notification tone</string>
+    <string name="notif_vibrate" translatable="false">Vibrate default</string>
+    <string name="notif_newmsg" translatable="false">Vibrate when a new message arrives while application is running</string>
+
+    <string name="notif_clear" translatable="false">Clear Chats</string>
+    <string name="notif_delete_ac" translatable="false">Delete my Account</string>
+    <string name="notif_delete_acc" translatable="false">Delete account &amp; Re-Login</string>
+    <string name="notif_clear_all" translatable="false">Clear all conversations</string>
+    <string name="notif_dlt" translatable="false">Delete all conversations</string>
+    <string name="txt_current_status" translatable="false">YOUR  CURRENT STATUS</string>
+    <string name="txt_get_start" translatable="false">Get Started</string>
+    <string name="txt_cancel" translatable="false">Cancel</string>
+    <string name="txt_ok" translatable="false">OK</string>
+    <string name="user_status" translatable="false">Life is Short</string>
+    <string name="txt_select_contact" translatable="false">Select Contact</string>
+    <string name="txt_enter_name" translatable="false">Type Contact Name</string>
+    <string name="txt_type_name" translatable="false">Type the name for Broadcast</string>
+    <string name="text_create" translatable="false">Create</string>
+    <string name="text_done" translatable="false">Done</string>
+    <string name="text_contact_msg" translatable="false">Contus fly is a readily built instannt messaging solution for creating real time chat and IM applications. Built on ejabbered, this solution is robust and versatile and ensures foolproof security.</string>
+    <string name="text_contact_msg_time" translatable="false">To have a detailed interaction without experts</string>
+    <string name="text_support_msg" translatable="false">For any queries or issues related to Contus Fly</string>
+    <string name="text_call_no_one" translatable="false"><u>+91 9840705435</u></string>
+    <string name="text_call_no_two" translatable="false"><u>+91 44 64560796</u></string>
+    <string name="text_support" translatable="false">Support</string>
+    <string name="text_drop_mail_to" translatable="false">Drop a mail to : </string>
+    <string name="text_mail_id" translatable="false"><u>bdm@contus.in</u></string>
+    <string name="text_faq_msg" translatable="false">Find out the answers for FAQs asked by customers</string>
+    <string name="text_contus_fly" translatable="false"><u>Contus Fly</u></string>
+    <string name="text_call_cofirm" translatable="false">Are you sure you want to make a call?</string>
+    <string name="text_no_sim" translatable="false">Sim Card is not available</string>
+    <string name="text_vibarate" translatable="false">Vibrate: </string>
+    <string name="text_status_not_empty" translatable="false">Status cannot be empty</string>
+    <string name="text_broadcast_name_empty" translatable="false">Broadcast name cannot be empty</string>
+    <string name="text_select_contact" translatable="false">Select Contact</string>
+    <string name="text_off" translatable="false">Off</string>
+    <string name="text_default" translatable="false">Default</string>
+    <string name="text_short" translatable="false">Short</string>
+    <string name="text_long" translatable="false">Long</string>
+    <string name="text_kb" translatable="false">KB</string>
+    <string name="text_mb" translatable="false">MB</string>
+    <string name="text_error_occured" translatable="false">Error Occurred. Please try again.</string>
+    <string name="text_demo" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie. Fusce quis mauris a enim sollicitudin ultrices non eget velit. Aliquam eu pulvinar enim. Praesent libero nisl, ultricies vel maximus eu, maximus et nisi. Phasellus pharetra nec ligula vitae mollis. Quisque porttitor ornare magna, quis dignissim libero aliquam id. Donec sollicitudin ultrices ante, a semper erat tristique in. Vivamus sodales in ligula at sodales. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tempus bibendum nibh, ac tincidunt quam convallis non. Proin dolor nunc, egestas et tortor consequat, dignissim lacinia odio. Ut ut aliquet erat.  Ut non scelerisque elit. Morbi dolor neque, iaculis eu justo rutrum, aliquet dictum mauris. Phasellus quis massa ut ligula feugiat congue a et dolor. Etiam a dui a sapien ornare accumsan ac ut lorem. Suspendisse vehicula lorem dapibus nibh rhoncus ultricies. Proin sem nulla, elementum quis pharetra quis, commodo vitae nisi. Donec urna orci, posuere et iaculis sit amet, fringilla quis sapien. Pellentesque nec posuere felis. Praesent malesuada tellus nisi, non dictum justo interdum eget. Quisque mollis euismod libero, non aliquam lorem interdum vitae. Aliquam vehicula efficitur purus eget rutrum. Sed pulvinar fermentum risus ac viverra. Cras laoreet ligula quam, ac lacinia nisl elementum in. Aenean velit arcu, euismod a venenatis non, pulvinar pulvinar massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie. Fusce quis mauris a enim sollicitudin ultrices non eget velit. Aliquam eu pulvinar enim. Praesent libero nisl, ultricies vel maximus eu, maximus et nisi. Phasellus pharetra nec ligula vitae mollis. Quisque porttitor ornare magna, quis dignissim libero aliquam id. Donec sollicitudin ultrices ante, a semper erat tristique in. Vivamus sodales in ligula at sodales. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tempus bibendum nibh, ac tincidunt quam convallis non. Proin dolor nunc, egestas et tortor consequat, dignissim lacinia odio. Ut ut aliquet erat.  Ut non scelerisque elit. Morbi dolor neque, iaculis eu justo rutrum, aliquet dictum mauris. Phasellus quis massa ut ligula feugiat congue a et dolor. Etiam a dui a sapien ornare accumsan ac ut lorem. Suspendisse vehicula lorem dapibus nibh rhoncus ultricies. Proin sem nulla, elementum quis pharetra quis, commodo vitae nisi. Donec urna orci, posuere et iaculis sit amet, fringilla quis sapien. Pellentesque nec posuere felis. Praesent malesuada tellus nisi, non dictum justo interdum eget. Quisque mollis euismod libero, non aliquam lorem interdum vitae. Aliquam vehicula efficitur purus eget rutrum. Sed pulvinar fermentum risus ac viverra. Cras laoreet ligula quam, ac lacinia nisl elementum in. Aenean velit arcu, euismod a venenatis non, pulvinar pulvinar massa.</string>
+    <string name="font_roboto_light" translatable="false">fonts/roboto_light.ttf</string>
+
+    <!-- Fonts -->
+    <string name="font_roboto_bold" translatable="false">fonts/roboto_bold.ttf</string>
+    <string name="font_roboto_medium" translatable="false">fonts/roboto_medium.ttf</string>
+    <string name="font_roboto_regular" translatable="false">fonts/roboto_regular.ttf</string>
+    <string name="font_caviar_dreams" translatable="false">fonts/caviardreams_bold.ttf</string>
+    <string name="font_elegant" translatable="false">fonts/elegantIcons.ttf</string>
+    <string name="font_sand" translatable="false">fonts/Quicksand-Light.ttf</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
+
+    <string name="action_settings" translatable="false">Settings</string>
+    <string name="sample_text" translatable="false"><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry.</string>
+    <string name="select_your_country" translatable="false">Please select your country</string>
+    <string name="enter_your_country_code" translatable="false">Please enter the code</string>
+
+
+    //Toast message
+    <string name="enter_your_phone_number" translatable="false">Please enter the phone number</string>
+    <string name="enter_your_phone_code" translatable="false">Please enter the phone code</string>
+    <string name="enter_your_username" translatable="false">Please enter your name</string>
+    <string name="enter_the_comments" translatable="false">Please enter the comment</string>
+    <string name="delete_the_comment" translatable="false">Deleted the comment successfully</string>
+    <string name="enter_enter_question" translatable="false">Please enter your question</string>
+    <string name="enter_valid_question" translatable="false">Please enter the valid question</string>
+    <string name="select_your_category" translatable="false">Please select the poll category</string>
+    <string name="enter_select_gender" translatable="false">Please select your gender</string>
+    <string name="enter_select_location" translatable="false">Please select your location</string>
+    <string name="enter_enter_valid_name" translatable="false">Please enter the valid name</string>
+    <string name="enter_enter_status" translatable="false">Please enter the status</string>
+    <string name="call_failed" translatable="false">Call failed</string>
+    <string name="check_internet_connection" translatable="false">Please check internet connection</string>
+    <string name="select_one_category" translatable="false">You must select at least one category</string>
+    <string name="no_search_results" translatable="false">No search found</string>
+    <string name="enter_valid_code" translatable="false">Please enter the valid code</string>
+    <string name="enter_valid_verificationcode" translatable="false">Please enter the activiation code</string>
+    <string name="enter_valid_country_name" translatable="false">Please enter the country</string>
+    <string name="enter_valid_location_name" translatable="false">Please enter the location</string>
+    <string name="field_empty" translatable="false">Please enter the verification code</string>
+    <string name="entered_mobile_number_invalid" translatable="false">Entered phone number is invalid</string>
+    <string name="http_error" translatable="false">Http error connecting to server.</string>
+    <string name="error_connecting_error" translatable="false">Error connecting to server.</string>
+    <string name="error_passing_data" translatable="false">Error passing data.</string>
+    <string name="error_unexpected" translatable="false">Unexpected error occurred.</string>
+    <string name="status_empty" translatable="false">Hey there..I am using MyPollBook</string>
+    <string name="attended_poll" translatable="false">You have attend this poll already!</string>
+    <string name="option1" translatable="false">Please enter the Answer A</string>
+    <string name="option2" translatable="false">Please enter the Answer B</string>
+    <string name="option3" translatable="false">Please enter the Answer C</string>
+    <string name="valid_option1" translatable="false">Please enter the valid Answer A</string>
+    <string name="valid_option2" translatable="false">Please enter the valid Answer B</string>
+    <string name="select_option1" translatable="false">Please pick the 1st photo option</string>
+    <string name="select_option2" translatable="false">Please pick the 2nd photo option</string>
+    <string name="select_option3" translatable="false">Please pick the 3rd photo option</string>
+    <string name="select_question1" translatable="false">Please pick the first comparing image before picking second image</string>
+    <string name="user_polls_empty" translatable="false">There are no polls at the moment.</string>
+    <string name="my_polls_empty" translatable="false">You have not created any polls yet.</string>
+    <string name="campaigns_empty" translatable="false">There are no campaigns at the moment</string>
+    <string name="activity_create_poll_public" translatable="false">Public</string>
+    <string name="activity_create_poll_groups" translatable="false">Groups</string>
+    //Create Poll
+    <string name="activity_create_poll_contacts" translatable="false">Contacts</string>
+    <string name="activity_create_poll_public_details" translatable="false">Anyone on or off MyPollBook</string>
+    <string name="activity_create_poll_groups_details" translatable="false">Your groups in MyPollBook</string>
+    <string name="activity_create_poll_contacts_details" translatable="false">Your contacts in MyPollBook</string>
+    <string name="activity_create_poll_selcct_all" translatable="false">Select All</string>
+    <string name="activity_create_poll_done" translatable="false">Done</string>
+    <string name="activity_welcome" translatable="false">Welcome to MyPollBook</string>
+    <string name="activity_agree" translatable="false">Agree and Continue</string>
+
+    //Terms activity
+    <string name="activity_tearms" translatable="false">Terms and Conditions</string>
+    <string name="activity_register_text" translatable="false">Please select your Country and enter your mobile number</string>
+    <string name="activity_note" translatable="false">You will receive a message with OTP to verify your mobile number.</string>
+
+    //Register Activity
+    <string name="activity_note1" translatable="false">Carrier SMS charges may apply.</string>
+    <string name="activity_register_read" translatable="false">Read and go</string>
+    <string name="activity_register_next" translatable="false">Next</string>
+
+    <string name="activity_register_title" translatable="false">Register</string>
+    <string name="activity_register_select" translatable="false">Select your country</string>
+    <string name="activity_account_title" translatable="false">Verify Account</string>
+    <string name="activity_account_change" translatable="false">Change</string>
+    //account verification
+    <string name="activity_account_resendcode" translatable="false">Resend Code</string>
+    <string name="activity_account_information" translatable="false">We have sent you an SMS with a OTP to above mobile number</string>
+    <string name="activity_account_information1" translatable="false">To complete your mobile verification, please enter OTP </string>
+    <string name="activity_text_male" translatable="false">Male</string>
+    <string name="activity_text_female" translatable="false">Female</string>
+
+    //Profile
+    <string name="activity_profile" translatable="false">Profile Info</string>
+    <string name="activity_profile_complete" translatable="false">Complete</string>
+    <string name="activity_mypolls" translatable="false">My Polls</string>
+    <string name="activity_myprofile" translatable="false">My Profile</string>
+    <string name="activity_groups" translatable="false">Groups</string>
+
+    <string name="activity_topusers" translatable="false">Rewards</string>
+    <string name="activity_mycategory" translatable="false">Categories</string>
+    <string name="activity_settings" translatable="false">Settings</string>
+    <string name="activity_about_app" translatable="false">About App</string>
+    <string name="activity_feedback" translatable="false">Feedback</string>
+    <string name="activity_contactus" translatable="false">Contact Us</string>
+    <string name="activity_thinQpoll" translatable="false">MyPollBook</string>
+    <string name="activity_everyPollComes" translatable="false">Every Poll Comes..</string>
+    <string name="activity_yesorno" translatable="false">Yes or No</string>
+    <string name="activity_multiple" translatable="false">Multiple Options</string>
+
+
+    //custom dialog
+    <string name="activity_photo" translatable="false">Photo Comparison</string>
+    <string name="activity_add_group" translatable="false">Add group</string>
+    <string name="activity_add_chat" translatable="false">Chat</string>
+    <string name="choose_category" translatable="false">Select category</string>
+    <string name="information" translatable="false">Information</string>
+    <string name="cancel">Cancel</string>
+    <string name="edit" translatable="false">Edit</string>
+    <string name="activity_userpoll" translatable="false">User Polls</string>
+    <string name="activity_Public" translatable="false">Public Polls</string>
+
+    //view pager strings
+    <string name="activity_chats" translatable="false">Chats</string>
+    <string name="activity_home" translatable="false">Home</string>
+    <string name="activity_chat_tab" translatable="false">Chats</string>
+    <string name="activity_Polls" translatable="false">Polls</string>
+
+    //chat tab
+    <string name="activity_contacts" translatable="false">Contacts</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-8071925786004738/2019140091</string>
+    <string name="banner_ad_unit_id_old" translatable="false">ca-app-pub-8071925786004738/2019140091</string>
+
+    <string name="activity_settings_notification_tone" translatable="false">Conversation Tone</string>
+    <!--<string name="banner_ad_unit_id"> ca-app-pub-3940256099942544/6300978111</string>-->
+    <!--<string name="banner_ad_unit_id_old">ca-app-pub-4366152528867905/2048262672</string>-->
+    <string name="activity_settings_notification" translatable="false">Notification</string>
+    //setting fragment
+    <string name="activity_settings_notification_tone_details" translatable="false">Play sounds for incoming and outgoing messages</string>
+    <string name="activity_settings_notifications" translatable="false">Notification</string>
+    <string name="activity_settings_notifications_details" translatable="false">Select a sound to play for a new notification message</string>
+    <string name="activity_settings_contact_ringtone" translatable="false">Contact Ringtone</string>
+    <string name="activity_settings_contact_ringtone_details" translatable="false">Use contact custom ringtone as the notification ringtone</string>
+    <string name="activity_settings_vibrate" translatable="false">Vibrate</string>
+    <string name="activity_settings_vibrate_details" translatable="false">Vibrate device when new message arrives while application is running</string>
+    <string name="activity_settings_changemobile_number" translatable="false">Change Mobile Number</string>
+    <string name="activity_settings_clear_details" translatable="false">Clear all my conversation</string>
+    <string name="activity_settings_delete_account" translatable="false">Delete my account</string>
+    <string name="activity_header_viewall" translatable="false">View All</string>
+    <string name="activity_participate_webuser" translatable="false">0 Web Users</string>
+
+    //headerList
+    <string name="activity_participate_appUser" translatable="false">0 App Users</string>
+
+    //Participation
+    <string name="activity_participate" translatable="false">Participate</string>
+    <string name="activity_multiple_options_polls_to" translatable="false">To :</string>
+    <string name="activity_multiple_options_polls_selectCategory" translatable="false">Select Category</string>
+
+    //Create Options Poll
+    <string name="activity_multiple_options_polls_createQuestion" translatable="false">Create Question</string>
+    <string name="activity_multiple_options_polls_attachImages" translatable="false">Attach Images</string>
+    <string name="activity_multiple_options_polls_options" translatable="false">Options</string>
+    <string name="activity_multiple_options_polls_answers" translatable="false">Answers</string>
+    <string name="activity_multiple_options_polls_options1" translatable="false">Answer A</string>
+    <string name="activity_multiple_options_polls_options2" translatable="false">Answer B</string>
+    <string name="activity_multiple_options_polls_options3" translatable="false">Answer C (Optional)</string>
+    <string name="activity_multiple_options_polls_options4" translatable="false">Answer D (Optional)</string>
+    <string name="activity_multiple_options_polls_question" translatable="false">Question</string>
+    <string name="activity_multiple_options_polls_create" translatable="false">Create</string>
+    <string name="activity_yes_polls_yes" translatable="false">Yes</string>
+    <string name="activity_yes_polls_no" translatable="false">No</string>
+
+    //create yes or no poll
+    <string name="activity_options_polls_yes" translatable="false">Photo Options</string>
+    <string name="activity_options_polls_cretaTitle" translatable="false">Create Poll</string>
+
+    //create photo options
+    <string name="activity_editProfile_done" translatable="false">Done</string>
+    <string name="activity_category_note" translatable="false">You will receive the polls only from the selected categories</string>
+
+    //EditProfile
+    <string name="activity_select_country" translatable="false">Select Country</string>
+
+    //categories
+    <string name="activity_select_location" translatable="false">Select Location</string>
+
+    //custom dialog
+    <string name="activity_feedback_text" translatable="false">Register your feedback</string>
+    <string name="activity_feedback_detail" translatable="false">You can register your valuable feedback through E-Mail</string>
+    //feedback
+    <string name="activity_feedback_sentmail" translatable="false">Send Mail</string>
+    <string name="txt_contactus_info" translatable="false">Talk to us! We always welcome your enquiries, feedback and suggestions.</string>
+    <string name="txt_contactus_contactno" translatable="false">Contact</string>
+    <string name="txt_contactus_tollfree_no" translatable="false"> Tollfree no</string>
+    <string name="txt_contactus_tollfree_no_display" translatable="false"> 1800 212 7800</string>
+
+    <string name="txt_contactus_mobileno" translatable="false">Mobile no</string>
+    <string name="txt_contactus_mobileno_display" translatable="false">+91 9884634500</string>
+    <string name="txt_contactus_emailus_display" translatable="false"> info@healthopinion.net</string>
+    <string name="txt_contactus_emailus" translatable="false">Email us </string>
+    <string name="txt_contactus_contactno_display" translatable="false"> +91 (44) 4014 3333</string>
+    <string name="company_name" translatable="false">Techuva Solutions Pvt Ltd</string>
+    <string name="company_name_street1" translatable="false">5th Floor, Trendz Trinity,</string>
+    //Contact
+    <string name="company_name_street2" translatable="false">Plot no: 18, Madhapur Hyderabad,Telangana,</string>
+    <string name="company_name_state" translatable="false">Pin Code: 500081.</string>
+    <string name="activity_create_group" translatable="false">Create group</string>
+    <string name="activity_upload_group_image" translatable="false">Upload Group Image</string>
+    //create group
+    <string name="activity_upload_group_name" translatable="false">Group Name</string>
+    <string name="activity_your_group" translatable="false">This is the name for your group</string>
+    <string name="select_category" translatable="false">Select category</string>
+    <string name="no_polls" translatable="false">The polls will be updated soon.Please visit again.</string>
+    <string name="search_poll" translatable="false">Search polls.</string>
+
+    //Public poll
+    <string name="activity_Search" translatable="false">Search</string>
+
+    //search your poll
+    <string name="no_comments_display" translatable="false">No comments to display</string>
+    <string name="take_photo" translatable="false">Take Photo</string>
+    //comments
+    <string name="choose_pic" translatable="false">"Choose from gallery"</string>
+
+    <string name="cancel_gallery" translatable="false">Cancel</string>
+
+    <string name="action_complete_using" translatable="false">Complete action using</string>
+    <string name="text_group_new_user" translatable="false">Admin added %s to the group</string>
+    <string name="text_group_remove_user" translatable="false">Admin removed %s from the group</string>
+    <string name="text_group_exit_user" translatable="false">%s left the group</string>
+    <string name="text_group_name_changed" translatable="false">Group name changed to %s</string>
+    <string name="text_group_image_changed" translatable="false">Group image has been changed</string>
+    <string name="title_content_discription" translatable="false">Image</string>
+    <string name="text_content_discription_video" translatable="false">Video</string>
+    <string name="text_user_location" translatable="false">User Location</string>
+
+    <!--Content descriptions-->
+    <string name="text_wrong_extension" translatable="false">You can upload only \'pdf\', \'xls\', \'xlsx\', \'doc\', \'docx\', \'txt\', \'ppt\', \'zip\', \'rar\' files</string>
+    <string name="text_add_user" translatable="false">Add to Contacts</string>
+    <string name="selected_video" translatable="false">Selected Video</string>
+    <string name="media_not_available" translatable="false">Media not available</string>
+    <string name="selected_image" translatable="false">Selected Image</string>
+    <string name="text_no_mobile_nos" translatable="false">This selection does not have any contact numbers</string>
+    <string name="text_unknown" translatable="false">Unknown</string>
+    <string name="text_upload" translatable="false">Sorry. Files bigger than %s cannot be uploaded</string>
+    <string name="txt_are_you_sure_you_want_to_delete_group" translatable="false">Are you sure you want to delete the group chat?</string>
+    <string name="text_select_atleast_one" translatable="false">Please select at least one contact</string>
+    <string name="txt_remaining" translatable="false">\u0020Remaining</string>
+    <string name="text_file" translatable="false">File</string>
+    <string name="title_activity_rewards__activty" translatable="false">Rewards_Activity</string>
+    <string name="section_format" translatable="false">Hello World from section: %1$d</string>
+    <string name="title_activity_top_users__activty" translatable="false">TopUsers_Activity</string>
+    <string name="admin_poll_tv" translatable="false">\u25CF Admin Poll -</string>
+    <string name="customer_poll_tv" translatable="false">\u25CF Customer Poll -</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="title_activity_redeem__details_page" translatable="false">Redeem_DetailsPage</string>
+    <string name="location" translatable="false">Location</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="full_name" translatable="false">Full name</string>
+    <string name="female" translatable="false">Female</string>
+    <string name="male" translatable="false">Male</string>
+    <string name="user_name" translatable="false">User Name</string>
+    <string name="dummy_text" translatable="false">Dummy</string>
+    <string name="broadcast_contacts" translatable="false">Please enter the broadcast name and choose the contacts</string>
+    <string name="broadcast_name" translatable="false">Type your broadcast name</string>
+    <string name="provide_your_broadcast_name" translatable="false">Please provide your broadcast name</string>
+    <string name="text_connections" translatable="false">Connections</string>
+    <string name="text_zero" translatable="false">0</string>
+    <string name="point_summary" translatable="false">Point Summary</string>
+    <string name="total_credits" translatable="false">Total Credits</string>
+    <string name="today_credits" translatable="false">Today Credits</string>
+    <!--Added by NIKITA-->
+    <string name="credits" translatable="false">Credits</string>
+    <string name="create_poll" translatable="false">Create Poll</string>
+    <string name="comment" translatable="false">Comment</string>
+    <string name="like" translatable="false">Like</string>
+    <string name="earning_actions" translatable="false">Earning Actions</string>
+    <string name="total" translatable="false">Total</string>
+    <string name="today" translatable="false">Today</string>
+    <string name="voting" translatable="false">Voting</string>
+    <string name="liking_a_poll" translatable="false">Liking a Poll</string>
+    <string name="_2_points" translatable="false">2 points</string>
+    <string name="comment_on_a_poll" translatable="false">Comment on a Poll -</string>
+    <string name="creating_a_poll" translatable="false">Creating a Poll -</string>
+    <string name="earnings_actions" translatable="false">Earnings Actions</string>
+    <string name="participating_in_a_poll" translatable="false">Participating in a Poll</string>
+    <string name="info" translatable="false">Info</string>
+    <string name="campaigns" translatable="false">Campaigns</string>
+    <string name="your_earnings" translatable="false">Your Earnings</string>
+    <string name="dummy_name" translatable="false">Naresh</string>
+    <string name="top_10_users" translatable="false">Top 10 Users</string>
+    <string name="retry" translatable="false">Retry</string>
+    <string name="mobiles" translatable="false">Mobiles</string>
+    <string name="dummy_last_time" translatable="false">11 mins ago</string>
+    <string name="regex_for_posts" translatable="false">[\\s\\[\\]]</string>
+    <string name="regex_com" translatable="false">com</string>
+    <string name="group" translatable="false">Group</string>
+    <string name="poll_results" translatable="false">Poll Results</string>
+    <string name="search_your_location" translatable="false">Search your location</string>
+    <string name="please_enter_your_place" translatable="false">Please enter your place</string>
+    <string name="rewards_add_toast" translatable="false">Thanks, your rewards will be added soon</string>
+    <string name="semicolon" translatable="false">:</string>
+    <string name="sample" translatable="false">Sample</string>
+    <string name="txt_edit_profile" translatable="false">Edit Profile</string>
+    <string name="no_points" translatable="false">You don\'t have sufficient balance or points</string>
+    <string name="test_product" translatable="false">Test Product</string>
+    <string name="test_rewards" translatable="false">9000</string>
+    <string name="validity" translatable="false">Validity</string>
+    <string name="redeem" translatable="false">Redeem</string>
+    <string name="title_activity_campain" translatable="false">Campain</string>
+    <string name="enter_group_name" translatable="false">Enter Group Name</string>
+    <string name="add_participants" translatable="false">Add participants</string>
+    <string name="invite_via_link" translatable="false">Invite via link</string>
+    <string name="group_members" translatable="false">Group Members</string>
+    <string name="select_contacts">Select Contacts</string>
+    <string-array name="default_status_values">
+        <item>At the movies</item>
+        <item>Urgent calls only</item>
+        <item>Sleeping&#8230;</item>
+        <item>Available</item>
+    </string-array>
+    <string-array name="array_notification_type">
+        <item>@string/text_off</item>
+        <item>@string/text_default</item>
+        <item>@string/text_short</item>
+        <item>@string/text_long</item>
+    </string-array>
+    <string-array name="spinner_category">
+        <item>Art and Entertainment</item>
+        <item>Banking</item>
+        <item>Educations</item>
+        <item>Food and Drinks</item>
+        <item>Sports</item>
+        <item>Media</item>
+        <item>Politics</item>
+        <item>Others</item>
+
+    </string-array>
+</resources>

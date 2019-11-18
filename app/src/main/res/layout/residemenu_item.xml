@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:gravity="center_vertical"
+    android:layout_marginTop="@dimen/margin_five">
+
+    <ImageView
+        android:contentDescription="@string/app_name"
+        android:id="@+id/iv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_title"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:paddingTop="5dp"
+        android:layout_marginStart="10dp"
+        android:tint="@color/color_white"/>
+
+    <com.contus.views.FontableTextview
+        android:id="@+id/tv_title"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:text="@string/sample"
+        android:textColor="#fff"
+        android:textSize="@dimen/activity_naviggationdrawer_size"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/view"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/view" />
+
+
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="4dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/activity_reside_menu_item_marginleft"
+        android:layout_marginStart="@dimen/activity_reside_menu_item_marginleft"
+        android:layout_toEndOf="@+id/iv_icon"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:background="@color/color_white"
+        android:visibility="invisible" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="4dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/color_white"
+        android:visibility="invisible" />
+</RelativeLayout>

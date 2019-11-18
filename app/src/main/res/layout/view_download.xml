@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/txt_file_size"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:drawableLeft="@drawable/ic_download"
+    android:drawablePadding="5dp"
+    android:drawableStart="@drawable/ic_download"
+    android:padding="8dp"
+    android:textSize="17sp"
+    android:shadowColor="@color/color_gray_shadow"
+    android:shadowDx="1"
+    android:shadowDy="1"
+    android:gravity="center"
+    android:shadowRadius="2"
+    android:layout_gravity="center"
+    android:textColor="@android:color/white"
+    app:font_name="@string/font_roboto_regular" />
+

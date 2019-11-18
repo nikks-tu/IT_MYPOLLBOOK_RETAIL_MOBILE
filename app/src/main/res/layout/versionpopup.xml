@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="350dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
+        android:gravity="center">
+       <!--<ImageView-->
+           <!--android:layout_width="wrap_content"-->
+           <!--android:layout_height="wrap_content"-->
+           <!--android:src="@mipmap/ic_launcher"-->
+           <!--android:layout_marginTop="10dp"-->
+           <!--android:layout_gravity="center"-->
+           <!--android:layout_marginLeft="10dp"-->
+           <!--android:layout_marginBottom="10dp"-->
+
+           <!--/>-->
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="MyPollBook version update"
+    android:textSize="18dp"
+    android:layout_gravity="center"
+    android:textColor="#ffffff"
+    android:gravity="center"
+    android:drawableLeft="@mipmap/ic_launcher"
+    />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/blue_color"
+        />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/id_updateText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="New version available in playstore"
+        android:textColor="#6A1B9A"
+        android:textSize="18dp" />
+</ScrollView>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/blue_color"
+        android:layout_above="@+id/id_footer"
+        />
+    <LinearLayout
+        android:id="@+id/id_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        >
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="49.5"
+            android:text="Cancel"
+            android:visibility="gone"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:gravity="center"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:visibility="gone"
+            android:layout_weight=".5"
+            />
+        <TextView
+            android:id="@+id/id_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="49.5"
+            android:text="Update"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:gravity="center"
+            />
+    </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

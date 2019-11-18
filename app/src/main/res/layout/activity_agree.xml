@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imGLogo"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:background="@drawable/splash_screen_new_crop" />
+
+    <TextView
+        android:id="@+id/txtInternetConnection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imGLogo"
+        android:gravity="center"
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/check_internet_connection"
+        android:textColor="@color/helvetica_light_greycolor"
+        android:textSize="@dimen/activity_textSize_large"
+
+        />
+
+    <TextView
+        android:id="@+id/internetRetry"
+        style="@style/app_btn_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scroll"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onClick"
+        android:text="@string/retry"
+        android:textColor="@android:color/black" />
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtTearmsAndCondition"
+        android:layout_below="@+id/txtWelcome"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/txtDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/helvetica_light_greycolor"
+                android:textSize="@dimen/activity_textSize_small"
+
+                />
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/txtAgreeAndCondition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonclick_color"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:padding="@dimen/activity_tearms_padding"
+        android:text="@string/activity_agree"
+        android:textColor="@color/blue_color"
+        android:textSize="@dimen/activity_textSize_large"
+        android:drawableRight="@drawable/rightarrow"
+        android:visibility="invisible"
+        android:drawableEnd="@drawable/rightarrow" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_above="@+id/txtAgreeAndCondition"
+        android:background="@android:color/darker_gray"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/txtTearmsAndCondition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/buttonclick_color"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:text="@string/activity_tearms"
+        android:textColor="@color/blue_color"
+        android:textSize="@dimen/activity_textSize_large"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/txtWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imGLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/activity_welcome"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/black"
+        android:visibility="invisible" />
+
+    <com.contusfly.smoothprogressbar.SmoothProgressBar
+        android:id="@+id/google_now"
+        style="@style/GNowProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@+id/imGLogo"
+        android:indeterminate="true"
+        android:visibility="invisible" />
+
+
+</RelativeLayout>

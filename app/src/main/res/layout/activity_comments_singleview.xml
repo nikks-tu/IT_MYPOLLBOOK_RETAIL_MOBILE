@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:paddingLeft="@dimen/view_margin"
+                android:paddingRight="@dimen/view_margin"
+                android:paddingTop="10dp"
+                android:paddingBottom="20dp">
+
+    <ImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/timeShare"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/txtProfileName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alexytfuyrttyrtyrtyrthrtrtyrtyrtyrtyrtyrytdtyduytyduytfuytkhklhukljhioujhiouiouioj"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/activity_textSize_small"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/imgProfile"
+        android:layout_toLeftOf="@+id/imgMore"
+     />
+
+    <TextView
+        android:id="@+id/txtChatDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtProfileName"
+        android:layout_alignStart="@+id/txtProfileName"
+        android:layout_below="@+id/txtProfileName"
+        android:text="@string/sample_text"
+        android:textColor="@color/helvetica_light_greycolor"
+        android:textSize="@dimen/activity_textSize_small_16"
+        android:layout_marginRight="10dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgMore"
+        android:src="@drawable/ic_edit"
+        android:visibility="visible"
+    android:layout_alignParentRight="true"
+    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/txtCommentTime"
+        android:layout_below="@+id/txtChatDetails"
+        android:layout_marginTop="2dp"
+        android:textColor="#d4661a"
+        android:layout_alignLeft="@+id/txtChatDetails"
+        android:layout_alignStart="@+id/txtChatDetails" />
+</RelativeLayout>

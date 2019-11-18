@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/blue_color"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/activity_account_title"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
+        />
+
+    <com.contusfly.smoothprogressbar.SmoothProgressBar
+        android:id="@+id/google_now"
+        style="@style/GNowProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@+id/txtTitle"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/google_now">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_register_margin"
+            android:paddingBottom="80dp">
+
+            <TextView
+                android:id="@+id/txtPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="3464567568679"
+                android:textSize="@dimen/activity_textSize_large"
+                android:textColor="@android:color/black"
+                />
+
+            <TextView
+                android:id="@+id/txtChange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/buttonclick_color"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:text="@string/activity_account_change"
+                android:textColor="@color/blue_color"
+                android:textSize="@dimen/activity_textSize_large"
+                />
+
+            <TextView
+                android:id="@+id/txtDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtPhoneNumber"
+                android:layout_marginTop="@dimen/activity_accountInformation_margin"
+                android:text="@string/activity_account_information"
+                android:textSize="@dimen/activity_textSize_small"
+             />
+
+            <TextView
+                android:id="@+id/txtDetail1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtDetail"
+                android:layout_marginTop="@dimen/activity_accountInformation_margin"
+                android:text="@string/activity_account_information1"
+                android:textSize="@dimen/activity_textSize_small"
+                 />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_Code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtDetail1"
+                android:layout_margin="40dp">
+
+                <EditText
+                    android:id="@+id/editPhoneCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/activity_accountInformation_margin"
+                    android:background="@android:color/transparent"
+                    android:digits="1234567890"
+                    android:gravity="center"
+                    android:hint="----"
+                    android:maxLength="4"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:textColor="@android:color/black"
+                    android:textSize="40dp"
+                    />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/editPhoneCode"
+                    android:layout_marginTop="@dimen/activity_accountInformation_editText_margin"
+                    android:background="@color/view_color" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtResendCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativeLayout_Code"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="@string/activity_account_resendcode"
+                android:textColor="@color/blue_color"
+                android:textSize="@dimen/activity_textSize_large"
+               />
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/txtAgreeAndCondition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonclick_color"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:padding="@dimen/activity_tearms_padding"
+        android:text="@string/activity_register_next"
+        android:textColor="@color/blue_color"
+        android:textSize="@dimen/activity_textSize_large"
+        />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_above="@+id/txtAgreeAndCondition"
+        android:background="@color/view_color" />
+
+
+</RelativeLayout>

@@ -1,0 +1,54 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+    <dimen name="tab_height">48dp</dimen>
+    <dimen name="toolbar_height">103dp</dimen>
+    <dimen name="toolbar_height_new">200dp</dimen>
+    <dimen name="flexible_space_height">72dp</dimen>
+    <dimen name="flexible_space_image_height">240dp</dimen>
+    <dimen name="margin_standard">16dp</dimen>
+    <dimen name="activity_tearms_margin">20dp</dimen>
+    <dimen name="activity_tearms_padding">20dp</dimen>
+    <dimen name="activity_textSize_large">20sp</dimen>
+    <dimen name="activity_navigation_large">30sp</dimen>
+    <dimen name="activity_textSize_small">18sp</dimen>
+    <dimen name="activity_textSize_very_small">12sp</dimen>
+    <dimen name="activity_textSize_extra_small">15sp</dimen>
+    <dimen name="activity_textSize_small_16">16sp</dimen>
+    <dimen name="activity_textSize_small_14">14sp</dimen>
+    <dimen name="activity_register_margin">20dp</dimen>
+    <dimen name="activity_settings_margin">10dp</dimen>
+    <dimen name="activity_accountInformation_margin">20dp</dimen>
+    <dimen name="activity_accountInformation_editText_margin">10dp</dimen>
+    <dimen name="activity_profile_margin">25dp</dimen>
+    <dimen name="activity_edittextmargin">10dp</dimen>
+    <dimen name="activity_naviggationdrawer_size">20sp</dimen>
+    <dimen name="activity_reside_menu_item_marginleft">30dp</dimen>
+    <dimen name="userpoll_view_share_icon_width">18dp</dimen>
+    <dimen name="userpoll_view_share_icon_height">21dp</dimen>
+    <dimen name="userpoll_view_delete_icon_width">18dp</dimen>
+    <dimen name="userpoll_view_delete_icon_height">21dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="xx_large_margin">70dp</dimen>
+    <dimen name="margin_sixty">60dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="view_margin">10dp</dimen>
+    <dimen name="margin_five">5dp</dimen>
+    <dimen name="margin_two">2dp</dimen>
+    <dimen name="margin_one">1dp</dimen>
+    <dimen name="margin_three">3dp</dimen>
+    <dimen name="margin_eight">8dp</dimen>
+    <dimen name="large_view_margin">20dp</dimen>
+    <dimen name="padding_extra_small">2dp</dimen>
+    <dimen name="x_large_view_margin">40dp</dimen>
+    <dimen name="top_ten_layout_height">110dp</dimen>
+    <dimen name="top_ten_layout_width">80dp</dimen>
+    <dimen name="top_ten_rview_height">120dp</dimen>
+    <dimen name="circle_iv_h_w">40dp</dimen>
+    <dimen name="image_view_height">150dp</dimen>
+    <dimen name="small_image_view">50dp</dimen>
+
+</resources>

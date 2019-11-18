@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.new_chanages.activity.AllContactsActivity"
+    android:orientation="vertical">
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical">
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+         android:background="@color/blue_color"
+         android:orientation="horizontal">
+         <ImageView
+             android:layout_width="25dp"
+             android:layout_height="match_parent"
+             android:src="@drawable/ic_back"
+             android:layout_margin="@dimen/margin_five"
+             android:paddingBottom="@dimen/margin_five"
+             android:id="@+id/iv_back"/>
+         <EditText
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:layout_height="match_parent"
+             android:layout_margin="@dimen/margin_five"
+             android:paddingBottom="@dimen/margin_five"
+             android:id="@+id/tv_title"
+             android:text="@string/select_contacts"
+             android:layout_gravity="center"
+             android:gravity="center"/>
+
+
+         <ImageView
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:src="@drawable/ic_back"
+             android:layout_gravity="start"
+             android:layout_margin="@dimen/margin_five"
+             android:paddingBottom="@dimen/margin_five"
+             android:layout_weight="1"
+             android:visibility="gone"/>
+         <ImageView
+             android:layout_width="25dp"
+             android:layout_height="match_parent"
+             android:src="@drawable/ic_search"
+             android:layout_margin="@dimen/margin_five"
+             android:paddingBottom="@dimen/margin_five"
+             android:id="@+id/iv_save"
+             />
+
+     </LinearLayout>
+
+     <androidx.recyclerview.widget.RecyclerView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:id="@+id/rcv_selected_contacts"/>
+     <ListView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:id="@+id/lv_contacts"/>
+
+ </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/rightarrow"
+        android:tint="@color/color_white"
+        android:background="@color/colorPrimary"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/view_margin"
+        android:id="@+id/fab_next"
+        app:fabCustomSize="50dp" />
+
+</FrameLayout>

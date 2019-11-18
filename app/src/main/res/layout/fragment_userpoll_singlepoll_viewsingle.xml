@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+       />
+
+    <com.contus.views.FontableTextview
+        android:id="@+id/txtProfileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imgProfile"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@+id/imgProfile"
+        android:layout_toRightOf="@+id/imgProfile"
+        android:gravity="center"
+        android:text="Alex"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/activity_textSize_large"
+        app:canLoadFont="true"
+        app:fontSource="Roboto-Regular.ttf" />
+
+    <com.contus.views.FontableTextview
+        android:id="@+id/txtChatDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtProfileName"
+        android:layout_alignStart="@+id/txtProfileName"
+        android:layout_below="@+id/txtProfileName"
+        android:text="@string/sample_text"
+        android:textColor="@color/helvetica_light_greycolor"
+        app:canLoadFont="true"
+        app:fontSource="Roboto-Light.ttf" />
+</RelativeLayout>

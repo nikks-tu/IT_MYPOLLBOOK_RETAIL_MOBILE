@@ -1,0 +1,7 @@
+<resources>>
+
+    <style name="MyTheme" parent="CustomTheme">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
+</resources>

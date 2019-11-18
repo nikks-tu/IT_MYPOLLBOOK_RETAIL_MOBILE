@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/blue_color"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/activity_tearms"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
+/>
+
+
+    <com.contusfly.smoothprogressbar.SmoothProgressBar
+        android:id="@+id/google_now"
+        style="@style/GNowProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@+id/textView"
+        android:indeterminate="true" />
+
+    <ImageView
+        android:id="@+id/imgBackArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/background_menucolor_change"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onClick"
+        android:paddingLeft="10dp"
+        android:src="@drawable/ic_back"
+        android:paddingStart="10dp"
+        tools:ignore="RtlSymmetry" />
+
+    <WebView
+        android:id="@+id/txtInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/google_now"
+        android:padding="@dimen/margin_five"
+        android:layout_marginLeft="@dimen/margin_two"
+        android:layout_marginRight="@dimen/margin_two"
+
+        />
+</RelativeLayout>

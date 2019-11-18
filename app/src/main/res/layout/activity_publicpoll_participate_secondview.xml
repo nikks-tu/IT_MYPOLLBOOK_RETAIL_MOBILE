@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:background="@android:color/white"
+    android:padding="5dp">
+
+
+    <TextView
+        android:id="@+id/txtStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imgTime"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black"
+        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        android:textSize="@dimen/activity_textSize_small"
+      />
+
+
+    <LinearLayout
+        android:id="@+id/linearImagesQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtStatus"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/singleOption"
+            android:layout_width="200dp"
+            android:layout_height="160dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_weight="2"
+            android:clickable="true"
+            android:visibility="gone"
+            fresco:placeholderImage="@drawable/placeholder_image"
+            fresco:roundedCornerRadius="10dp" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/choose"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            fresco:placeholderImage="@drawable/placeholder_image"
+            fresco:roundedCornerRadius="10dp"
+
+            />
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/ChooseAdditional"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/choose"
+            android:layout_toRightOf="@+id/choose"
+            android:layout_weight="1"
+            fresco:placeholderImage="@drawable/placeholder_image"
+            fresco:roundedCornerRadius="10dp" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/participate_options"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/txtLike2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgComments"
+            android:layout_toLeftOf="@+id/imgComments"
+            android:layout_toStartOf="@+id/imgComments"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="123"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:background="@drawable/click_background"
+          />
+
+
+        <CheckBox
+            android:id="@+id/unLikeDislike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/checkbox_selector"
+            android:layout_alignBottom="@+id/txtLike2"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/txtLike2"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/txtCommentsCounts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="5dp"
+            android:drawableLeft="@drawable/ic_comments"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:text="72"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:background="@drawable/click_background"
+          />
+
+        <ImageView
+            android:id="@+id/imgComments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtCommentsCounts"
+            android:layout_alignTop="@+id/txtCommentsCounts"
+            android:layout_marginLeft="20dp"
+            android:layout_toLeftOf="@+id/txtCommentsCounts"
+            android:layout_toStartOf="@+id/txtCommentsCounts"
+            android:src="@drawable/ic_comments"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txtParticcipation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="7253"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:background="@drawable/click_background"
+            android:drawableLeft="@drawable/ic_participations_2"
+            android:drawablePadding="5dp"
+            />
+
+
+
+    </RelativeLayout>
+    <RadioGroup
+        android:id="@+id/participate_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearImagesQuestion"
+        android:clickable="true"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <RadioButton
+            android:id="@+id/option1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:button="@drawable/radiobuttonbackground"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:textStyle="normal"
+            android:paddingLeft="10dp"
+            />
+
+        <RadioButton
+            android:id="@+id/option2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/radiobuttonbackground"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:layout_marginBottom="10dp"
+            android:textStyle="normal"
+            android:paddingLeft="10dp"
+            />
+
+        <RadioButton
+            android:id="@+id/option3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:button="@drawable/radiobuttonbackground"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+
+            android:textStyle="normal"
+            android:paddingLeft="10dp"
+            />
+
+        <RadioButton
+            android:id="@+id/option4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/radiobuttonbackground"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:textStyle="normal"
+            android:paddingLeft="10dp"
+            />
+
+    </RadioGroup>
+   <!-- <RelativeLayout
+        android:id="@+id/FirstOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearImagesQuestion"
+        android:layout_alignStart="@+id/linearImagesQuestion"
+        android:layout_below="@+id/linearImagesQuestion"
+        android:clickable="true"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imgFirstButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/txtFirstButtonDetails"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_radio_gray" />
+
+        <ImageView
+            android:id="@+id/imgSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/txtFirstButtonDetails"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_radio_select"
+            android:visibility="invisible" />
+
+        <com.contus.Views.FontableTextview
+            android:id="@+id/txtFirstButtonDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imgFirstButton"
+            android:layout_toRightOf="@+id/imgFirstButton"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            app:canLoadFont="true"
+            app:fontSource="roboto-light.ttf" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/SecondOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/FirstOption"
+        android:layout_alignStart="@+id/FirstOption"
+        android:layout_below="@+id/FirstOption"
+        android:clickable="true"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imgSecondUnSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/txtSecondButtonDetails"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_radio_gray" />
+
+        <ImageView
+            android:id="@+id/imgSelectSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/txtSecondButtonDetails"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_radio_select"
+            android:visibility="invisible" />
+
+        <com.contus.Views.FontableTextview
+            android:id="@+id/txtSecondButtonDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imgSecondUnSelect"
+            android:layout_toRightOf="@+id/imgSecondUnSelect"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            app:canLoadFont="true"
+            app:fontSource="roboto-light.ttf" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ThirdOptionOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/SecondOption"
+        android:layout_alignStart="@+id/SecondOption"
+        android:layout_below="@+id/SecondOption"
+        android:clickable="true"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imgThirdUnSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/txtThirdButtonDetails"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_radio_gray" />
+
+        <ImageView
+            android:id="@+id/imgSelectThird"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/txtThirdButtonDetails"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_radio_select"
+            android:visibility="invisible" />
+
+        <com.contus.Views.FontableTextview
+            android:id="@+id/txtThirdButtonDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imgThirdUnSelect"
+            android:layout_toRightOf="@+id/imgThirdUnSelect"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            app:canLoadFont="true"
+            app:fontSource="roboto-light.ttf" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/FourthOptionOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ThirdOptionOption"
+        android:layout_alignStart="@+id/ThirdOptionOption"
+        android:layout_below="@+id/ThirdOptionOption"
+        android:clickable="true"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imgFourthUnSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/txtFourthButtonDetails"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_radio_gray" />
+
+        <ImageView
+            android:id="@+id/imgSelectFourth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/txtFourthButtonDetails"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_radio_select"
+            android:visibility="invisible" />
+
+        <com.contus.Views.FontableTextview
+            android:id="@+id/txtFourthButtonDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imgFourthUnSelect"
+            android:layout_toRightOf="@+id/imgFourthUnSelect"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            app:canLoadFont="true"
+            app:fontSource="roboto-light.ttf" />
+
+    </RelativeLayout>-->
+
+</RelativeLayout>

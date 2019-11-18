@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+
+    >
+
+    <ImageView
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtCategory"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_select"
+        android:visibility="invisible" />
+    <ImageView
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtCategory"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_select"
+        android:visibility="invisible" />
+    <ImageView
+        android:id="@+id/imageButtonUnSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtCategory"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_unselect"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txtCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="@dimen/activity_textSize_small"
+        android:layout_toRightOf="@+id/imageButton1"
+        android:layout_toEndOf="@+id/imageButton1" />
+</RelativeLayout>

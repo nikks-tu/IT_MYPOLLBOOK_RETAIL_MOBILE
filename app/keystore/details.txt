@@ -1,0 +1,3 @@
+pem password techuva12$
+keystore password techuva12$
+all passwords same  

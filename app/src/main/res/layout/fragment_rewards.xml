@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="5dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="15dp"
+    android:layout_height="wrap_content">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:visibility="gone"
+        android:textColor="#000000"
+        android:textAppearance="?attr/textAppearanceListItem" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:visibility="gone"
+        android:textColor="#000000"
+        android:textAppearance="?attr/textAppearanceListItem" />
+
+
+
+
+    <LinearLayout
+        android:baselineAligned="false"
+        android:layout_width="match_parent"
+        android:background="#fff"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1.2">
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:id="@+id/product_iv"
+                android:scaleType="fitXY"
+                android:src="@drawable/splash_screen_new_crop" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="22 left"
+                android:id="@+id/product_left_tv"
+                android:textColor="#fff"
+                android:background="#59000000"
+                android:padding="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
+            android:id="@+id/content_layt"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/product_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Best Man Lether belt" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin_five">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_zero"
+                    android:drawableLeft="@drawable/cup_icon"
+                    android:id="@+id/cups_count_tv"
+                    android:layout_marginLeft="@dimen/margin_five"
+                    android:layout_marginRight="@dimen/margin_five"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/activity_textSize_extra_small"
+                    android:drawableStart="@drawable/cup_icon"
+                    android:layout_marginTop="@dimen/margin_two"
+                    android:layout_marginBottom="@dimen/margin_five"
+                    android:padding="@dimen/margin_two"/>
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_zero"
+                    android:id="@+id/dimands_count_tv"
+                    android:layout_marginLeft="@dimen/margin_five"
+                    android:layout_marginRight="@dimen/margin_five"
+                    android:drawableLeft="@drawable/diamond"
+                    android:textSize="@dimen/activity_textSize_extra_small"
+                    android:drawableStart="@drawable/diamond"
+                    android:layout_marginBottom="@dimen/margin_five"
+                    android:padding="@dimen/margin_two" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Validity:31-3-2018"
+                android:layout_margin="5dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:id="@+id/date_tv"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:text="Redeem"
+                android:textColor="#fff"
+                android:id="@+id/redeem_btn"
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                android:background="#1C96EE"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+</androidx.cardview.widget.CardView>

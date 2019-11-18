@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/row_chat_file"
+    style="@style/ChatView">
+
+    <LinearLayout
+        android:id="@+id/view_rev_file_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="@drawable/ic_whiteboxbg"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <com.contusfly.views.CustomTextView
+            android:id="@+id/txt_rev_contact_name"
+            style="@style/ChatRevNameView"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="2dp"
+            app:font_name="@string/font_roboto_medium" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_rev_doc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_pdf"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/view_download"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="6dp"
+                android:layout_marginRight="6dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/text_content_discription"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_download"
+                android:tint="@android:color/darker_gray"
+                android:visibility="visible" />
+
+            <ProgressBar
+                android:id="@+id/file_rev_progress"
+                style="@style/CustomProgressBar"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/colorPrimary"
+                android:indeterminateTintMode="src_in"
+                android:layout_centerInParent="true"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:gravity="center_vertical"
+                android:minWidth="120dp"
+                android:orientation="vertical">
+
+                <com.contusfly.views.CustomTextView
+                    android:id="@+id/txt_rev_file_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_chat_sender"
+                    android:textSize="17sp"
+                    app:font_name="@string/font_roboto_regular" />
+
+                <com.contusfly.views.CustomTextView
+                    android:id="@+id/txt_rev_file_time"
+                    style="@style/ChatTimeView"
+                    android:layout_gravity="bottom|end"
+                    android:gravity="bottom|end"
+                    app:font_name="@string/font_roboto_light" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_send_file_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@drawable/ic_bluerightboxbg"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/img_send_doc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/icon_file_doc"
+            android:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/file_send_progress"
+            style="@style/CustomProgressBar"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/colorPrimary"
+            android:indeterminateTintMode="src_in"
+            android:layout_centerInParent="true"  />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:gravity="center_vertical"
+            android:minWidth="120dp"
+            android:orientation="vertical">
+
+            <com.contusfly.views.CustomTextView
+                android:id="@+id/txt_send_file_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_chat_sender"
+                android:textSize="17sp"
+                app:font_name="@string/font_roboto_regular" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp">
+
+                <com.contusfly.views.CustomTextView
+                    android:id="@+id/txt_send_file_time"
+                    style="@style/ChatTimeView"
+                    android:layout_gravity="bottom|end"
+                    android:gravity="bottom|end"
+                    app:font_name="@string/font_roboto_light" />
+
+                <ImageView
+                    android:id="@+id/file_send_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:contentDescription="@string/text_content_discription"
+                    android:gravity="bottom|end"
+                    android:minWidth="20dp"
+                    android:src="@drawable/single_tick" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

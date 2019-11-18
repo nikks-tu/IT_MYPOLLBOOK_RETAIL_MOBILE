@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+
+    <EditText
+        android:id="@+id/editComments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtComments"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:maxLines="5"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
+        android:textColor="@android:color/black" />
+
+
+    <Button
+        android:id="@+id/Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editComments"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="32dp"
+        android:layout_toLeftOf="@+id/delete"
+        android:layout_toStartOf="@+id/delete"
+        android:background="@android:color/transparent"
+        android:text="Save"
+        android:textColor="@color/blue_color" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/Save"
+        android:background="@android:color/transparent"
+        android:text="Delete"
+        android:textColor="@color/blue_color" />
+
+    <TextView
+        android:id="@+id/txtComments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editComments"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/editComments"
+        android:layout_marginTop="10dp"
+        android:text="Edit your comment"
+        android:textColor="@color/helvetica_light_greycolor"
+        android:textSize="@dimen/activity_textSize_large" />
+
+
+</RelativeLayout>
+
+

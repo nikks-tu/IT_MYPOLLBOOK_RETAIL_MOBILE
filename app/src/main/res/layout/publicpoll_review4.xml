@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_color"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Poll Results"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="5dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/adView"
+        android:layout_centerInParent="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarThumbVertical="@drawable/custom_scrollbar"
+        android:scrollingCache="false"
+        android:smoothScrollbar="true"
+        android:id="@+id/scroll"
+        android:visibility="gone"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:layout_below="@+id/adView"
+            android:layout_centerInParent="true"
+            android:id="@+id/relativeLayout">
+            <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:padding="5dp">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignBottom="@+id/imgTime"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                   android:scaleType="fitXY"
+                    fresco:placeholderImage="@drawable/placeholder_image"
+                    fresco:roundedCornerRadius="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@+id/imgProfile"
+                    android:layout_toRightOf="@+id/imgProfile"
+                    android:text="Pepsi"
+                    android:textColor="@color/blue_color"
+                    android:textSize="@dimen/activity_textSize_small"
+                    android:layout_marginRight="20dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    />
+
+                <TextView
+                    android:id="@+id/txtTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtName"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@+id/imgTime"
+                    android:layout_toRightOf="@+id/imgTime"
+                    android:text="11 mins ago"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_small_16"
+                    />
+
+                <ImageView
+                    android:id="@+id/imgShare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/ic_share"
+                    android:background="@drawable/click_background"/>
+
+                <TextView
+                    android:id="@+id/txtStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/imgTime"
+                    android:layout_marginTop="10dp"
+                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                    android:textSize="@dimen/activity_textSize_small"
+                    android:textColor="@android:color/black"
+                    />
+
+
+                <RelativeLayout
+                    android:id="@+id/linearImagesQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtStatus"
+                    android:orientation="horizontal">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/singleOption"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="2"
+                        android:clickable="true"
+                        android:visibility="gone"
+                        android:scaleType="fitXY"
+                        fresco:placeholderImage="@drawable/placeholder_image"
+                        fresco:roundedCornerRadius="10dp"/>
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/choose"
+                        android:layout_width="140dp"
+                        android:layout_height="120dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:scaleType="fitXY"
+                        />
+
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/ChooseAdditional"
+                        android:layout_width="200dp"
+                        android:layout_height="160dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toEndOf="@+id/choose"
+                        android:layout_toRightOf="@+id/choose"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:scaleType="fitXY" />
+
+                    <ImageView
+                        android:id="@+id/imgPlay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_play"
+
+                        />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txtCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/txtTime"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@+id/imgCategory"
+                    android:layout_toRightOf="@+id/imgCategory"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_small_16"
+                    />
+
+                <ImageView
+                    android:id="@+id/imgTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/txtTime"
+                    android:layout_alignLeft="@+id/txtName"
+                    android:layout_alignStart="@+id/txtName"
+                    android:layout_alignTop="@+id/txtTime"
+                    android:src="@drawable/ic_timer" />
+
+                <ImageView
+                    android:id="@+id/imgCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/txtStatus"
+                    android:layout_alignTop="@+id/txtTime"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@+id/txtTime"
+                    android:layout_toRightOf="@+id/txtTime"
+                    android:src="@drawable/ic_category" />
+
+                <RelativeLayout
+                    android:id="@+id/relativeOption1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linearImagesQuestion">
+                    <TextView
+                        android:id="@+id/option1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textColor="@color/helvetica_light_greycolor"
+                        android:textSize="@dimen/activity_textSize_small"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="normal"
+                        android:layout_toLeftOf="@+id/pollGroupAnswer1"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pollGroupAnswer1"
+                        android:textSize="16sp"
+                        android:drawableLeft="@drawable/ic_group_poll"
+                        android:background="@drawable/click_background"
+                        android:text="0"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/helvetica_light_greycolor"
+                        android:layout_alignParentBottom="true" />
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/relativeProgressbar1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relativeOption1"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="5dp"
+                    >
+                    <ProgressBar
+                        android:id="@+id/progressbarFirstOption"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:max="100"
+                        android:progressDrawable="@drawable/custom_progressbar"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/txtFirstOptionCount"
+                        android:layout_toStartOf="@+id/txtFirstOptionCount" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0%"
+                        android:id="@+id/txtFirstOptionCount"
+                        android:textColor="@color/blue_color"
+                        android:textSize="16sp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"></TextView>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/relativeOption2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/relativeOption1"
+                    android:layout_alignStart="@+id/relativeOption1"
+                    android:layout_below="@+id/relativeProgressbar1">
+                    <TextView
+                        android:id="@+id/option2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textColor="@color/helvetica_light_greycolor"
+                        android:textSize="@dimen/activity_textSize_small"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_toLeftOf="@+id/pollGroupAnswer2"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pollGroupAnswer2"
+                        android:textSize="16sp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:drawableLeft="@drawable/ic_group_poll"
+                        android:background="@drawable/click_background"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/helvetica_light_greycolor"
+                        android:layout_alignParentBottom="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeProgressbar2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relativeOption2"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="5dp"
+
+                    >
+                    <ProgressBar
+                        android:id="@+id/progressbarSecondOption"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:max="100"
+                        android:progressDrawable="@drawable/custom_progressbar"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/txtSecondOptionCount"
+                        android:layout_toStartOf="@+id/txtSecondOptionCount" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0%"
+                        android:id="@+id/txtSecondOptionCount"
+                        android:textColor="@color/blue_color"
+                        android:textSize="16sp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        ></TextView>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativieOption3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relativeProgressbar2"
+                    android:layout_alignLeft="@+id/relativeOption2"
+                    android:layout_alignStart="@+id/relativeOption2"
+                    >
+                    <TextView
+                        android:id="@+id/option3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/helvetica_light_greycolor"
+                        android:textSize="@dimen/activity_textSize_small"
+                        android:textStyle="normal"
+                        android:layout_toLeftOf="@+id/pollGroupAnswer3"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pollGroupAnswer3"
+                        android:textSize="16sp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:drawableLeft="@drawable/ic_group_poll"
+                        android:background="@drawable/click_background"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center"
+                        android:text="0"
+                        android:layout_alignParentBottom="true"
+                        android:textColor="@color/helvetica_light_greycolor"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeProgressbar3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relativieOption3"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="5dp"
+                    >
+                    <ProgressBar
+                        android:id="@+id/progressbarThirdOption"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:max="100"
+                        android:progressDrawable="@drawable/custom_progressbar"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/txtThirdOptionCount"
+                        android:layout_toStartOf="@+id/txtThirdOptionCount" />
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0%"
+                        android:id="@+id/txtThirdOptionCount"
+                        android:textColor="@color/blue_color"
+                        android:textSize="16sp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"></TextView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeOption4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relativeProgressbar3"
+                    >
+                    <TextView
+                        android:id="@+id/option4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobuttonbackground"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/helvetica_light_greycolor"
+                        android:textSize="@dimen/activity_textSize_small"
+                        android:textStyle="normal"
+                        android:layout_toLeftOf="@+id/pollGroupAnswer4"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pollGroupAnswer4"
+                        android:textSize="16sp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:drawableLeft="@drawable/ic_group_poll"
+                        android:background="@drawable/click_background"
+                        android:layout_marginLeft="5dp"  android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/helvetica_light_greycolor"
+                        android:layout_alignParentBottom="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeProgressbar4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relativeOption4"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="5dp"
+                    >
+                    <ProgressBar
+                        android:id="@+id/progressbarFourthOption"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:max="100"
+                        android:progressDrawable="@drawable/custom_progressbar"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/txtFourthOptionCount"
+                        android:layout_toStartOf="@+id/txtFourthOptionCount" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0%"
+                        android:id="@+id/txtFourthOptionCount"
+                        android:textColor="@color/blue_color"
+                        android:textSize="16sp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"></TextView>
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/polldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/txtLike2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/imgComments"
+                    android:layout_toLeftOf="@+id/imgComments"
+                    android:layout_toStartOf="@+id/imgComments"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:text="123"
+                    android:background="@drawable/click_background"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_small"
+                    />
+
+                <CheckBox
+                    android:id="@+id/unLikeDislike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox_selector"
+                    android:layout_alignBottom="@+id/txtLike2"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/txtLike2"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/txtCommentsCounts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="5dp"
+                    android:drawableLeft="@drawable/ic_comments"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="72"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_small"
+                    android:background="@drawable/click_background" />
+
+                <ImageView
+                    android:id="@+id/imgComments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/txtCommentsCounts"
+                    android:layout_alignTop="@+id/txtCommentsCounts"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toLeftOf="@+id/txtCommentsCounts"
+                    android:layout_toStartOf="@+id/txtCommentsCounts"
+                    android:src="@drawable/ic_comments"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txtParticcipation1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:drawableLeft="@drawable/ic_group_poll"
+                    android:drawablePadding="5dp"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:background="@drawable/click_background"
+                    android:textSize="@dimen/activity_textSize_small" />
+
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imagBackArrow"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_back"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/adView"
+        android:onClick="onClick"
+        />
+
+
+</RelativeLayout>

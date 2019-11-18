@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/row_chat_location"
+    style="@style/ChatView">
+
+    <LinearLayout
+        android:id="@+id/view_chat_rev_loc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_whiteboxbg"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:visibility="visible">
+
+        <com.contusfly.views.CustomTextView
+            android:id="@+id/text_rev_loc_name"
+            style="@style/ChatRevNameView"
+            app:font_name="@string/font_roboto_medium" />
+        <RelativeLayout
+            android:id="@+id/view_location_rev"
+            android:layout_width="190dp"
+            android:layout_height="200dp"
+            android:visibility="visible"
+            android:layout_below="@+id/text_receive_image_name">
+
+            <ImageView
+                android:id="@+id/image_loc_rev"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/title_content_discription"
+                android:scaleType="fitXY" />
+            <com.contusfly.views.CustomTextView
+                android:id="@+id/text_loc_rev_time"
+                style="@style/ChatTimeView"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_baloon"
+                android:gravity="bottom|end"
+                android:textColor="#ffffff"
+                android:paddingBottom="3dp"
+                android:paddingEnd="5dp"
+                android:paddingRight="5dp"
+                app:font_name="@string/font_roboto_light" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/view_chat_send_loc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical"
+        android:background="@drawable/ic_bluerightbg"
+        android:gravity="center_vertical|end"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:visibility="visible">
+        <RelativeLayout
+            android:id="@+id/view_send_img"
+            android:layout_width="190dp"
+            android:layout_height="200dp"
+            android:visibility="visible"
+            android:layout_below="@+id/text_receive_image_name">
+
+            <ImageView
+                android:id="@+id/image_location_send"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/title_content_discription"
+                android:scaleType="fitXY" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_baloon"
+                android:gravity="end|bottom"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.contusfly.views.CustomTextView
+                    android:id="@+id/text_send_loc_time"
+                    style="@style/ChatTimeView"
+                    android:layout_gravity="bottom|end"
+                    android:textColor="#ffffff"
+                    android:gravity="bottom|end"
+                    app:font_name="@string/font_roboto_light" />
+
+                <ImageView
+                    android:id="@+id/image_loc_send_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:contentDescription="@string/title_content_discription"
+                    android:gravity="bottom|end"
+                    android:minWidth="20dp"
+                    android:src="@drawable/single_tick" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

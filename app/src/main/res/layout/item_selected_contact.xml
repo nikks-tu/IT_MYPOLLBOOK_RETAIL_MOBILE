@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_two"
+    android:orientation="vertical">
+
+  <FrameLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+      <com.contusfly.views.CircularImageView
+          android:layout_width="55dp"
+          android:layout_height="55dp"
+          android:id="@+id/iv_contact_pic"
+          android:src="@drawable/img_ic_user"
+          android:layout_margin="@dimen/margin_five"/>
+      <ImageView
+          android:layout_width="20dp"
+          android:layout_height="20dp"
+          android:src="@drawable/ic_cancel"
+          android:id="@+id/iv_cancel"
+          android:layout_gravity="bottom|end"
+          android:contentDescription="@string/app_name" />
+  </FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="@dimen/activity_textSize_very_small"
+        android:id="@+id/tv_name"/>
+</LinearLayout>

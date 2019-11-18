@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<ListView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/lv_group_list"
+    android:layout_marginBottom="@dimen/x_large_view_margin"/>
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Done"
+      android:layout_gravity="bottom|center"
+      android:gravity="center"
+      android:id="@+id/tv_done"
+      android:padding="@dimen/view_margin"
+      android:layout_marginTop="@dimen/view_margin"
+      android:background="@color/blue_color"
+      android:textColor="@color/color_white"
+      android:textSize="@dimen/activity_textSize_small"/>
+</FrameLayout>

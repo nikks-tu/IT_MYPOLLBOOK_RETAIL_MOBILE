@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/tools"
+    app:ignore="NamespaceTypo">
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/google_now"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"/>
+
+    <com.contusfly.smoothprogressbar.SmoothProgressBar
+        android:id="@+id/google_now"
+        style="@style/GNowProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white"
+        android:indeterminate="true"
+        android:visibility="visible"/>
+
+
+    <RelativeLayout
+        android:id="@+id/internetConnection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/adView"
+        android:gravity="center"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/txtInternetConnection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="40dp"
+            android:text="@string/check_internet_connection"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_large"
+            />
+
+        <TextView
+            android:id="@+id/internetRetry"
+            style="@style/app_btn_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtInternetConnection"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:text="Retry"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/scrollView3"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/adView">
+
+        <RelativeLayout
+            android:id="@+id/relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/txt_contactus_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/txt_contactus_info"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/activity_textSize_small"
+                />
+
+
+            <TextView
+                android:id="@+id/txt_company_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_contactus_info"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/company_name"
+                android:textColor="@color/helvetica_light_greycolor"
+                android:textSize="@dimen/activity_textSize_small_16"
+                />
+
+            <TextView
+                android:id="@+id/txt_company_street1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_company_name"
+                android:gravity="center"
+                android:text="@string/company_name_street1"
+                android:textColor="@color/helvetica_light_greycolor"
+                android:textSize="@dimen/activity_textSize_small_16"
+                />
+
+            <TextView
+                android:id="@+id/txt_company_street2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_company_street1"
+                android:gravity="center"
+                android:text="@string/company_name_street2"
+                android:textColor="@color/helvetica_light_greycolor"
+                android:textSize="@dimen/activity_textSize_small_16"
+                />
+
+            <TextView
+                android:id="@+id/txt_company_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_company_street2"
+                android:gravity="center"
+                android:text="@string/company_name_state"
+                android:textColor="@color/helvetica_light_greycolor"
+                android:textSize="@dimen/activity_textSize_small_16"
+                />
+
+            <!--
+                        <TextView
+                            android:id="@+id/txt_contactus_contact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt_company_state"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginRight="40dp"
+
+                            android:layout_marginTop="10dp"
+                            android:layout_toLeftOf="@+id/txt_contactus_mobileno_display"
+                            android:layout_toStartOf="@+id/txt_contactus_mobileno_display"
+                            android:text="@string/txt_contactus_contactno"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/activity_textSize_small"
+                          />-->
+
+            <!--       <TextView
+                       android:id="@+id/txt_contactus_mobileno"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+
+                       android:layout_alignLeft="@+id/txt_contactus_contact"
+                       android:layout_alignStart="@+id/txt_contactus_contact"
+                       android:layout_below="@+id/txt_contactus_contact"
+                       android:layout_marginTop="10dp"
+                       android:text="@string/txt_contactus_mobileno"
+                       android:textColor="@android:color/black"
+                       android:textSize="@dimen/activity_textSize_small"
+                      />-->
+
+
+            <!--<TextView
+                android:id="@+id/txt_contactus_mobileno_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txt_contactus_mobileno"
+                android:layout_alignLeft="@+id/txtColonMobileNo"
+                android:layout_alignParentRight="true"
+                android:layout_alignStart="@+id/txt_contactus_emailus_display"
+                android:paddingLeft="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/activity_textSize_small"
+                />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/txt_company_state"
+                android:layout_margin="@dimen/margin_five"
+                android:padding="@dimen/margin_five">
+
+                <TextView
+                    android:id="@+id/txt_contactus_emailus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/view_margin"
+                    android:paddingStart="@dimen/view_margin"
+                    android:text="@string/txt_contactus_emailus"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/activity_textSize_small"
+                    />
+                <TextView
+                    android:id="@+id/txtColonEmailUs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingRight="@dimen/view_margin"
+                    android:paddingStart="@dimen/view_margin"
+                    android:text="@string/semicolon"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/activity_textSize_small"
+                    android:paddingEnd="@dimen/view_margin"
+                    android:paddingLeft="@dimen/view_margin" />
+                <TextView
+                    android:id="@+id/txt_contactus_emailus_display"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/view_margin"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/activity_textSize_small"
+                    android:paddingStart="@dimen/view_margin"
+                    />
+
+            </LinearLayout>
+
+
+            <!-- <TextView
+                 android:id="@+id/txtColonContactNo"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignBaseline="@+id/txt_contactus_contact"
+                 android:layout_centerHorizontal="true"
+                 android:gravity="center"
+                 android:paddingRight="40dp"
+                 android:text=":"
+
+                 android:textColor="@android:color/black"
+                 android:textSize="@dimen/activity_textSize_small"
+               />-->
+
+            <!--  <TextView
+                  android:id="@+id/txtColonMobileNo"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+
+                  android:layout_alignBaseline="@+id/txt_contactus_mobileno"
+                  android:layout_centerHorizontal="true"
+                  android:gravity="center"
+                  android:paddingRight="40dp"
+                  android:text=":"
+                  android:textColor="@android:color/black"
+                  android:textSize="@dimen/activity_textSize_small"
+               />-->
+
+
+            <!--<TextView
+                android:id="@+id/txt_contactus_contact_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txt_contactus_contact"
+                android:layout_alignLeft="@+id/txtColonContactNo"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+
+                android:paddingLeft="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/activity_textSize_small"
+               />-->
+
+           <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/x_large_view_margin"
+                android:orientation="horizontal"
+                android:gravity="end">
+
+
+               <com.google.android.material.floatingactionbutton.FloatingActionButton
+                   android:id="@+id/imgChat"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="bottom|end"
+                   android:layout_margin="40dp"
+                   android:src="@drawable/ic_mail"
+                   app:elevation="6dp"
+                   app:pressedTranslationZ="12dp"/>
+                <!--<ImageView
+                    android:id="@+id/imgCall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_contactus_emailus"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+
+                    android:clickable="true"
+                    android:onClick="onClick"
+                    android:src="@drawable/ic_call" />-->
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

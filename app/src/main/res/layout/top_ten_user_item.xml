@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="@dimen/top_ten_layout_width"
+    android:background="@drawable/bg1"
+    android:gravity="center"
+    android:id="@+id/root_layout"
+    android:layout_margin="@dimen/margin_two"
+    android:padding="@dimen/margin_two"
+    android:layout_height="@dimen/top_ten_layout_height">
+
+    <com.contusfly.views.CircularImageView
+        android:layout_width="50dp"
+        android:id="@+id/user_image"
+        android:src="@drawable/no_image"
+        android:layout_height="50dp" />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:text="@string/text_zero"
+        android:id="@+id/points_tv"
+        android:layout_marginTop="@dimen/margin_two"
+    android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="@string/dummy_name"
+        android:id="@+id/user_name"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginTop="@dimen/margin_one"
+        android:layout_marginBottom="@dimen/margin_one"
+        android:layout_height="wrap_content" />
+</LinearLayout>

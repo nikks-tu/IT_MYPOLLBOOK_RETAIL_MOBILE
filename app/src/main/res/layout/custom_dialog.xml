@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_backgrount"
+    android:orientation="vertical"
+    android:paddingBottom="20dp">
+
+    <TextView
+        android:id="@+id/textView_CustomDialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/information"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/activity_textSize_large"
+
+         />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/textView_CustomDialogTitle"
+        android:background="@color/view_color" />
+
+    <TextView
+        android:id="@+id/textView_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="20dp"
+        android:layout_below="@+id/view"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/activity_textSize_small"
+        android:textStyle="normal"
+        android:typeface="sans"
+        />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cancel"
+            android:id="@+id/noBtn"
+            android:textColor="@color/blue_color"
+            android:background="@android:color/transparent"
+            android:layout_below="@+id/textView_dialog"
+            android:layout_toLeftOf="@+id/okBtn"
+            android:layout_marginRight="20dp"
+            android:layout_toStartOf="@+id/okBtn" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ok"
+            android:id="@+id/okBtn"
+            android:textColor="@color/blue_color"
+            android:background="@android:color/transparent"
+            android:layout_alignTop="@+id/noBtn"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

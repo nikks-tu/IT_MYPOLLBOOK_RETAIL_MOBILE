@@ -1,0 +1,117 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/view6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/Theme.AppCompat.Light">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/toolbar_title"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/large_view_margin"
+                android:padding="10dp"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:id="@+id/view_autocomplete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <AutoCompleteTextView
+            android:id="@+id/auto_complete_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:hint="@string/txt_enter_name"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/color_dark_gray"
+            android:textCursorDrawable="@null"
+            android:textSize="17sp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/img_plus"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/text_content_discription"
+            android:padding="3dp"
+            android:scaleType="fitXY"
+            android:tint="@color/colorPrimary" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/colorPrimary" />
+
+    <com.contusfly.views.CustomRecyclerView
+        android:id="@+id/list_selected_mem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        android:divider="@color/color_list_divider_color"
+        android:dividerHeight="0.5dp"
+        android:footerDividersEnabled="true"
+        android:scrollbars="none"
+        android:layout_alignTop="@+id/include"
+        android:layout_above="@+id/view1" />
+    <TextView
+        android:id="@+id/txt_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/buttonclick_color"
+        android:clickable="true"
+        android:gravity="center"
+        android:padding="@dimen/activity_tearms_padding"
+        android:text="@string/activity_register_next"
+        android:textColor="@color/blue_color"
+        android:textSize="@dimen/activity_textSize_large"
+        />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_above="@+id/txt_create"
+        android:background="@android:color/darker_gray" />
+    <include layout="@layout/view_empty_data"
+        android:id="@+id/include" />
+
+</RelativeLayout>

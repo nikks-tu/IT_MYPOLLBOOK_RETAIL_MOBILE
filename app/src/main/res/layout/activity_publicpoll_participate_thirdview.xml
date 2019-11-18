@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:background="@android:color/white"
+    android:padding="5dp">
+
+
+    <TextView
+        android:id="@+id/txtStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imgTime"
+        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        android:textSize="@dimen/activity_textSize_small"
+        android:textColor="@android:color/black"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/linearImagesQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtStatus"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/singleOption"
+            android:layout_width="200dp"
+            android:layout_height="160dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_weight="2"
+            android:visibility="gone"
+            fresco:placeholderImage="@drawable/placeholder_image"
+            fresco:roundedCornerRadius="10dp" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/choose"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:visibility="visible"
+            fresco:placeholderImage="@drawable/placeholder_image"
+            fresco:roundedCornerRadius="10dp" />
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/ChooseAdditional"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/choose"
+            android:layout_toRightOf="@+id/choose"
+            android:layout_weight="1"
+            android:visibility="visible"
+            fresco:placeholderImage="@drawable/placeholder_image"
+            fresco:roundedCornerRadius="10dp" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/txtOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearImagesQuestion"
+        android:layout_marginTop="10dp"
+        android:text="Answer :"
+        android:textSize="@dimen/activity_textSize_small"
+       />
+
+    <LinearLayout
+        android:id="@+id/linearImagesAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtOptions"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="1dp"
+            android:layout_weight="1.50"
+            android:clickable="true">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/answer1"
+                android:layout_width="160dp"
+                android:layout_height="120dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                fresco:actualImageScaleType="focusCrop"
+                fresco:placeholderImage="@drawable/placeholder_image"
+                fresco:roundedCornerRadius="10dp" />
+
+            <RelativeLayout
+                android:id="@+id/FirstOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:clickable="true"
+                android:padding="5dp">
+
+                <RadioButton
+                    android:id="@+id/option1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:button="@drawable/radio_buttom_image_selector"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_small"
+                    android:textStyle="normal"
+                    android:paddingLeft="10dp"
+                    />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_weight="1.50"
+            android:clickable="true">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/answer2"
+                android:layout_width="160dp"
+                android:layout_height="120dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                fresco:placeholderImage="@drawable/placeholder_image"
+                fresco:roundedCornerRadius="10dp" />
+
+            <RelativeLayout
+                android:id="@+id/SecondOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:padding="5dp">
+
+                <RadioButton
+                    android:id="@+id/option2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:button="@drawable/radio_buttom_image_selector"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_small"
+                    android:textStyle="normal"
+                    android:paddingLeft="10dp"
+                    />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearImagesAnswer2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearImagesAnswer"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="1dp"
+            android:layout_weight="1.50"
+            android:clickable="true">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/answer3"
+                android:layout_width="160dp"
+                android:layout_height="120dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                fresco:placeholderImage="@drawable/placeholder_image"
+                fresco:roundedCornerRadius="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <RelativeLayout
+                android:id="@+id/ThirdOptionOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:clickable="true"
+                android:padding="5dp">
+
+                <RadioButton
+                    android:id="@+id/option3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:button="@drawable/radio_buttom_image_selector"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_small"
+                    android:textStyle="normal"
+                    android:paddingLeft="10dp"
+                    />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_weight="1.50"
+            android:clickable="true">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/answer4"
+                android:layout_width="160dp"
+                android:layout_height="120dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                fresco:placeholderImage="@drawable/placeholder_image"
+                fresco:roundedCornerRadius="10dp" />
+
+            <RelativeLayout
+
+                android:id="@+id/FourthOptionOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:clickable="true"
+                android:padding="5dp">
+
+                <RadioButton
+                    android:id="@+id/option4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:button="@drawable/radio_buttom_image_selector"
+                    android:textColor="@color/helvetica_light_greycolor"
+                    android:textSize="@dimen/activity_textSize_small"
+                    android:textStyle="normal"
+                    android:paddingLeft="10dp"
+                    />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearImagesAnswer2"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/txtLike3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgComments"
+            android:layout_toLeftOf="@+id/imgComments"
+            android:layout_toStartOf="@+id/imgComments"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="123"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:background="@drawable/click_background"
+         />
+
+
+        <CheckBox
+            android:id="@+id/unLikeDislike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/checkbox_selector"
+            android:layout_alignBottom="@+id/txtLike3"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/txtLike3"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/txtCommentsCounts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="5dp"
+            android:drawableLeft="@drawable/ic_comments"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:text="72"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:textSize="@dimen/activity_textSize_small"
+            android:background="@drawable/click_background"
+            />
+
+        <ImageView
+            android:id="@+id/imgComments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtCommentsCounts"
+            android:layout_alignTop="@+id/txtCommentsCounts"
+            android:layout_marginLeft="20dp"
+            android:layout_toLeftOf="@+id/txtCommentsCounts"
+            android:layout_toStartOf="@+id/txtCommentsCounts"
+            android:src="@drawable/ic_comments"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txtParticcipation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="7253"
+            android:textColor="@color/helvetica_light_greycolor"
+            android:background="@drawable/click_background"
+            android:drawableLeft="@drawable/ic_participations_2"
+            android:drawablePadding="5dp"
+            android:textSize="@dimen/activity_textSize_small"/>
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

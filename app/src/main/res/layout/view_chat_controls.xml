@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chat_controls"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/img_chat_camera"
+        style="@style/style_chat_controls"
+        android:src="@drawable/ic_camera" />
+
+    <ImageView
+        android:id="@+id/img_chat_video"
+        style="@style/style_chat_controls"
+        android:src="@drawable/ic_video" />
+
+    <ImageView
+        android:id="@+id/img_chat_audio"
+        style="@style/style_chat_controls"
+        android:src="@drawable/ic_record" />
+
+    <ImageView
+        android:id="@+id/img_chat_attach"
+        style="@style/style_chat_controls"
+        android:src="@drawable/ic_attach" />
+
+
+    <ImageView
+        android:id="@+id/img_location"
+        style="@style/style_chat_controls"
+        android:src="@drawable/ic_location1" />
+
+</LinearLayout>

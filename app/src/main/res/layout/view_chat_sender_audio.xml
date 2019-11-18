@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/view_chat_send_audio"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:background="@drawable/ic_bluerightbg"
+    android:gravity="center_vertical"
+    android:padding="15dp"
+    android:orientation="horizontal">
+
+    <ProgressBar
+        android:id="@+id/audio_send_progress"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:visibility="visible"
+        android:indeterminate="false" />
+
+    <ImageView
+        android:id="@+id/audio_sender_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/text_content_discription"
+        android:src="@drawable/audio_play_btn"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+
+
+        <SeekBar
+            android:id="@+id/sender_seek_bar"
+            style="@style/CustomSeek_sender"
+            android:enabled="false"
+            android:layout_marginLeft="5dp"
+            android:thumb="@drawable/shape_custom_thumb"
+            android:layout_width="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:indeterminate="false" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <com.contusfly.views.CustomTextView
+                android:id="@+id/audio_send_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:minEms="2"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="13sp"
+                app:font_name="@string/font_roboto_light" />
+
+            <com.contusfly.views.CustomTextView
+                android:id="@+id/audio_send_time"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:minEms="2"
+                style="@style/ChatTimeView"
+                app:font_name="@string/font_roboto_light" />
+
+            <ImageView
+                android:id="@+id/img_send_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:contentDescription="@string/text_content_discription"
+                android:minWidth="20dp"
+                android:src="@drawable/ic_timerchat" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
+
