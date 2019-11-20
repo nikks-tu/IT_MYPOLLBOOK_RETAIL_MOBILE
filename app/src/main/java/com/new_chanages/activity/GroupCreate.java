@@ -238,7 +238,7 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
         group_name = edt_group_name.getText().toString();
         if(contactList.size()>0)
         {
-            for (int i=0; i<contactList.size(); i++)
+            for (int i=0; i<=contactList.size(); i++)
             {
                 if(contacts.equals(""))
                 {

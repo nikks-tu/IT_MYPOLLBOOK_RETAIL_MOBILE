@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.provider.ContactsContract;
 
@@ -13,13 +14,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.contus.app.Constants;
@@ -47,16 +51,18 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class AllContactsActivity extends AppCompatActivity {
+public class AllContactsActivity extends AppCompatActivity implements SearchView.OnQueryTextListener  {
 
     ListView lv_contacts;
     Context mContext;
     ImageView iv_back, iv_save;
+    SearchView simpleSearchView ;
     FloatingActionButton fab_next;
     ArrayList<ContactModel> contactList;
     ArrayList<ContactModel> selectedContactList;
     ArrayList<ContactModel> myPollBookContactList;
     ArrayList<ContactModel> existingContacts;
+   ProgressBar progressBar;
     AddGroupContactsAdapter contactsAdapter;
     SelectedContactsAdapter selectedContactsAdapter;
     RecyclerView rcv_selected_contacts;
@@ -78,7 +84,11 @@ public class AllContactsActivity extends AppCompatActivity {
             }
         }
         //contactList = getContacts();
-        getContacts();
+
+
+        AysncTask task=new AysncTask();
+        task.execute();
+
 
         String[] fields = new String[] {ContactsContract.Data.DISPLAY_NAME};
 
@@ -115,6 +125,9 @@ public class AllContactsActivity extends AppCompatActivity {
 
             }
         }));
+
+
+
         iv_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,7 +136,8 @@ public class AllContactsActivity extends AppCompatActivity {
                 contactList = dbHelper.getAllContactsList();
                 if(contactList.size()>0)
                 {
-                    Toast.makeText(mContext, ""+contactList.size(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, ""+myPollBookContactList.size(), Toast.LENGTH_SHORT).show();
+
                    /* contacts = "";
                     for (int i=0; i<contactList.size(); i++)
                     {
@@ -158,13 +172,14 @@ public class AllContactsActivity extends AppCompatActivity {
         lv_contacts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                CheckBox checkbox_user =  view.findViewById(R.id.checkbox_user);
+                CheckBox   checkbox_user = view.findViewById(R.id.checkbox_user);
+                ContactModel model=new ContactModel();
                 if(checkbox_user.isChecked())
                 {
                     checkbox_user.setChecked(false);
                     contactsAdapter.notifyDataSetChanged();
                     MDatabaseHelper dbHelper = new MDatabaseHelper(mContext);
-                    dbHelper.deleteContactFromSelected(contactList.get(position).getContactNumber());
+                    dbHelper.deleteContactFromSelected(myPollBookContactList.get(position).getContactNumber());
                     if(dbHelper.getAllSeletedContactSize()>0)
                     {
                         rcv_selected_contacts.setVisibility(View.VISIBLE);
@@ -181,10 +196,12 @@ public class AllContactsActivity extends AppCompatActivity {
                 else {
                     checkbox_user.setChecked(true);
                     MDatabaseHelper dbHelper = new MDatabaseHelper(mContext);
-                    dbHelper.addContactToSelected(contactList.get(position).getContactName(),
-                            contactList.get(position).getContactNumber(), "true",
-                            contactList.get(position).getContactPic(),
-                            contactList.get(position).getContactMPBName(),"true");
+                    dbHelper.addContactToSelected(myPollBookContactList.get(position).getContactName(),
+                            myPollBookContactList.get(position).getContactNumber(), "true",
+                            myPollBookContactList.get(position).getContactPic(),
+                            myPollBookContactList.get(position).getContactMPBName(),"true");
+
+
                     if(dbHelper.getAllSeletedContactSize()>0)
                     {
                         rcv_selected_contacts.setVisibility(View.VISIBLE);
@@ -207,6 +224,9 @@ public class AllContactsActivity extends AppCompatActivity {
         lv_contacts = findViewById(R.id.lv_contacts);
         iv_back = findViewById(R.id.iv_back);
         iv_save = findViewById(R.id.iv_save);
+        progressBar=findViewById(R.id.progressbar);
+        simpleSearchView = (SearchView) findViewById(R.id.simpleSearchView);
+        simpleSearchView.setOnQueryTextListener(this);
         fab_next = findViewById(R.id.fab_next);
         rcv_selected_contacts = findViewById(R.id.rcv_selected_contacts);
         existingContacts = new ArrayList<>();
@@ -276,7 +296,10 @@ public class AllContactsActivity extends AppCompatActivity {
             if(!contactToSend.equals(""))
             {
                 dbHelper.close();
+
+                progressBar.setVisibility(View.VISIBLE);
                 serviceCall();
+
                 /*  final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -342,6 +365,7 @@ public class AllContactsActivity extends AppCompatActivity {
                                     }
                                     dbHelper.close();
                                     contactsAdapter = new AddGroupContactsAdapter(mContext, myPollBookContactList);
+
                                     lv_contacts.setAdapter(contactsAdapter);
                                 }
                             }
@@ -414,6 +438,32 @@ public class AllContactsActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        String text = newText;
+     //   contactsAdapter.filter(text);
+        return false;
+    }
+
+    class AysncTask extends AsyncTask<String,String,String>{
+
+
+
+        @Override
+        protected String doInBackground(String... strings) {
+           // serviceCall();
+            getContacts();
+            progressBar.setVisibility(View.INVISIBLE);
+            return null;
+        }
+    }
 
 
 }
+
+

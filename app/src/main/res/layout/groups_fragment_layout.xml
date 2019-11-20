@@ -14,7 +14,7 @@
         android:indeterminate="true"
         android:visibility="visible"/>
 
-    <androidx.recyclerview.widget.RecyclerView
+    x<androidx.recyclerview.widget.RecyclerView
         android:id="@+id/groups_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

@@ -7,6 +7,13 @@
     tools:context="com.new_chanages.activity.AllContactsActivity"
     android:orientation="vertical">
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:id="@+id/progressbar"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+
+    </ProgressBar>
  <LinearLayout
      android:layout_width="match_parent"
      android:layout_height="match_parent"
@@ -49,9 +56,15 @@
              android:layout_height="match_parent"
              android:src="@drawable/ic_search"
              android:layout_margin="@dimen/margin_five"
+             android:visibility="gone"
              android:paddingBottom="@dimen/margin_five"
              android:id="@+id/iv_save"
              />
+         <SearchView
+             android:id="@+id/simpleSearchView"
+             android:layout_width="wrap_content"
+             android:background="@drawable/ic_search"
+             android:layout_height="wrap_content" />
 
      </LinearLayout>
 

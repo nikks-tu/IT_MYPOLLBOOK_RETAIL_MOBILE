@@ -31,6 +31,7 @@ import com.polls.polls.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * The Class AdapterGroupUsers.
@@ -39,6 +40,8 @@ public class AddGroupContactsAdapter extends BaseAdapter {
 
     /** The context. */
     private Context context;
+
+
 
     /** The inflater. */
     private LayoutInflater inflater;
@@ -140,13 +143,15 @@ public class AddGroupContactsAdapter extends BaseAdapter {
                 Utils.loadImageWithGlide(mApplication, contactList.get(position).getContactPic().replaceAll(" ", "%20"), holder.iv_profile, R.drawable.img_ic_user);
             }
 
-            if(item.getContactSelected().equals("false"))
+           /* if(item.getContactSelected().equals("false"))
             {
                 holder.checkbox_user.setChecked(false);
             }
             else {
                 holder.checkbox_user.setChecked(true);
-            }
+            }*/
+
+
             // holder.checkbox_user.setChecked(false);
             holder.tv_add.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -210,6 +215,7 @@ public class AddGroupContactsAdapter extends BaseAdapter {
         TextView tv_add;
         CheckBox checkbox_user;
     }
+
 
 
 }
