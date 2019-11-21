@@ -30,12 +30,13 @@
              android:layout_margin="@dimen/margin_five"
              android:paddingBottom="@dimen/margin_five"
              android:id="@+id/iv_back"/>
-         <EditText
+         <TextView
              android:layout_width="0dp"
              android:layout_weight="1"
              android:layout_height="match_parent"
              android:layout_margin="@dimen/margin_five"
              android:paddingBottom="@dimen/margin_five"
+             android:textColor="@color/color_white"
              android:id="@+id/tv_title"
              android:text="@string/select_contacts"
              android:layout_gravity="center"
@@ -60,11 +61,31 @@
              android:paddingBottom="@dimen/margin_five"
              android:id="@+id/iv_save"
              />
-         <SearchView
-             android:id="@+id/simpleSearchView"
+
+        <!-- <androidx.appcompat.widget.SearchView
              android:layout_width="wrap_content"
-             android:background="@drawable/ic_search"
-             android:layout_height="wrap_content" />
+             android:layout_height="wrap_content"
+             android:layout_marginTop="5dp"
+             android:layout_marginRight="10dp"
+             android:id="@+id/search_view"
+             android:maxWidth="500dp"
+             app:queryHint="search here"
+             android:queryBackground="@android:color/white"></androidx.appcompat.widget.SearchView>
+-->
+         <androidx.appcompat.widget.SearchView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="5dp"
+             android:layout_marginRight="5dp"
+             android:maxWidth="320dp"
+             android:textSize="12dp"
+             app:searchIcon="@drawable/ic_search"
+             app:queryBackground="@color/color_white"
+             app:closeIcon="@drawable/search_close"
+             app:queryHint="Search Here"
+             style="@style/search_view"
+             android:id="@+id/search_view"
+             />
 
      </LinearLayout>
 

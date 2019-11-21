@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/home/techuva/Documents/Nikita_workspace/android-studio-ide-181.5014246-linux/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_check_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_close_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,9 +28,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="check" />
-                            <entry key="sourceFile" value="$USER_HOME$" />
+                            <entry key="color" value="0b0b0b" />
+                            <entry key="outputName" value="search_close" />
+                            <entry key="sourceFile" value="C:\Users\r.ramesh" />
                           </map>
                         </option>
                       </PersistentState>

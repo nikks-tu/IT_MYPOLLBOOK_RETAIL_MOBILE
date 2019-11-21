@@ -66,6 +66,7 @@ public class GroupsFragment extends Fragment implements GroupPolls.GroupPollOnFr
     ImageView img_add_group;
     int groupId;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

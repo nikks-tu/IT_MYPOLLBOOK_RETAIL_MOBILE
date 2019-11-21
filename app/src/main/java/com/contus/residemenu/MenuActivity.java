@@ -853,9 +853,9 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
             //visibility gone
             imgEdit1.setVisibility(View.GONE);
             //view visible
-            frame1.setVisibility(View.VISIBLE);
+            frame1.setVisibility(View.GONE);
             //view visible
-            imgSearch.setVisibility(View.VISIBLE);
+            imgSearch.setVisibility(View.GONE);
             //view visible
             imgEdit2.setVisibility(View.GONE);
             //view gone
@@ -863,15 +863,17 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
             //view gone
             bDone.setVisibility(View.GONE);
             //view gone
-            titleBarLeftMenu1.setVisibility(View.VISIBLE);
+            titleBarLeftMenu1.setVisibility(View.GONE);
             //set the title as my polls
             txtTitle.setText(getResources().getString(R.string.activity_create_poll_groups));
             toolbar.setVisibility(View.VISIBLE);
             //Set the boolean
-            layoutTop.setVisibility(View.VISIBLE);
+            layoutTop.setVisibility(View.GONE);
             MApplication.setBoolean(this, "createpoll", false);
             //This view contains only create poll icon
-            imageChangeFragment(new EditGroupsFragment());
+            img_add_group.setVisibility(View.VISIBLE);
+
+            imageChangeFragment(new GroupsFragment());
         } else if (!view.equals(itemEditGroups)) {
             layoutTop.setVisibility(View.VISIBLE);
             //title

@@ -4,26 +4,33 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.provider.ContactsContract;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
-import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.contus.app.Constants;
@@ -51,18 +58,19 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class AllContactsActivity extends AppCompatActivity implements SearchView.OnQueryTextListener  {
+public class AllContactsActivity extends AppCompatActivity  {
 
     ListView lv_contacts;
     Context mContext;
     ImageView iv_back, iv_save;
-    SearchView simpleSearchView ;
     FloatingActionButton fab_next;
     ArrayList<ContactModel> contactList;
+    SearchView searchView;
     ArrayList<ContactModel> selectedContactList;
     ArrayList<ContactModel> myPollBookContactList;
     ArrayList<ContactModel> existingContacts;
    ProgressBar progressBar;
+   TextView title;
     AddGroupContactsAdapter contactsAdapter;
     SelectedContactsAdapter selectedContactsAdapter;
     RecyclerView rcv_selected_contacts;
@@ -88,6 +96,54 @@ public class AllContactsActivity extends AppCompatActivity implements SearchView
 
         AysncTask task=new AysncTask();
         task.execute();
+
+
+
+        searchView.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               iv_back.setVisibility(View.GONE);
+
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                int width = displayMetrics.widthPixels;
+
+
+                searchView.setMaxWidth(width);
+
+
+
+            }
+        });
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                iv_back.setVisibility(View.VISIBLE);
+
+                return false;
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                      if(contactsAdapter!=null){
+                          contactsAdapter.filter(query);
+                      }else{
+
+                      }
+
+                return false;
+            }
+        });
+
 
 
         String[] fields = new String[] {ContactsContract.Data.DISPLAY_NAME};
@@ -225,14 +281,24 @@ public class AllContactsActivity extends AppCompatActivity implements SearchView
         iv_back = findViewById(R.id.iv_back);
         iv_save = findViewById(R.id.iv_save);
         progressBar=findViewById(R.id.progressbar);
-        simpleSearchView = (SearchView) findViewById(R.id.simpleSearchView);
-        simpleSearchView.setOnQueryTextListener(this);
+        title=findViewById(R.id.tv_title);
         fab_next = findViewById(R.id.fab_next);
+        searchView=findViewById(R.id.search_view);
         rcv_selected_contacts = findViewById(R.id.rcv_selected_contacts);
         existingContacts = new ArrayList<>();
         contactList = new ArrayList<>();
         selectedContactList = new ArrayList<>();
         MDatabaseHelper db = new MDatabaseHelper(mContext);
+
+
+        //Search view
+
+        EditText searchEditText = (EditText) searchView.findViewById(androidx.appcompat.R.id.search_src_text);
+        searchEditText.setTextColor(getResources().getColor(R.color.black));
+        searchEditText.setHintTextColor(getResources().getColor(R.color.black));
+
+
+
         //db.deleteSelectedContacts();
         db.deleteContactList();
         db.close();
@@ -438,17 +504,8 @@ public class AllContactsActivity extends AppCompatActivity implements SearchView
 
     }
 
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
 
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        String text = newText;
-     //   contactsAdapter.filter(text);
-        return false;
-    }
+
 
     class AysncTask extends AsyncTask<String,String,String>{
 

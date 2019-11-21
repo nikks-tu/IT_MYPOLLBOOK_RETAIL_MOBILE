@@ -26,12 +26,14 @@ import com.contusfly.chooseContactsDb.DatabaseHelper;
 import com.contusfly.model.Rosters;
 import com.contusfly.utils.Constants;
 import com.contusfly.utils.Utils;
+import com.new_chanages.activity.AllContactsActivity;
 import com.new_chanages.models.ContactModel;
 import com.polls.polls.R;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * The Class AdapterGroupUsers.
@@ -42,8 +44,7 @@ public class AddGroupContactsAdapter extends BaseAdapter {
     private Context context;
 
 
-
-    /** The inflater. */
+    ArrayList<ContactModel> arrayList ;
     private LayoutInflater inflater;
 
     /** The rosters list. */
@@ -67,6 +68,9 @@ public class AddGroupContactsAdapter extends BaseAdapter {
     public AddGroupContactsAdapter(Context context, ArrayList<ContactModel> contactList) {
         this.context = context;
         this.contactList = contactList;
+        this.arrayList = new ArrayList<ContactModel>();
+        arrayList.addAll(contactList);
+
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mApplication = (MApplication) context.getApplicationContext();
@@ -77,6 +81,7 @@ public class AddGroupContactsAdapter extends BaseAdapter {
     public void setData(ArrayList<ContactModel> contactList) {
         Log.e("rostersList",contactList.size()+"");
         this.contactList = contactList;
+
     }
     /**
      * (non-Javadoc)
@@ -201,7 +206,27 @@ public class AddGroupContactsAdapter extends BaseAdapter {
             throw new RuntimeException(e);
         }
         return view;
+
     }
+
+    public void filter(String charText){
+        charText = charText.toLowerCase(Locale.getDefault());
+
+        contactList.clear();
+        if (charText.length()==0){
+            contactList.addAll(arrayList);
+        }
+        else {
+            for (ContactModel model : arrayList){
+                if (model.getContactName().toLowerCase(Locale.getDefault())
+                        .contains(charText)){
+                    contactList.add(model);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
+
     /**
      * The Class ViewHolder.
      */
@@ -215,6 +240,7 @@ public class AddGroupContactsAdapter extends BaseAdapter {
         TextView tv_add;
         CheckBox checkbox_user;
     }
+
 
 
 

@@ -2,6 +2,8 @@ package com.new_chanages.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -21,6 +23,8 @@ import com.contus.views.EndLessListView;
 import com.contusfly.MApplication;
 import com.contusfly.smoothprogressbar.SmoothProgressBar;
 import com.google.android.gms.ads.AdView;
+import com.new_chanages.activity.AllContactsActivity;
+import com.new_chanages.activity.EditGroupActivity;
 import com.new_chanages.adapters.GroupPollsCustomAdapter;
 import com.new_chanages.api_interface.GroupsApiInterface;
 import com.new_chanages.models.GroupPollDataObject;
@@ -65,6 +69,7 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
     TextView btnRetryUserPoll;
     //no user poll
     private TextView noUserPoll, title, toolbar_title;
+    private ImageView edit_group;
     Context context;
     //user poll response
     List<GroupPollDataObject> userPollResponse;
@@ -114,6 +119,8 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
         top_ten_list.setVisibility(View.GONE);
         Toolbar toolbar = getActivity().findViewById(R.id.mToolbar);
         toolbar_title =  toolbar.findViewById(R.id.toolbar_title);
+        edit_group=toolbar.findViewById(R.id.imgEdit);
+
         title.setVisibility(View.GONE);
         ImageView img_add_group = toolbar.findViewById(R.id.img_add_group);
         img_add_group.setVisibility(View.GONE);
@@ -141,11 +148,22 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
         groupId = MApplication.getString(getContext(), Constants.GET_GROUP_POLL_ID);
         groupName = MApplication.getString(getContext(), Constants.GET_GROUP_NAME);
         toolbar_title.setText(groupName);
+
+        edit_group.setVisibility(View.VISIBLE);
+
         serviceCall();
         //validateAppVersion();
 
         //showVersionPopup();
         //Interface definition for a callback to be invoked when a view is clicked.
+
+        edit_group.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EditGroupActivity.class);
+                startActivity(intent);
+            }
+        });
         btnRetryUserPoll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
