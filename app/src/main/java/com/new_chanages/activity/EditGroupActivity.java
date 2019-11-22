@@ -223,6 +223,8 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
             @Override
             public void onClick(View v) {
                 enableViews();
+
+
             }
         });
 
@@ -243,6 +245,8 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
         iv_edit.setVisibility(View.GONE);
         imgCancel.setVisibility(View.VISIBLE);
         iv_group_icon.setEnabled(true);
+
+
     }
 
     /**

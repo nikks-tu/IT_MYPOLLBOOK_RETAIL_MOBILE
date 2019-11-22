@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/margin_two">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.contusfly.views.CircularImageView
+            android:layout_width="50dp"
+            android:id="@+id/iv_group_icon"
+            android:src="@drawable/no_image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/margin_two"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="start"
+            android:gravity="start"
+            android:layout_marginLeft="@dimen/margin_five">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/margin_five"
+                android:layout_marginLeft="@dimen/margin_five"
+                android:layout_gravity="center"
+                android:gravity="start|center"
+                android:text="GroupName"
+                android:textSize="@dimen/activity_textSize_small_16"
+                android:id="@+id/tv_group_name" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:gravity="start|center"
+                android:text="GroupName"
+                android:visibility="gone"
+                android:textSize="@dimen/activity_textSize_small_14"
+                android:id="@+id/tv_contact_num" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:src="@drawable/search_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/iv_arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"/>
+
+</LinearLayout>

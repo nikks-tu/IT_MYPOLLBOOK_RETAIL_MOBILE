@@ -309,6 +309,7 @@ public interface Constants {
     String CHECK_CONTACTS = "api/v1/existingcontacts";
     String GET_GROUP_POLLS = "api/v1/getgrouppolls";
     String GET_SINGLE_GROUP = "api/v1/getsinglegroup";
+    String REMOVE_CONTACTS_FROM_GROUP = "api/v1/removecontactsfromgroup";
     //limit
     String PAGE_LIMIT = "limit";
     //Contact us

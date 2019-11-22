@@ -238,14 +238,22 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
         group_name = edt_group_name.getText().toString();
         if(contactList.size()>0)
         {
-            for (int i=0; i<=contactList.size(); i++)
+            for (int i=0; i<contactList.size(); i++)
             {
                 if(contacts.equals(""))
                 {
-                    contacts = contactList.get(i).getContactName();
+                //    contacts = contactList.get(i).getContactName();
+                    if(contactList.get(i).getContactNumber().contains("+")){
+                        contacts=   contactList.get(i).getContactNumber().substring(3);
+                    }
+
                 }
                 else {
-                  contacts = contacts +","+ contactList.get(i).getContactNumber();
+                    // contacts =contacts+","+ contactList.get(i).getContactName();
+                    if(contactList.get(i).getContactNumber().contains("+")){
+                        contacts=  contacts +","+  contactList.get(i).getContactNumber().substring(3);
+                    }
+                  //  contacts = contacts +","+ contactList.get(i).getContactNumber();
                 }
             }
         }
