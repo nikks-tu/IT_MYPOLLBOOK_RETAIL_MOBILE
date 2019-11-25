@@ -470,6 +470,7 @@ public class RegisterActivity extends Activity implements Constants {
             case PERMISSION_ALL:
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    txtNext.performClick();
                 } else {
                     Toast.makeText(this, "Permission Denied!", Toast.LENGTH_SHORT).show();
                     finish();

@@ -15,6 +15,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -168,6 +170,8 @@ public class GroupsFragment extends Fragment implements GroupPolls.GroupPollOnFr
         Typeface face = Typeface.createFromAsset(mContext.getAssets(), "fonts/Quicksand-Light.ttf");
         title.setText("Groups");
         title.setTypeface(face);
+        title.setMaxLines(1);
+        title.setEllipsize(TextUtils.TruncateAt.END);
         img_add_group = toolbar.findViewById(R.id.img_add_group);
         ImageView imgSearch = toolbar.findViewById(R.id.imgSearch);
         ImageView imgEdit = toolbar.findViewById(R.id.imgEdit);
