@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -13,6 +14,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -58,6 +60,7 @@ import com.new_chanages.adapters.GridAdapterContacts;
 import com.new_chanages.adapters.GroupContactsAdapter;
 import com.new_chanages.api_interface.GroupsApiInterface;
 import com.new_chanages.fragment.GroupsFragment;
+import com.new_chanages.models.AddContactsToGroup;
 import com.new_chanages.models.ContactDetailsModel;
 import com.new_chanages.models.ContactModel;
 import com.new_chanages.postParameters.GetGroupsPostParameters;
@@ -87,6 +90,8 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
     CircularImageView iv_group_icon;
     TextView tv_add_participant;
     TextView tv_title;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
     View view_line1;
     ImageView iv_back, iv_save;
     Context mContext;
@@ -173,7 +178,8 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
             @Override
             public void onClick(View v) {
                 getInputs();
-                if(!group_name.equals(""))
+            group_name = edt_group_name.getText().toString();
+             if(group_name!=null)
                 {
                     if(group_name.length()<5)
                     {
@@ -184,7 +190,13 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
                         {
                             group_image = updateProfileImage;
                             iv_save.setEnabled(false);
-                            serviceCall();
+
+                            group_id = MApplication.getString(mContext, Constants.GET_GROUP_POLL_ID);
+                            if(group_id!=null&&group_id.length()>0){
+                               updateservice(group_id);
+                            }else{
+                                serviceCall();
+                            }
                         }
                         else {
 
@@ -233,9 +245,97 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
 
     }
 
+    private void updateservice(String group_id) {
+
+
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(Constants.LIVE_BASE_URL)
+                    .addConverterFactory(ScalarsConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            GroupsApiInterface service = retrofit.create(GroupsApiInterface.class);
+
+
+            Call<JsonElement> call=service.addcontactstogroup(new AddContactsToGroup("addcontactstogroupapi",contacts,group_id));
+            call.enqueue(new Callback<JsonElement>() {
+                @Override
+                public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                    if(response.body()!=null){
+                        JsonObject jsonObject = response.body().getAsJsonObject();
+                        JsonObject resultObject = jsonObject.get("results").getAsJsonObject();
+                        if( jsonObject.get("success").getAsString().equals("1"))
+                        {
+                            Toast.makeText(mContext, "Group updated successfully!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(mContext, MenuActivity.class);
+                            startActivity(intent);
+
+                       /*     edt_group_name.setText(resultObject.get("group_name").getAsString());
+                            String image = resultObject.get("group_image").getAsString();
+                            Utils.loadImageWithGlideSingleImageRounderCorner(getApplicationContext(), image, iv_group_icon, R.drawable.img_ic_user);
+                            contactList = new ArrayList<>();
+                            JsonArray contactArray = resultObject.get("contacts").getAsJsonArray();
+                            for (int i=0; i<contactArray.size(); i++)
+                            {
+                                JsonObject object = contactArray.get(i).getAsJsonObject();
+                                ContactDetailsModel model = new ContactDetailsModel();
+                                model.setCountry_code(object.get("country_code").getAsString());
+                                model.setName(object.get("name").getAsString());
+                                model.setMobile_number(object.get("mobile_number").getAsString());
+                                model.setProfile_image(object.get("profile_image").getAsString());
+                                contactList.add(model);
+                                if(contacts.equals(""))
+                                {
+                                    contacts = model.getMobile_number();
+                                }
+                                else {
+                                    contacts = contacts + ","+ model.getMobile_number();
+                                }
+                            }
+                            if(contactList.size()>0)
+                            {
+                                MDatabaseHelper db = new MDatabaseHelper(mContext);
+                                for(int i=0; i<contactList.size(); i++)
+                                {
+                                    db.addContactToSelected(contactList.get(i).getContactName(), contactList.get(i).getContactNumber(),
+                                            "true", contactList.get(i).getContactPic(), "", "true");
+                                }
+                                db.close();
+                                tv_members_count.setText(String.valueOf(contactList.size()));
+                                contactsAdapter = new GroupContactsAdapter(mContext, contactList);
+                                group_member_recyclr_view.setAdapter(contactsAdapter);
+                            }*/
+                            // Toast.makeText(mContext, contacts, Toast.LENGTH_SHORT).show();
+
+                        }
+                        else {
+                            Toast.makeText(mContext, jsonObject.get("msg").getAsString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }else {
+                    /*Toast toast = Toast.makeText(mContext, "", Toast.LENGTH_LONG);
+                    View view = toast.getView();
+                    view.setBackgroundDrawable(getResources().getDrawable(R.drawable.toast_back_red));
+                    toast.show();*/
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<JsonElement> call, Throwable t) {
+                    Toast toast = Toast.makeText(mContext , ""+t, Toast.LENGTH_LONG);
+                    toast.show();
+
+                }
+            });
+
+
+
+    }
+
 
     private void getInputs() {
-        group_name = edt_group_name.getText().toString();
+
+
         if(contactList.size()>0)
         {
             for (int i=0; i<contactList.size(); i++)
@@ -245,6 +345,8 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
                 //    contacts = contactList.get(i).getContactName();
                     if(contactList.get(i).getContactNumber().contains("+")){
                         contacts=   contactList.get(i).getContactNumber().substring(3);
+                    }else{
+                        contacts=   contactList.get(i).getContactNumber();
                     }
 
                 }
@@ -252,6 +354,8 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
                     // contacts =contacts+","+ contactList.get(i).getContactName();
                     if(contactList.get(i).getContactNumber().contains("+")){
                         contacts=  contacts +","+  contactList.get(i).getContactNumber().substring(3);
+                    }else{
+                        contacts=  contacts +","+  contactList.get(i).getContactNumber();
                     }
                   //  contacts = contacts +","+ contactList.get(i).getContactNumber();
                 }
@@ -596,12 +700,28 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
         iv_save = findViewById(R.id.iv_save);
         tv_members_count = findViewById(R.id.tv_members_count);
         imgCancel =  findViewById(R.id.imgCancel);
+
+
+
         //Uploading an image in S3 bucket
         imageS3Bucket = new ImageUploadS3(getApplicationContext());
         //call back method
         imageS3Bucket.uplodingCallback(this);
         MApplication.setString(mContext, Constants.CONTACT_LIST, "");
         contactList = new ArrayList<>();
+
+
+        pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        editor = pref.edit();
+
+        String   groupName = pref.getString("group_names", null);
+
+        if(groupName!=null && groupName.length()>0){
+            edt_group_name.setText(groupName);
+        }
+        else{
+            group_name = edt_group_name.getText().toString();
+        }
     }
 
     public static boolean hasPermissions(Context context, String... permissions) {
@@ -716,5 +836,10 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
     @Override
     protected void onResume() {
         super.onResume();
+
     }
+
+
+
+
 }

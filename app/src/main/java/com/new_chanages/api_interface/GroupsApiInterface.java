@@ -2,6 +2,7 @@ package com.new_chanages.api_interface;
 
 import com.contus.app.Constants;
 import com.google.gson.JsonElement;
+import com.new_chanages.models.AddContactsToGroup;
 import com.new_chanages.models.AppVersionPostParameters;
 import com.new_chanages.models.GroupPollsMainObject;
 import com.new_chanages.models.RemoveContactPostParameter;
@@ -30,6 +31,9 @@ public interface GroupsApiInterface {
 
     @POST(Constants.REMOVE_CONTACTS_FROM_GROUP)
     Call<JsonElement> removeContactsFromGroup(@Body RemoveContactPostParameter postParameter);
+
+    @POST(Constants.ADD_CONTACTS_TO_GROUP)
+    Call<JsonElement> addcontactstogroup(@Body AddContactsToGroup postParameter);
 
 
 }

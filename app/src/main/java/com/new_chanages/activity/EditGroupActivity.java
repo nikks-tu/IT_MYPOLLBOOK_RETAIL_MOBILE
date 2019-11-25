@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -50,6 +51,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.new_chanages.adapters.GroupContactsAdapter;
 import com.new_chanages.api_interface.GroupsApiInterface;
+import com.new_chanages.models.AddContactsToGroup;
 import com.new_chanages.models.AppVersionPostParameters;
 import com.new_chanages.models.ContactDetailsModel;
 import com.new_chanages.postParameters.GetGroupsPostParameters;
@@ -120,11 +122,18 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
     GroupContactsAdapter contactsAdapter;
     final int PERMISSION_ALL = 1;
     String checkContactAction="existingcontactsapi";
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_create_layout);
+
+         pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+          editor = pref.edit();
+
         group_member_recyclr_view = findViewById(R.id.group_member_recyclr_view);
         group_member_recyclr_view.setLayoutManager(new LinearLayoutManager(this));
         initialize();
@@ -171,7 +180,8 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                         {
                             group_image = updateProfileImage;
                             iv_save.setEnabled(false);
-                            serviceCall();
+                           serviceCall();
+
                         }
                         else {
 
@@ -298,6 +308,8 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
 
 
 
+
+
     private void serviceCall() {
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -364,6 +376,8 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                    {
                        //Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
                        edt_group_name.setText(resultObject.get("group_name").getAsString());
+                       editor.putString("group_names",resultObject.get("group_name").getAsString()); // Storing string
+                       editor.commit();
                        String image = resultObject.get("group_image").getAsString();
                        Utils.loadImageWithGlideSingleImageRounderCorner(getApplicationContext(), image, iv_group_icon, R.drawable.img_ic_user);
                        contactList = new ArrayList<>();
@@ -374,6 +388,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                            ContactDetailsModel model = new ContactDetailsModel();
                            model.setCountry_code(object.get("country_code").getAsString());
                            model.setName(object.get("name").getAsString());
+
                            model.setMobile_number(object.get("mobile_number").getAsString());
                            model.setProfile_image(object.get("profile_image").getAsString());
                            contactList.add(model);

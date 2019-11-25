@@ -310,6 +310,7 @@ public interface Constants {
     String GET_GROUP_POLLS = "api/v1/getgrouppolls";
     String GET_SINGLE_GROUP = "api/v1/getsinglegroup";
     String REMOVE_CONTACTS_FROM_GROUP = "api/v1/removecontactsfromgroup";
+    String ADD_CONTACTS_TO_GROUP = "api/v1/addcontactstogroup";
     //limit
     String PAGE_LIMIT = "limit";
     //Contact us

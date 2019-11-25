@@ -3,6 +3,8 @@ package com.new_chanages.fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
@@ -29,6 +31,7 @@ import android.widget.Toast;
 
 import com.contus.app.Constants;
 import com.contusfly.MApplication;
+import com.contusfly.model.MDatabaseHelper;
 import com.contusfly.smoothprogressbar.SmoothProgressBar;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -56,6 +59,8 @@ public class GroupsFragment extends Fragment implements GroupPolls.GroupPollOnFr
     RecyclerView groups_recyclerview;
     GroupsAdapter adapter;
     private int page;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
     private String userId;
     private Activity groupsFragment;
     private SmoothProgressBar userPollGoogleNow;
@@ -78,6 +83,10 @@ public class GroupsFragment extends Fragment implements GroupPolls.GroupPollOnFr
         internetConnection =  view.findViewById(R.id.internetConnection);
         userPollGoogleNow =  view.findViewById(R.id.google_now);
         txtInternetConnection = view.findViewById(R.id.txtInternetConnection);
+
+        pref = getActivity().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        editor = pref.edit();
+
         fragment2 = view.findViewById(R.id.fragment2);
         initialize();
         internetConnection.setVisibility(View.GONE);
@@ -113,7 +122,15 @@ public class GroupsFragment extends Fragment implements GroupPolls.GroupPollOnFr
             public void onClick(View v) {
                 if(isAdded()){
                     getResources().getString(R.string.app_name);
+
+                    MDatabaseHelper obj = new MDatabaseHelper(getActivity());
+                    obj.deleteSelectedContacts();
+                    obj.close();
+
                     Intent intent = new Intent(groupsFragment, AllContactsActivity.class);
+                    editor.putString("group_names",""); // Storing string
+                    editor.commit();
+                    MApplication.setString(mContext, Constants.GET_GROUP_POLL_ID,"");
                     startActivity(intent);
                 }
 
