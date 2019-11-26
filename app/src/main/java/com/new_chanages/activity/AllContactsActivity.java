@@ -363,9 +363,14 @@ public class AllContactsActivity extends AppCompatActivity  {
             if(!contactToSend.equals(""))
             {
                 dbHelper.close();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressBar.setVisibility(View.VISIBLE);
+                    }
+                });
 
-                progressBar.setVisibility(View.VISIBLE);
-                serviceCall();
+
 
                 /*  final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -393,6 +398,7 @@ public class AllContactsActivity extends AppCompatActivity  {
                 if(response.body()!=null){
                     JsonObject jsonObject = response.body().getAsJsonObject();
                     //Toast.makeText(mContext, jsonObject.get("msg").getAsString(), Toast.LENGTH_SHORT).show();
+                    Log.v("ContactResponce",jsonObject.toString());
                     if( jsonObject.get("success").getAsString().equals("1"))
                     {
                         JsonArray result = jsonObject.get("results").getAsJsonArray();
@@ -510,14 +516,26 @@ public class AllContactsActivity extends AppCompatActivity  {
 
     class AysncTask extends AsyncTask<String,String,String>{
 
-
+        @Override
+        protected void onPreExecute() {
+            progressBar.setVisibility(View.VISIBLE);
+            super.onPreExecute();
+        }
 
         @Override
         protected String doInBackground(String... strings) {
            // serviceCall();
             getContacts();
-            progressBar.setVisibility(View.INVISIBLE);
+
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            //progressBar.setVisibility(View.INVISIBLE);
+
+            serviceCall();
         }
     }
 

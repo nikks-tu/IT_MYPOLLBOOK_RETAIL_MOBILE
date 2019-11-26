@@ -132,6 +132,8 @@ public class SplashScreenActivity extends Activity implements Constants {
             //Registering is using t=sender id
             GCMRegistrar.register(this, SENDER_ID);
         }
+
+
         //if device id is not null
         if (deviceId != null && deviceId.length() > 0) {
             //Setting the preference
