@@ -13,7 +13,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -94,6 +96,7 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
     private GroupPollOnFragmentInteractionListner mListener;
     private Activity activity;
     private MApplication mApplication;
+    ImageView title_bar_left_menu;
     RecyclerView top_ten_list;
     ArrayList<TopUsersModel> toptenList;
     Boolean versionFlag=true;
@@ -118,6 +121,7 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
         mApplication = new MApplication();
         top_ten_list.setVisibility(View.GONE);
         Toolbar toolbar = getActivity().findViewById(R.id.mToolbar);
+
         toolbar_title =  toolbar.findViewById(R.id.toolbar_title);
         edit_group=toolbar.findViewById(R.id.imgEdit);
 
@@ -178,8 +182,12 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
             public void onRefresh() {
                 if (mListener != null) {
                     mListener.OnUserPollFragment("", "");
+
+
                 }  //my poll request
+                mSwipeRefreshLayout.setRefreshing(false);
             }
+
         });
 
         return root;
@@ -337,6 +345,7 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
                     }
                 }
             }
+
         } else if (("0").equals(pollResponse.getSuccess()) && page == 1) {
             //visible
             noUserPoll.setVisibility(View.VISIBLE);

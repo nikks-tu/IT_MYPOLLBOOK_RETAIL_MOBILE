@@ -107,6 +107,8 @@ public class GroupsFragment extends Fragment implements GroupPolls.GroupPollOnFr
                // Toast.makeText(mContext, ""+groupId, Toast.LENGTH_SHORT).show();
                 MApplication.setString(mContext, Constants.GET_GROUP_POLL_ID, String.valueOf(groupId));
                 MApplication.setString(mContext, Constants.GET_GROUP_NAME, String.valueOf(groupName));
+
+
                 imageChangeFragment(new GroupPolls(), groupsList.get(position).getGroupId());
 
             }

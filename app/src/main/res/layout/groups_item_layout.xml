@@ -7,16 +7,18 @@
     android:padding="@dimen/margin_two">
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal">
+
 
         <com.contusfly.views.CircularImageView
             android:layout_width="50dp"
             android:id="@+id/iv_group_icon"
             android:src="@drawable/no_image"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_height="50dp"
             android:layout_margin="@dimen/margin_two"/>
         <LinearLayout
@@ -26,6 +28,7 @@
             android:layout_gravity="start"
             android:gravity="start"
             android:layout_marginLeft="@dimen/margin_five">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -49,7 +52,16 @@
                 android:visibility="gone"
                 android:textSize="@dimen/activity_textSize_small_14"
                 android:id="@+id/tv_contact_num" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:background="#757575"
+                android:layout_marginTop="5dp"
+                android:layout_height="0.5dp"
+                ></View>
         </LinearLayout>
+
 
     </LinearLayout>
     <ImageView
@@ -57,6 +69,7 @@
         android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/iv_arrow"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_height="match_parent"

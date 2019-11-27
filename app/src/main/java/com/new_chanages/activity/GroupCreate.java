@@ -267,7 +267,7 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
                         if( jsonObject.get("success").getAsString().equals("1"))
                         {
                             Toast.makeText(mContext, "Group updated successfully!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(mContext, MenuActivity.class);
+                            Intent intent = new Intent(mContext, GroupsFragment.class);
                             startActivity(intent);
 
                        /*     edt_group_name.setText(resultObject.get("group_name").getAsString());
@@ -432,7 +432,7 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
                    if( jsonObject.get("success").getAsString().equals("1"))
                    {
                        Toast.makeText(mContext, "Group created successfully!", Toast.LENGTH_SHORT).show();
-                       Intent intent = new Intent(mContext, MenuActivity.class);
+                       Intent intent = new Intent(mContext, GroupsFragment.class);
                        startActivity(intent);
                    }
                    else {

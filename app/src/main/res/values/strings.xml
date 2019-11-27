@@ -109,7 +109,7 @@
     <string name="txt_group_created" translatable="false">Created Group</string>
     <string name="txt_add_group_member" translatable="false">ADD GROUP PARTICIPANTS</string>
     <string name="txt_broadcast_msg" translatable="false">New broadcast</string>
-    <string name="txt_new_group" translatable="false">New Group</string>
+    <string name="txt_new_group" translatable="false">Group Info</string>
     <string name="txt_new_msg" translatable="false">New Message</string>
     <string name="txt_participants" translatable="false">Participants</string>
     <string name="text_block" translatable="false">Block</string>
@@ -593,7 +593,7 @@
     <string name="enter_group_name" translatable="false">Enter Group Name</string>
     <string name="add_participants" translatable="false">Add participants</string>
     <string name="invite_via_link" translatable="false">Invite via link</string>
-    <string name="group_members" translatable="false">Group Members</string>
+    <string name="group_members" translatable="false">Participants</string>
     <string name="select_contacts">Select Contacts</string>
     <string-array name="default_status_values">
         <item>At the movies</item>

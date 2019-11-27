@@ -94,6 +94,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
     String group_id="";
     //uri image capture
     Uri mImageCaptureUri;
+    int is_image_present=0;
     //image file uri
     private Uri imageFileUri;
     //file path
@@ -253,7 +254,12 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
         tv_add_participant.setVisibility(View.VISIBLE);
         tv_add_participant.setEnabled(true);
         iv_edit.setVisibility(View.GONE);
-        imgCancel.setVisibility(View.VISIBLE);
+        if(is_image_present==1){
+            imgCancel.setVisibility(View.VISIBLE);
+        }else{
+            imgCancel.setVisibility(View.GONE);
+        }
+
         iv_group_icon.setEnabled(true);
 
 
@@ -379,6 +385,9 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                        editor.putString("group_names",resultObject.get("group_name").getAsString()); // Storing string
                        editor.commit();
                        String image = resultObject.get("group_image").getAsString();
+                       if(image.contains("PROFILES")){
+                           is_image_present=1;
+                       }
                        Utils.loadImageWithGlideSingleImageRounderCorner(getApplicationContext(), image, iv_group_icon, R.drawable.img_ic_user);
                        contactList = new ArrayList<>();
                        JsonArray contactArray = resultObject.get("contacts").getAsJsonArray();
