@@ -336,7 +336,11 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                     JsonObject jsonObject = response.body().getAsJsonObject();
                    if( jsonObject.get("success").getAsString().equals("1"))
                    {
+
                        Toast.makeText(mContext, "Details Updated successfully!", Toast.LENGTH_SHORT).show();
+                       Intent returnIntent = new Intent();
+                       returnIntent.putExtra("result",result);
+                       setResult(Activity.RESULT_OK,returnIntent);
                        finish();
                    }
                    else {

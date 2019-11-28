@@ -17,15 +17,19 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.contusfly.MApplication;
 import com.contusfly.chooseContactsDb.DatabaseHelper;
+import com.contusfly.model.MDatabaseHelper;
 import com.contusfly.model.Rosters;
 import com.contusfly.utils.Constants;
 import com.contusfly.utils.Utils;
+import com.google.gson.JsonElement;
+import com.new_chanages.SendEvent;
 import com.new_chanages.activity.AllContactsActivity;
 import com.new_chanages.models.ContactModel;
 import com.polls.polls.R;
@@ -34,6 +38,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+
+import retrofit2.Callback;
 
 /**
  * The Class AdapterGroupUsers.
@@ -49,7 +55,7 @@ public class AddGroupContactsAdapter extends BaseAdapter {
 
     /** The rosters list. */
     private List<ContactModel> contactList;
-
+    MDatabaseHelper dbHelper;
     /** The holder. */
     private ViewHolder holder;
 
@@ -60,16 +66,21 @@ public class AddGroupContactsAdapter extends BaseAdapter {
     private String userName, adminUser;
 
     int selectedPostion = -1;
+    SendEvent event;
 
     /**
      * Instantiates a new adapter group users.
      * @param context the context
      */
-    public AddGroupContactsAdapter(Context context, ArrayList<ContactModel> contactList) {
+    public AddGroupContactsAdapter(SendEvent event,Context context, ArrayList<ContactModel> contactList) {
         this.context = context;
         this.contactList = contactList;
         this.arrayList = new ArrayList<ContactModel>();
         arrayList.addAll(contactList);
+        this.event=event;
+          dbHelper   = new MDatabaseHelper(context);
+
+
 
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -78,46 +89,36 @@ public class AddGroupContactsAdapter extends BaseAdapter {
     }
 
 
+
+
     public void setData(ArrayList<ContactModel> contactList) {
         Log.e("rostersList",contactList.size()+"");
         this.contactList = contactList;
 
     }
-    /**
-     * (non-Javadoc)
-     * 
-     * @see android.widget.Adapter#getCount()
-     */
+
+
     @Override
     public int getCount() {
         return contactList.size();
     }
-    /**
-     * (non-Javadoc)
-     * 
-     * @see android.widget.Adapter#getItem(int)
-     */
+
+
     @Override
     public ContactModel getItem(int position) {
         return contactList.get(position);
     }
-    /**
-     * (non-Javadoc)
-     * 
-     * @see android.widget.Adapter#getItemId(int)
-     */
+
+
     @Override
     public long getItemId(int position) {
         return 0;
     }
-    /*
-     * (non-Javadoc)
-     * 
-     * @see android.widget.Adapter#getView(int, android.view.View,
-     * android.view.ViewGroup)
-     */
+
+
+
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, final View convertView, ViewGroup parent) {
 
         View view = convertView;
         try {
@@ -130,6 +131,7 @@ public class AddGroupContactsAdapter extends BaseAdapter {
                 holder = new ViewHolder();
                 view = inflater.inflate(R.layout.row_add_group_contact, null);
                 holder.txt_number =  view.findViewById(R.id.txt_number);
+                holder.root=view.findViewById(R.id.root);
                 holder.txtStatus =  view.findViewById(R.id.txt_user_status);
                 holder.iv_profile =  view.findViewById(R.id.iv_profile);
                 holder.checkbox_user =  view.findViewById(R.id.checkbox_user);
@@ -137,11 +139,12 @@ public class AddGroupContactsAdapter extends BaseAdapter {
                 view.setTag(holder);
             } else {
                 holder = (ViewHolder) view.getTag();
-                holder.checkbox_user.setOnCheckedChangeListener(null);
+               // holder.checkbox_user.setOnCheckedChangeListener(null);
             }
+
             selectedPostion = position;
 
-            if(item.getIsContactSelected().equalsIgnoreCase("1"))
+           /* if(item.getIsContactSelected().equalsIgnoreCase("1"))
             {
                 holder.checkbox_user.setChecked(true);
             }
@@ -149,13 +152,54 @@ public class AddGroupContactsAdapter extends BaseAdapter {
             {
                 holder.checkbox_user.setChecked(false);
             }
-
+*/
             holder.txt_number.setText(item.getContactName());
-            holder.checkbox_user.setFocusable(false);
+
             if(!item.getContactPic().equals(""))
             {
                 Utils.loadImageWithGlide(mApplication, contactList.get(position).getContactPic().replaceAll(" ", "%20"), holder.iv_profile, R.drawable.img_ic_user);
             }
+
+
+
+
+
+            holder.root.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if(contactList.get(position).getIsContactSelected().equals("TRUE")){
+                        contactList.get(position).setIsContactSelected("FALSE");
+                        dbHelper.deleteContactFromSelected(contactList.get(position).getContactNumber());
+
+                    }
+                    else{
+                        contactList.get(position).setIsContactSelected("TRUE");
+
+                        dbHelper.addContactToSelected(contactList.get(position).getContactName(),
+                                contactList.get(position).getContactNumber(), "true",
+                                contactList.get(position).getContactPic(),
+                                contactList.get(position).getContactMPBName(),"true");
+                    }
+
+
+                 notifyDataSetChanged();
+                    event.update(contactList.get(position).getContactNumber(),0);
+
+                }
+            });
+
+            if(contactList.get(position).getIsContactSelected().equals("TRUE")){
+                holder.checkbox_user.setChecked(true);
+            }else {
+                holder.checkbox_user.setChecked(false);
+
+            }
+
+
+
+
+
 
            /* if(item.getContactSelected().equals("false"))
             {
@@ -167,7 +211,7 @@ public class AddGroupContactsAdapter extends BaseAdapter {
 
 
             // holder.checkbox_user.setChecked(false);
-            holder.tv_add.setOnClickListener(new View.OnClickListener() {
+    /*        holder.tv_add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(holder.tv_add.getText().equals("ADD"))
@@ -179,9 +223,9 @@ public class AddGroupContactsAdapter extends BaseAdapter {
                            }
                 }
             });
-
+*/
             //holder.checkbox_user.setChecked(false);
-            holder.checkbox_user.setEnabled(false);
+         //   holder.checkbox_user.setEnabled(false);
 
           /*  holder.checkbox_user.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -214,10 +258,13 @@ public class AddGroupContactsAdapter extends BaseAdapter {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+
         return view;
 
     }
 
+    // Search Contact
     public void filter(String charText){
         charText = charText.toLowerCase(Locale.getDefault());
 
@@ -247,6 +294,7 @@ public class AddGroupContactsAdapter extends BaseAdapter {
         /** The img roster. */
         ImageView iv_profile;
         TextView tv_add;
+        LinearLayout root;
         CheckBox checkbox_user;
     }
 

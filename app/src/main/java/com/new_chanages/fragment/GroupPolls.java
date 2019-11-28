@@ -155,7 +155,7 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
 
         edit_group.setVisibility(View.VISIBLE);
 
-        serviceCall();
+
         //validateAppVersion();
 
         //showVersionPopup();
@@ -362,6 +362,8 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
     public void onResume() {
         super.onResume();
         //If adapter is not null
+
+        serviceCall();
         if (groupPollCustomAdapter != null) {
             //adapter notify data set changed
             groupPollCustomAdapter.notifyDataSetChanged();

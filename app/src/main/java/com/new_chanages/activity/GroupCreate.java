@@ -267,8 +267,11 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
                         if( jsonObject.get("success").getAsString().equals("1"))
                         {
                             Toast.makeText(mContext, "Group updated successfully!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(mContext, GroupsFragment.class);
-                            startActivity(intent);
+
+                            Intent returnIntent = new Intent();
+                            returnIntent.putExtra("result",result);
+                            setResult(Activity.RESULT_OK,returnIntent);
+                            finish();
 
                        /*     edt_group_name.setText(resultObject.get("group_name").getAsString());
                             String image = resultObject.get("group_image").getAsString();
@@ -360,8 +363,9 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
                   //  contacts = contacts +","+ contactList.get(i).getContactNumber();
                 }
             }
+
+
         }
-        //contacts = MApplication.getString(mContext, Constants.CONTACT_LIST);
     }
 
     /**
@@ -423,6 +427,14 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
 
         GroupsApiInterface service = retrofit.create(GroupsApiInterface.class);
 
+        String contact = MApplication.getString(mContext, Constants.PHONE_NUMBER);
+
+        if(contact.contains("+")){
+            contacts=  contacts +","+  contact.substring(3);
+        }else{
+            contacts=  contacts +","+  contact;
+        }
+
         Call<JsonElement> call = service.createGroup(new GetGroupsPostParameters(createGroupAction, group_creater, group_name, group_image, contacts, group_id));
         call.enqueue(new Callback<JsonElement>() {
             @Override
@@ -432,8 +444,11 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
                    if( jsonObject.get("success").getAsString().equals("1"))
                    {
                        Toast.makeText(mContext, "Group created successfully!", Toast.LENGTH_SHORT).show();
-                       Intent intent = new Intent(mContext, GroupsFragment.class);
-                       startActivity(intent);
+                       Intent returnIntent = new Intent();
+                       returnIntent.putExtra("result",result);
+                       setResult(Activity.RESULT_OK,returnIntent);
+                       finish();
+
                    }
                    else {
                        Toast.makeText(mContext, jsonObject.get("msg").getAsString(), Toast.LENGTH_SHORT).show();

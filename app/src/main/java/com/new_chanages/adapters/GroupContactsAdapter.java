@@ -96,6 +96,8 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
             @Override
             public void onClick(View v) {
               String  group_id = MApplication.getString(context, Constants.GET_GROUP_POLL_ID);
+
+
                 deleteservice(position,arrayList.get(position).getMobile_number(),group_id);
                 //arrayList.remove(position);
                 //notifyDataSetChanged();

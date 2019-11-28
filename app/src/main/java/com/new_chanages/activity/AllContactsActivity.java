@@ -1,16 +1,14 @@
 package com.new_chanages.activity;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.Handler;
 import android.provider.ContactsContract;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,33 +17,28 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.contus.app.Constants;
 import com.contusfly.MApplication;
-import com.contusfly.chooseContactsDb.DatabaseHelper;
+import com.contusfly.model.Contact;
 import com.contusfly.model.MDatabaseHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.new_chanages.SendEvent;
 import com.new_chanages.adapters.AddGroupContactsAdapter;
 import com.new_chanages.adapters.SelectedContactsAdapter;
 import com.new_chanages.api_interface.GroupsApiInterface;
-import com.new_chanages.listeners.RecyclerItemClickListener;
 import com.new_chanages.models.ContactModel;
+import com.new_chanages.models.Results;
 import com.new_chanages.postParameters.GetGroupsPostParameters;
 import com.polls.polls.R;
 
@@ -58,13 +51,14 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class AllContactsActivity extends AppCompatActivity  {
+public class AllContactsActivity extends AppCompatActivity implements SendEvent {
 
     ListView lv_contacts;
     Context mContext;
     ImageView iv_back, iv_save;
     FloatingActionButton fab_next;
     ArrayList<ContactModel> contactList;
+    MDatabaseHelper db;
     SearchView searchView;
     ArrayList<ContactModel> selectedContactList;
     ArrayList<ContactModel> myPollBookContactList;
@@ -152,11 +146,13 @@ public class AllContactsActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, GroupCreate.class);
-                startActivity(intent);
+                startActivityForResult(intent,2128);
             }
         });
 
-        rcv_selected_contacts.addOnItemTouchListener(new RecyclerItemClickListener(mContext, rcv_selected_contacts, new RecyclerItemClickListener.OnItemClickListener() {
+
+
+/*        rcv_selected_contacts.addOnItemTouchListener(new RecyclerItemClickListener(mContext, rcv_selected_contacts, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText(mContext, "Deleted", Toast.LENGTH_SHORT).show();
@@ -177,14 +173,12 @@ public class AllContactsActivity extends AppCompatActivity  {
                     rcv_selected_contacts.setVisibility(View.GONE);
                 }
 
-
-
             }
             @Override
             public void onLongItemClick(View view, int position) {
 
             }
-        }));
+        }));*/
 
 
 
@@ -229,7 +223,7 @@ public class AllContactsActivity extends AppCompatActivity  {
 
 
 
-
+/*
         lv_contacts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -277,7 +271,7 @@ public class AllContactsActivity extends AppCompatActivity  {
                     }
                 }
             }
-        });
+        });*/
     }
 
     private void initialize() {
@@ -287,13 +281,15 @@ public class AllContactsActivity extends AppCompatActivity  {
         iv_save = findViewById(R.id.iv_save);
         progressBar=findViewById(R.id.progressbar);
         title=findViewById(R.id.tv_title);
+        rcv_selected_contacts = findViewById(R.id.rcv_selected_contacts);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(mContext,  LinearLayoutManager.HORIZONTAL, false);
+        rcv_selected_contacts.setLayoutManager(layoutManager);
         fab_next = findViewById(R.id.fab_next);
         searchView=findViewById(R.id.search_view);
-        rcv_selected_contacts = findViewById(R.id.rcv_selected_contacts);
         existingContacts = new ArrayList<>();
         contactList = new ArrayList<>();
         selectedContactList = new ArrayList<>();
-        MDatabaseHelper db = new MDatabaseHelper(mContext);
+       db = new MDatabaseHelper(mContext);
 
 
         //Search view
@@ -307,6 +303,21 @@ public class AllContactsActivity extends AppCompatActivity  {
         //db.deleteSelectedContacts();
         db.deleteContactList();
         db.close();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        if (requestCode == 2128) {
+            if(resultCode == Activity.RESULT_OK){
+                String result=data.getStringExtra("result");
+                finish();
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -440,9 +451,9 @@ public class AllContactsActivity extends AppCompatActivity  {
                                             myPollBookContactList.add(model);
                                         }
                                     }
+                                    dbHelper.deleteSelectedContacts();
                                     dbHelper.close();
-                                    contactsAdapter = new AddGroupContactsAdapter(mContext, myPollBookContactList);
-                                    lv_contacts.setAdapter(contactsAdapter);
+                                 setadapter();
                                 }
                             }
                             else {
@@ -481,8 +492,9 @@ public class AllContactsActivity extends AppCompatActivity  {
                                    }
                                }
                                 if (myPollBookContactList.size() > 0) {
-                                    contactsAdapter = new AddGroupContactsAdapter(mContext, myPollBookContactList);
-                                    lv_contacts.setAdapter(contactsAdapter);
+
+                                    setadapter();
+
                                 }
                             }
 
@@ -512,9 +524,14 @@ public class AllContactsActivity extends AppCompatActivity  {
             }
         });
 
+
+
     }
 
-
+    private void setadapter() {
+        contactsAdapter = new AddGroupContactsAdapter(this,AllContactsActivity.this, myPollBookContactList);
+        lv_contacts.setAdapter(contactsAdapter);
+    }
 
 
     class AysncTask extends AsyncTask<String,String,String>{
@@ -542,6 +559,40 @@ public class AllContactsActivity extends AppCompatActivity  {
         }
     }
 
+
+    public void update(String phonenumber, int i){
+        ArrayList<ContactModel> list = new ArrayList<>();
+
+
+        if(i==0) {
+            for (ContactModel obj : myPollBookContactList) {
+                if (obj.getIsContactSelected().equals("TRUE")) {
+                    list.add(obj);
+                }
+
+            }
+
+            rcv_selected_contacts.setVisibility(View.VISIBLE);
+            selectedContactsAdapter = new SelectedContactsAdapter(this, AllContactsActivity.this, list);
+            rcv_selected_contacts.setAdapter(selectedContactsAdapter);
+        }
+        if( i==1)
+        {
+            for (ContactModel obj : myPollBookContactList) {
+                if (phonenumber.equalsIgnoreCase(obj.getContactNumber())) {
+                    obj.setIsContactSelected("FALSE");
+                    db.deleteContactFromSelected(obj.getContactNumber());
+
+                }
+            }
+            setadapter();
+
+        }
+
+
+
+
+    }
 
 }
 
