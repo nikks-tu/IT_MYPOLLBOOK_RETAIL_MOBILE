@@ -171,10 +171,14 @@ public class AllContactsActivity extends AppCompatActivity  {
                     selectedContactsAdapter = new SelectedContactsAdapter(mContext, selectedContactList);
                     rcv_selected_contacts.setLayoutManager(layoutManager);
                     rcv_selected_contacts.setAdapter(selectedContactsAdapter);
+
                 }
                 else {
                     rcv_selected_contacts.setVisibility(View.GONE);
                 }
+
+
+
             }
             @Override
             public void onLongItemClick(View view, int position) {
@@ -438,7 +442,6 @@ public class AllContactsActivity extends AppCompatActivity  {
                                     }
                                     dbHelper.close();
                                     contactsAdapter = new AddGroupContactsAdapter(mContext, myPollBookContactList);
-
                                     lv_contacts.setAdapter(contactsAdapter);
                                 }
                             }

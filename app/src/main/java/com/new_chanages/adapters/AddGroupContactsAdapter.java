@@ -141,6 +141,15 @@ public class AddGroupContactsAdapter extends BaseAdapter {
             }
             selectedPostion = position;
 
+            if(item.getIsContactSelected().equalsIgnoreCase("1"))
+            {
+                holder.checkbox_user.setChecked(true);
+            }
+            else
+            {
+                holder.checkbox_user.setChecked(false);
+            }
+
             holder.txt_number.setText(item.getContactName());
             holder.checkbox_user.setFocusable(false);
             if(!item.getContactPic().equals(""))
