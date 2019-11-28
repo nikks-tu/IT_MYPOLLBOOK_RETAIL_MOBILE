@@ -51,7 +51,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.new_chanages.adapters.GroupContactsAdapter;
 import com.new_chanages.api_interface.GroupsApiInterface;
-import com.new_chanages.models.AddContactsToGroup;
 import com.new_chanages.models.AppVersionPostParameters;
 import com.new_chanages.models.ContactDetailsModel;
 import com.new_chanages.postParameters.GetGroupsPostParameters;
@@ -125,6 +124,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
     String checkContactAction="existingcontactsapi";
     SharedPreferences pref;
     SharedPreferences.Editor editor;
+    String created_by="";
 
 
     @Override
@@ -144,6 +144,8 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                 finish();
             }
         });
+
+
 
         if(Build.VERSION.SDK_INT>=24){
             try{
@@ -385,6 +387,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                        editor.putString("group_names",resultObject.get("group_name").getAsString()); // Storing string
                        editor.commit();
                        String image = resultObject.get("group_image").getAsString();
+                        created_by = resultObject.get("created_by").getAsString();
                        if(image.contains("PROFILES")){
                            is_image_present=1;
                        }
@@ -397,6 +400,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                            ContactDetailsModel model = new ContactDetailsModel();
                            model.setCountry_code(object.get("country_code").getAsString());
                            model.setName(object.get("name").getAsString());
+                           model.setId(object.get("id").getAsString());
 
                            model.setMobile_number(object.get("mobile_number").getAsString());
                            model.setProfile_image(object.get("profile_image").getAsString());
@@ -419,7 +423,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                            }
                            db.close();
                            tv_members_count.setText(String.valueOf(contactList.size()));
-                           contactsAdapter = new GroupContactsAdapter(mContext, contactList);
+                           contactsAdapter = new GroupContactsAdapter(mContext, contactList,created_by);
                            group_member_recyclr_view.setAdapter(contactsAdapter);
                        }
                       // Toast.makeText(mContext, contacts, Toast.LENGTH_SHORT).show();
@@ -824,6 +828,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                     JsonObject jsonObject = response.body().getAsJsonObject();
                     if( jsonObject.get("success").getAsString().equals("1"))
                     {
+                        String userId = MApplication.getString(getApplicationContext(), Constants.USER_ID);
                         JsonArray result = jsonObject.get("results").getAsJsonArray();
                         contactList = new ArrayList<>();
                         for (int i=0; i<result.size(); i++)
@@ -834,12 +839,13 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                             model.setName(object.get("name").getAsString());
                             model.setMobile_number(object.get("mobile_number").getAsString());
                             model.setProfile_image(object.get("profile_image").getAsString());
+                            model.setId(userId);
                             contactList.add(model);
                         }
                         if(contactList.size()>0)
                         {
                             tv_members_count.setText(String.valueOf(contactList.size()));
-                            contactsAdapter = new GroupContactsAdapter(mContext, contactList);
+                            contactsAdapter = new GroupContactsAdapter(mContext, contactList, created_by);
                             group_member_recyclr_view.setAdapter(contactsAdapter);
                         }
                     }

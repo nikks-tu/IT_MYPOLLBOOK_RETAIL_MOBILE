@@ -12,7 +12,6 @@ import android.widget.Toast;
 import com.contus.app.Constants;
 import com.contusfly.MApplication;
 import com.contusfly.utils.Utils;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.new_chanages.api_interface.GroupsApiInterface;
@@ -34,10 +33,12 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
     private ArrayList<ContactDetailsModel> arrayList;
     private Context context;
     private GroupNameRCVHolder listHolder;
+    String created_by;
 
-    public GroupContactsAdapter(Context context, ArrayList<ContactDetailsModel> arrayList) {
+    public GroupContactsAdapter(Context context, ArrayList<ContactDetailsModel> arrayList, String created_by) {
         this.context = context;
         this.arrayList = arrayList;
+        this.created_by=created_by;
     }
 
     @Override
@@ -62,6 +63,33 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
         if(imageUrl!=null && !imageUrl.equals(""))
         {
             Utils.loadImageWithGlideSingleImageRounderCorner(context, imageUrl, holder.iv_group_icon, R.drawable.img_ic_user);
+        }
+
+        String userId = MApplication.getString(context, Constants.USER_ID);
+
+        if(created_by.equalsIgnoreCase(userId))
+        {
+            holder.iv_arrow.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            String id =model.getId();
+            if(id!=null&&id.length()>0)
+            {
+                if(userId.equalsIgnoreCase(id))
+                {
+                    holder.iv_arrow.setVisibility(View.VISIBLE);
+                }
+                else {
+                    holder.iv_arrow.setVisibility(View.GONE);
+                }
+            }
+            else
+            {
+                holder.iv_arrow.setVisibility(View.GONE);
+            }
+
+
         }
 
         holder.iv_arrow.setOnClickListener(new View.OnClickListener() {

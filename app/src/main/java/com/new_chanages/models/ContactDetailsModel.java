@@ -2,21 +2,30 @@ package com.new_chanages.models;
 
 public class ContactDetailsModel {
     String name;
+    String id;
 
     public ContactDetailsModel() {
     }
 
     String mobile_number;
 
-    public ContactDetailsModel(String name, String mobile_number, String country_code, String profile_image) {
+    public ContactDetailsModel(String name, String mobile_number, String country_code, String profile_image,String id) {
         this.name = name;
         this.mobile_number = mobile_number;
         this.country_code = country_code;
         this.profile_image = profile_image;
+        this.id=id;
     }
 
     String country_code;
     String profile_image;
+
+    public  String getId(){return id;}
+
+    public  void setId(String id)
+    {
+        this.id=id;
+    }
 
     public String getName() {
         return name;

@@ -533,7 +533,7 @@ public class AllContactsActivity extends AppCompatActivity  {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            //progressBar.setVisibility(View.INVISIBLE);
+            progressBar.setVisibility(View.INVISIBLE);
 
             serviceCall();
         }
