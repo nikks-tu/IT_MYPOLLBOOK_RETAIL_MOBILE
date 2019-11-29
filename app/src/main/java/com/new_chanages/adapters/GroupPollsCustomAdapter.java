@@ -512,6 +512,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
             holderUserView4.imgProfileYouTubeUrlUserPoll =  mMyPollsView.findViewById(R.id.imgProfile);
             holderUserView4.categoryImageViewFourth =  mMyPollsView.findViewById(R.id.imgCategory);
             holderUserView4.imgShareYouTubeUrlUserPoll =  mMyPollsView.findViewById(R.id.imgShare);
+
             //Binding the data into the views in android
             validateViewLayoutFour(holderUserView4, position);
         }
@@ -1561,6 +1562,8 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
                         Constants.USER_POLL_PARTICIPATE_COUNT_SIZE);
         //If the array has 1,then the radio options is set checked as true
         //else it is set as false
+
+        holderUserView4.imgShareYouTubeUrlUserPoll.setVisibility(View.GONE);
         if (preferenceUserPollLikeUser.get(position).equals(1)) {
             holder.likeUnlikeYouTubeUrlUserPoll.setChecked(true);
         } else {
@@ -1768,6 +1771,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
         });
         //Interface definition for a callback to be invoked when a view is clicked.
         holder.txtVideoUrlCountYouTubeUrlUserPoll.setOnClickListener(mParticipateCounts);
+
         holder.imgShareYouTubeUrlUserPoll.setOnClickListener(mShareClickAction);
         holder.txtLikeYouTubeUrlUserPoll.setOnClickListener(mLikeUnlikeCheckBox);
         holder.txtCommentsYouTubeUrlUserPoll.setOnClickListener(mCommentClickAction);

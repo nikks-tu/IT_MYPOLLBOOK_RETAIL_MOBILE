@@ -561,13 +561,12 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
                         mImageCaptureUri = data.getData();
                         String url = Objects.requireNonNull(data.getData()).toString();
                         //file path
- if(url.startsWith("content://com.google.android.apps.photos.content")) {
+                       if(url.startsWith("content://com.google.android.apps.photos.content")) {
                         filepath=new File(MApplication.getPath(mImageCaptureUri, mContext));
                         }
                         else {
-
                         filepath = new File(MApplication.getPath(this, mImageCaptureUri));
- }
+                          }
 
                     } catch (URISyntaxException e) {
                         Log.e("", "", e);

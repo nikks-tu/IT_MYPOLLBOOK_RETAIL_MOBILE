@@ -67,8 +67,11 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
 
         String userId = MApplication.getString(context, Constants.USER_ID);
 
+
+
         if(created_by.equalsIgnoreCase(userId))
         {
+
             holder.iv_arrow.setVisibility(View.VISIBLE);
         }
         else
@@ -78,6 +81,7 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
             {
                 if(userId.equalsIgnoreCase(id))
                 {
+                    holder.iv_arrow.setImageResource(R.drawable.exit_app);
                     holder.iv_arrow.setVisibility(View.VISIBLE);
                 }
                 else {
@@ -92,11 +96,18 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
 
         }
 
+        if(userId.equals(model.getId())){
+            holder.group_admin.setVisibility(View.VISIBLE);
+            holder.iv_arrow.setVisibility(View.GONE);
+        }else {
+            //holder.group_admin.setVisibility(View.VISIBLE);
+        }
+
+
         holder.iv_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
               String  group_id = MApplication.getString(context, Constants.GET_GROUP_POLL_ID);
-
 
                 deleteservice(position,arrayList.get(position).getMobile_number(),group_id);
                 //arrayList.remove(position);
@@ -131,8 +142,18 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
                         Toast toast = Toast.makeText(context , "Contact removed Successfully", Toast.LENGTH_LONG);
                         toast.show();
 
-                        arrayList.remove(position);
-                        notifyDataSetChanged();
+
+
+                       try
+                       {
+                           arrayList.remove(position);
+                           notifyDataSetChanged();
+                       }
+                       catch (Exception ae)
+                       {
+                           ae.printStackTrace();
+                       }
+
 
 
                 }else {

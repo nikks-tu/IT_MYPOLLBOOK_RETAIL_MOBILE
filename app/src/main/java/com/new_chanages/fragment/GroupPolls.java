@@ -109,6 +109,7 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
         listUserPolls =  root.findViewById(R.id.listView);
         footerView = ((LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.empty_footer, null, false);
         mAdView =  root.findViewById(R.id.adView);
+        context =getContext();
         userPollGoogleNow =  root.findViewById(R.id.google_now);
         internetConnection =  root.findViewById(R.id.internetConnection);
         relativeList =  root.findViewById(R.id.list);
@@ -164,8 +165,13 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
         edit_group.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), EditGroupActivity.class);
-                startActivity(intent);
+
+                if(context!=null)
+                {
+                    Intent intent = new Intent(getActivity(), EditGroupActivity.class);
+                    context.startActivity(intent);
+                }
+
             }
         });
         btnRetryUserPoll.setOnClickListener(new View.OnClickListener() {
@@ -180,15 +186,14 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                if (mListener != null) {
-                    mListener.OnUserPollFragment("", "");
 
-
-                }  //my poll request
+                serviceCall();
                 mSwipeRefreshLayout.setRefreshing(false);
             }
 
         });
+
+        serviceCall();
 
         return root;
     }
@@ -363,7 +368,7 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
         super.onResume();
         //If adapter is not null
 
-        serviceCall();
+       // serviceCall();
         if (groupPollCustomAdapter != null) {
             //adapter notify data set changed
             groupPollCustomAdapter.notifyDataSetChanged();
