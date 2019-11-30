@@ -406,8 +406,10 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
             holderUserView1.txtNameYesOrNoPoll =  mMyPollsView.findViewById(R.id.txtName);
             holderUserView1.txtTimeYesOrNoPoll =  mMyPollsView.findViewById(R.id.txtTime);
             holderUserView1.txtCategoryYesOrNoPoll =  mMyPollsView.findViewById(R.id.txtCategory);
-            holderUserView1.imgProfileYesOrNoPoll =  mMyPollsView.findViewById(R.id.imgProfile);
             holderUserView1.imgShareYesOrNoUserPoll =  mMyPollsView.findViewById(R.id.imgShare);
+            holderUserView1.imgShareYesOrNoUserPoll.setVisibility(View.GONE);
+            holderUserView1.imgProfileYesOrNoPoll =  mMyPollsView.findViewById(R.id.imgProfile);
+
             //Binding the data into the views in android
             validateViewLayoutOne(holderUserView1, position);
             //If the value matches the the layout one view is bind.

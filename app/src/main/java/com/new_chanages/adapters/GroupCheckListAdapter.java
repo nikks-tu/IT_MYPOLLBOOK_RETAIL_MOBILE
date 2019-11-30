@@ -71,15 +71,21 @@ public class GroupCheckListAdapter extends ArrayAdapter<GroupsNameObject> {
         } else {
             holder = (ViewHolder) mViews.getTag();
         }
-        GroupsNameObject model = groupList.get(position);
+        final GroupsNameObject model = groupList.get(position);
 
         holder.tv_group_name.setText(model.getGroupName());
-        holder.cb_group_selected.setChecked(false);
+
+
+
+
+
+
         holder.cb_group_selected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(!buttonView.isChecked())
                 {
+                    model.setGroupStatus("FALSE");
                     DatabaseHelper dbHelper = new DatabaseHelper(context);
                     dbHelper.deleteGroupFromList(String.valueOf(groupList.get(position).getGroupId()));
                     //Toast.makeText(context, "Test "+dbHelper.GetGroupListSize(), Toast.LENGTH_SHORT).show();
@@ -87,6 +93,7 @@ public class GroupCheckListAdapter extends ArrayAdapter<GroupsNameObject> {
                     //Toast.makeText(context, "Test "+position, Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    model.setGroupStatus("TRUE");
                     DatabaseHelper dbHelper = new DatabaseHelper(context);
                     dbHelper.addGroupsToList(groupList.get(position).getGroupName(), String.valueOf(groupList.get(position).getGroupId()), "true");
                     //Toast.makeText(context, "Test "+dbHelper.GetGroupListSize(), Toast.LENGTH_SHORT).show();
@@ -97,6 +104,22 @@ public class GroupCheckListAdapter extends ArrayAdapter<GroupsNameObject> {
             }
         });
 
+
+
+
+
+
+// Newly Edited
+        try{
+            if(model.getGroupStatus().equals("TRUE")){
+                holder.cb_group_selected.setChecked(true);
+            }     else {
+                holder.cb_group_selected.setChecked(false);
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
         return mViews;
     }
 

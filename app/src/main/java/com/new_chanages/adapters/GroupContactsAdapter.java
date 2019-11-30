@@ -69,6 +69,7 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
 
 
 
+
         if(created_by.equalsIgnoreCase(userId))
         {
 
@@ -81,6 +82,7 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
             {
                 if(userId.equalsIgnoreCase(id))
                 {
+
                     holder.iv_arrow.setImageResource(R.drawable.exit_app);
                     holder.iv_arrow.setVisibility(View.VISIBLE);
                 }
@@ -95,13 +97,20 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
 
 
         }
+        if (created_by.equals(model.getId())){
+            holder.group_admin.setVisibility(View.VISIBLE);
+            holder.iv_arrow.setVisibility(View.GONE);
 
-        if(userId.equals(model.getId())){
+        }
+
+
+        // FOR USER ADMIN VIEW
+      /*  if(userId.equals(model.getId())){
             holder.group_admin.setVisibility(View.VISIBLE);
             holder.iv_arrow.setVisibility(View.GONE);
         }else {
             //holder.group_admin.setVisibility(View.VISIBLE);
-        }
+        }*/
 
 
         holder.iv_arrow.setOnClickListener(new View.OnClickListener() {

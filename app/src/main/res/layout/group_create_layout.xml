@@ -140,7 +140,7 @@
                 android:drawableLeft="@mipmap/ic_launcher"
                 android:gravity="center_vertical"
                 android:text="@string/add_participants"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
             <View
                 android:id="@+id/line2"

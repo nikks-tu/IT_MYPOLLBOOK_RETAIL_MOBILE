@@ -518,8 +518,8 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
 
             @Override
             public void onFailure(Call<JsonElement> call, Throwable t) {
-                Toast toast = Toast.makeText(mContext , ""+t, Toast.LENGTH_LONG);
-                toast.show();
+               // Toast toast = Toast.makeText(mContext , ""+t, Toast.LENGTH_LONG);
+                //toast.show();
 
             }
         });

@@ -87,6 +87,8 @@ public class GroupsFragment extends Fragment implements GroupPolls.GroupPollOnFr
         pref = getActivity().getSharedPreferences("MyPref", 0); // 0 - for private mode
         editor = pref.edit();
 
+
+
         fragment2 = view.findViewById(R.id.fragment2);
         initialize();
         internetConnection.setVisibility(View.GONE);
@@ -95,6 +97,7 @@ public class GroupsFragment extends Fragment implements GroupPolls.GroupPollOnFr
         /* Progress bar visibility**/
         userPollGoogleNow.setVisibility(View.VISIBLE);
         userPollGoogleNow.progressiveStart();
+
         serviceCallForGroups();
 
 
@@ -198,6 +201,7 @@ public class GroupsFragment extends Fragment implements GroupPolls.GroupPollOnFr
         imgEdit.setVisibility(View.GONE);
         img_add_group.setImageDrawable(mContext.getResources().getDrawable(R.drawable.add_group));
         img_add_group.setVisibility(View.VISIBLE);
+
     }
 
 

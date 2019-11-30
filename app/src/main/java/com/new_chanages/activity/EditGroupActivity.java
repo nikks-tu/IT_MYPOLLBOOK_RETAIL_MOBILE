@@ -357,8 +357,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
 
             @Override
             public void onFailure(Call<JsonElement> call, Throwable t) {
-                Toast toast = Toast.makeText(mContext , ""+t, Toast.LENGTH_LONG);
-                toast.show();
+
 
             }
         });
@@ -446,18 +445,29 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
             }
 
             private void disableViews() {
-                tv_title.setEnabled(false);
-                tv_add_participant.setEnabled(false);
+                imgCancel.setEnabled(true);
+
+
+                /*tv_title.setEnabled(false);
+
                 iv_group_icon.setEnabled(false);
                 imgCancel.setEnabled(false);
                 imgCancel.setVisibility(View.GONE);
                 edt_group_name.setEnabled(false);
+*/
+                if(is_image_present==1){
+                    imgCancel.setVisibility(View.VISIBLE);
+                }else{
+                    imgCancel.setVisibility(View.GONE);
+                }
+
+
             }
 
             @Override
             public void onFailure(Call<JsonElement> call, Throwable t) {
-                Toast toast = Toast.makeText(mContext , ""+t, Toast.LENGTH_LONG);
-                toast.show();
+               // Toast toast = Toast.makeText(mContext , ""+t, Toast.LENGTH_LONG);
+               // toast.show();
 
             }
         });
@@ -687,9 +697,19 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
         iv_back = findViewById(R.id.iv_back);
         iv_save = findViewById(R.id.iv_save);
         iv_edit = findViewById(R.id.iv_edit);
-        iv_edit.setVisibility(View.VISIBLE);
+        iv_edit.setVisibility(View.GONE);
         imgCancel =  findViewById(R.id.imgCancel);
-        iv_save.setVisibility(View.GONE);
+
+        iv_save.setVisibility(View.VISIBLE);
+
+        edt_group_name.setEnabled(true);
+
+        iv_save.setVisibility(View.VISIBLE);
+        tv_add_participant.setVisibility(View.VISIBLE);
+        tv_add_participant.setEnabled(true);
+
+        iv_group_icon.setEnabled(true);
+
         //Uploading an image in S3 bucket
         imageS3Bucket = new ImageUploadS3(getApplicationContext());
         //call back method
@@ -697,7 +717,11 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
         imageS3Bucket.uplodingCallback(this);
         MApplication.setString(mContext, Constants.CONTACT_LIST, "");
         group_id = MApplication.getString(mContext, Constants.GET_GROUP_POLL_ID);
+        imgCancel.setVisibility(View.GONE);
+
         serviceCallForGettingGroupDetails();
+
+
         MDatabaseHelper db = new MDatabaseHelper(mContext);
         db.deleteSelectedContacts();
         db.close();
@@ -867,8 +891,8 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
 
             @Override
             public void onFailure(Call<JsonElement> call, Throwable t) {
-                Toast toast = Toast.makeText(mContext , ""+t, Toast.LENGTH_LONG);
-                toast.show();
+                //Toast toast = Toast.makeText(mContext , ""+t, Toast.LENGTH_LONG);
+                //toast.show();
 
             }
         });

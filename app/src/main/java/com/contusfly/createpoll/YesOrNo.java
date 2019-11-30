@@ -335,6 +335,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
                             });
 
                     builder.setPositiveButton("Create",
+
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -1272,7 +1273,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
         final AlertDialog helpDialog = helpBuilder.create();
         helpDialog.show();
 
-        ListView lv_group_list         =   PopupLayout.findViewById(R.id.lv_group_list);
+        ListView lv_group_list=   PopupLayout.findViewById(R.id.lv_group_list);
         TextView tv_done = PopupLayout.findViewById(R.id.tv_done);
         List mylist = new ArrayList();
         for(int i=0;i<groupsList.size();i++)

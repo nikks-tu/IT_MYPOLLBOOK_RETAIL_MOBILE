@@ -396,7 +396,7 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
         // create itemProfile items
         itemProfile = new ResideMenuItem(this, R.drawable.ic_profile_gray, getResources().getString(R.string.activity_myprofile),false);
         // create edit Groups items
-        itemEditGroups = new ResideMenuItem(this, R.drawable.group, getResources().getString(R.string.activity_create_poll_groups),false);
+       itemEditGroups = new ResideMenuItem(this, R.drawable.group, getResources().getString(R.string.activity_create_poll_groups),false);
 
         // create itemCategories items
         itemCategories = new ResideMenuItem(this, R.drawable.ic_categories_gray, getResources().getString(R.string.activity_mycategory),false);
@@ -427,7 +427,7 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
         itemHome.setOnClickListener(this);
         itemMyPolls.setOnClickListener(this);
         itemProfile.setOnClickListener(this);
-        itemEditGroups.setOnClickListener(this);
+    //    itemEditGroups.setOnClickListener(this);
         itemTop10users.setOnClickListener(this);
         itemCategories.setOnClickListener(this);
         //itemSettings.setOnClickListener(this);
@@ -442,7 +442,7 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
         resideMenu.addMenuItem(itemMyPolls, ResideMenu.DIRECTION_LEFT);
         //Adding home to the menu
         resideMenu.addMenuItem(itemProfile, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemEditGroups, ResideMenu.DIRECTION_LEFT);
+       // resideMenu.addMenuItem(itemEditGroups, ResideMenu.DIRECTION_LEFT);
         //Adding itemCategories to the menu
         resideMenu.addMenuItem(itemCategories, ResideMenu.DIRECTION_LEFT);
         //Adding itemSettings to the menu
@@ -861,6 +861,7 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
             //view gone
             imgSearch.setVisibility(View.GONE);
             //view gone
+
             bDone.setVisibility(View.GONE);
             //view gone
             titleBarLeftMenu1.setVisibility(View.GONE);
