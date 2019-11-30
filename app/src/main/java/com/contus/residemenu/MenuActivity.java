@@ -427,7 +427,7 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
         itemHome.setOnClickListener(this);
         itemMyPolls.setOnClickListener(this);
         itemProfile.setOnClickListener(this);
-    //    itemEditGroups.setOnClickListener(this);
+        itemEditGroups.setOnClickListener(this);
         itemTop10users.setOnClickListener(this);
         itemCategories.setOnClickListener(this);
         //itemSettings.setOnClickListener(this);
@@ -442,7 +442,7 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
         resideMenu.addMenuItem(itemMyPolls, ResideMenu.DIRECTION_LEFT);
         //Adding home to the menu
         resideMenu.addMenuItem(itemProfile, ResideMenu.DIRECTION_LEFT);
-       // resideMenu.addMenuItem(itemEditGroups, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemEditGroups, ResideMenu.DIRECTION_LEFT);
         //Adding itemCategories to the menu
         resideMenu.addMenuItem(itemCategories, ResideMenu.DIRECTION_LEFT);
         //Adding itemSettings to the menu

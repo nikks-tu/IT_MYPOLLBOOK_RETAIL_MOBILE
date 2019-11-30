@@ -238,8 +238,8 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
             }
             @Override
             public void onFailure(Call<GroupPollsMainObject> call, Throwable t) {
-                Toast toast = Toast.makeText(getContext() , ""+t, Toast.LENGTH_LONG);
-                toast.show();
+                //Toast toast = Toast.makeText(getContext() , ""+t, Toast.LENGTH_LONG);
+               // toast.show();
             }
         });
 
