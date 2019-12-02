@@ -72,6 +72,7 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
     String contactToSend="";
     String checkContactAction="existingcontactsapi";
     boolean isEdit = false;
+    TextView norecords_tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -290,6 +291,7 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
         contactList = new ArrayList<>();
         selectedContactList = new ArrayList<>();
        db = new MDatabaseHelper(mContext);
+        norecords_tv =findViewById(R.id.norecords_tv);
 
 
         //Search view
@@ -529,7 +531,7 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
     }
 
     private void setadapter() {
-        contactsAdapter = new AddGroupContactsAdapter(this,AllContactsActivity.this, myPollBookContactList);
+        contactsAdapter = new AddGroupContactsAdapter(this,AllContactsActivity.this, myPollBookContactList,norecords_tv);
         lv_contacts.setAdapter(contactsAdapter);
     }
 

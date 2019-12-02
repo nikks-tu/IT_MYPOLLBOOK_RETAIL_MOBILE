@@ -168,8 +168,15 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
 
                 if(context!=null)
                 {
-                    Intent intent = new Intent(getActivity(), EditGroupActivity.class);
-                    context.startActivity(intent);
+                    try {
+                        Intent intent = new Intent(context, EditGroupActivity.class);
+                        context.startActivity(intent);
+                    }
+                    catch (Exception ae)
+                    {
+                        ae.printStackTrace();
+                    }
+
                 }
 
             }

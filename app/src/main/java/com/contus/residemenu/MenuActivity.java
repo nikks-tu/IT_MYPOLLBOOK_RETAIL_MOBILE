@@ -442,7 +442,7 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
         resideMenu.addMenuItem(itemMyPolls, ResideMenu.DIRECTION_LEFT);
         //Adding home to the menu
         resideMenu.addMenuItem(itemProfile, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemEditGroups, ResideMenu.DIRECTION_LEFT);
+        //resideMenu.addMenuItem(itemEditGroups, ResideMenu.DIRECTION_LEFT);
         //Adding itemCategories to the menu
         resideMenu.addMenuItem(itemCategories, ResideMenu.DIRECTION_LEFT);
         //Adding itemSettings to the menu

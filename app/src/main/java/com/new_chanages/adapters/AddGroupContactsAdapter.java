@@ -67,17 +67,20 @@ public class AddGroupContactsAdapter extends BaseAdapter {
 
     int selectedPostion = -1;
     SendEvent event;
+    TextView norecords_tv;
 
     /**
      * Instantiates a new adapter group users.
      * @param context the context
+     * @param norecords_tv
      */
-    public AddGroupContactsAdapter(SendEvent event,Context context, ArrayList<ContactModel> contactList) {
+    public AddGroupContactsAdapter(SendEvent event, Context context, ArrayList<ContactModel> contactList, TextView norecords_tv) {
         this.context = context;
         this.contactList = contactList;
         this.arrayList = new ArrayList<ContactModel>();
         arrayList.addAll(contactList);
         this.event=event;
+        this.norecords_tv=norecords_tv;
           dbHelper   = new MDatabaseHelper(context);
 
 
@@ -279,6 +282,13 @@ public class AddGroupContactsAdapter extends BaseAdapter {
                     contactList.add(model);
                 }
             }
+        }
+        if(contactList.size()>0)
+        {
+            norecords_tv.setVisibility(View.GONE);
+        }
+        else {
+            norecords_tv.setVisibility(View.VISIBLE);
         }
         notifyDataSetChanged();
     }

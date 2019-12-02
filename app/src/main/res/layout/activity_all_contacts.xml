@@ -89,6 +89,16 @@
 
      </LinearLayout>
 
+     <TextView
+         android:layout_width="wrap_content"
+         android:id="@+id/norecords_tv"
+         android:layout_gravity="center"
+         android:text="No Records Found"
+         android:visibility="gone"
+         android:layout_height="wrap_content">
+
+     </TextView>
+
      <androidx.recyclerview.widget.RecyclerView
          android:layout_width="match_parent"
          android:layout_height="wrap_content"

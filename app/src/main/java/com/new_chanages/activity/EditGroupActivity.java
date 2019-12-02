@@ -380,67 +380,74 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
         call.enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                if(response.body()!=null){
-                    JsonObject jsonObject = response.body().getAsJsonObject();
-                    JsonObject resultObject = jsonObject.get("results").getAsJsonObject();
-                   if( jsonObject.get("success").getAsString().equals("1"))
-                   {
-                       //Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
-                       edt_group_name.setText(resultObject.get("group_name").getAsString());
-                       editor.putString("group_names",resultObject.get("group_name").getAsString()); // Storing string
-                       editor.commit();
-                       String image = resultObject.get("group_image").getAsString();
-                        created_by = resultObject.get("created_by").getAsString();
-                       if(image.contains("PROFILES")){
-                           is_image_present=1;
-                       }
-                       Utils.loadImageWithGlideSingleImageRounderCorner(getApplicationContext(), image, iv_group_icon, R.drawable.img_ic_user);
-                       contactList = new ArrayList<>();
-                       JsonArray contactArray = resultObject.get("contacts").getAsJsonArray();
-                       for (int i=0; i<contactArray.size(); i++)
-                       {
-                           JsonObject object = contactArray.get(i).getAsJsonObject();
-                           ContactDetailsModel model = new ContactDetailsModel();
-                           model.setCountry_code(object.get("country_code").getAsString());
-                           model.setName(object.get("name").getAsString());
-                           model.setId(object.get("id").getAsString());
+                try {
+                    if(response.body()!=null){
+                        JsonObject jsonObject = response.body().getAsJsonObject();
+                        JsonObject resultObject = jsonObject.get("results").getAsJsonObject();
+                        if( jsonObject.get("success").getAsString().equals("1"))
+                        {
+                            //Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
+                            edt_group_name.setText(resultObject.get("group_name").getAsString());
+                            editor.putString("group_names",resultObject.get("group_name").getAsString()); // Storing string
+                            editor.commit();
+                            String image = resultObject.get("group_image").getAsString();
+                            created_by = resultObject.get("created_by").getAsString();
+                            if(image.contains("PROFILES")){
+                                is_image_present=1;
+                            }
+                            Utils.loadImageWithGlideSingleImageRounderCorner(getApplicationContext(), image, iv_group_icon, R.drawable.img_ic_user);
+                            contactList = new ArrayList<>();
+                            JsonArray contactArray = resultObject.get("contacts").getAsJsonArray();
+                            for (int i=0; i<contactArray.size(); i++)
+                            {
+                                JsonObject object = contactArray.get(i).getAsJsonObject();
+                                ContactDetailsModel model = new ContactDetailsModel();
+                                model.setCountry_code(object.get("country_code").getAsString());
+                                model.setName(object.get("name").getAsString());
+                                model.setId(object.get("id").getAsString());
 
-                           model.setMobile_number(object.get("mobile_number").getAsString());
-                           model.setProfile_image(object.get("profile_image").getAsString());
-                           contactList.add(model);
-                           if(contacts.equals(""))
-                           {
-                               contacts = model.getMobile_number();
-                           }
-                           else {
-                               contacts = contacts + ","+ model.getMobile_number();
-                           }
-                       }
-                       if(contactList.size()>0)
-                       {
-                           MDatabaseHelper db = new MDatabaseHelper(mContext);
-                           for(int i=0; i<contactList.size(); i++)
-                           {
-                               db.addContactToSelected(contactList.get(i).getName(), contactList.get(i).getMobile_number(),
-                                       "true", contactList.get(i).getProfile_image(), "", "true");
-                           }
-                           db.close();
-                           tv_members_count.setText(String.valueOf(contactList.size()));
-                           contactsAdapter = new GroupContactsAdapter(mContext, contactList,created_by);
-                           group_member_recyclr_view.setAdapter(contactsAdapter);
-                       }
-                      // Toast.makeText(mContext, contacts, Toast.LENGTH_SHORT).show();
-                       disableViews();
-                   }
-                   else {
-                       Toast.makeText(mContext, jsonObject.get("msg").getAsString(), Toast.LENGTH_SHORT).show();
-                   }
-                }else {
+                                model.setMobile_number(object.get("mobile_number").getAsString());
+                                model.setProfile_image(object.get("profile_image").getAsString());
+                                contactList.add(model);
+                                if(contacts.equals(""))
+                                {
+                                    contacts = model.getMobile_number();
+                                }
+                                else {
+                                    contacts = contacts + ","+ model.getMobile_number();
+                                }
+                            }
+                            if(contactList.size()>0)
+                            {
+                                MDatabaseHelper db = new MDatabaseHelper(mContext);
+                                for(int i=0; i<contactList.size(); i++)
+                                {
+                                    db.addContactToSelected(contactList.get(i).getName(), contactList.get(i).getMobile_number(),
+                                            "true", contactList.get(i).getProfile_image(), "", "true");
+                                }
+                                db.close();
+                                tv_members_count.setText(String.valueOf(contactList.size()));
+                                contactsAdapter = new GroupContactsAdapter(mContext, contactList,created_by);
+                                group_member_recyclr_view.setAdapter(contactsAdapter);
+                            }
+                            // Toast.makeText(mContext, contacts, Toast.LENGTH_SHORT).show();
+                            disableViews();
+                        }
+                        else {
+                            Toast.makeText(mContext, jsonObject.get("msg").getAsString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }else {
                     /*Toast toast = Toast.makeText(mContext, "", Toast.LENGTH_LONG);
                     View view = toast.getView();
                     view.setBackgroundDrawable(getResources().getDrawable(R.drawable.toast_back_red));
                     toast.show();*/
+                    }
                 }
+                catch (Exception ae)
+                {
+                    ae.printStackTrace();
+                }
+
 
             }
 
