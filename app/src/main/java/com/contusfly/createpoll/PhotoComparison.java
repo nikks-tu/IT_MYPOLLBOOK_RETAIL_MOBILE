@@ -148,6 +148,7 @@ public class PhotoComparison extends Activity implements OnTaskCompleted {
     ImageUploadS3 imgTask;
     String image_choose_url="",image_addition_url="",option1_url="",option2_url="",option3_url="",option4_url="";
     private Button create;
+    boolean isgroupPoll=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -351,11 +352,13 @@ public class PhotoComparison extends Activity implements OnTaskCompleted {
             txtGroup.setTextColor(mPhotoComparison.getResources().getColor(R.color.blue_color));
             mContact = "";
             showPopUp(groupsList);
+            isgroupPoll=true;
         }
         else if(clickedView.getId() == R.id.txtPublic) {
             txtGroup.setTextColor(mPhotoComparison.getResources().getColor(R.color.grey_color));
             txtPublic.setTextColor(mPhotoComparison.getResources().getColor(R.color.blue_color));
             mContact = "Public";
+            isgroupPoll=false;
         }
     }
 
@@ -387,37 +390,46 @@ public class PhotoComparison extends Activity implements OnTaskCompleted {
             Toast.makeText(mPhotoComparison, getResources().getString(R.string.select_option2),
                     Toast.LENGTH_SHORT).show();
         } else {
-            //Creates a builder for an alert dialog that uses the default alert dialog theme.
-            AlertDialog.Builder builder;
-            //Dialog text visible By NIKITA
-            if (Build.VERSION.SDK_INT >= 21)
-                builder = new AlertDialog.Builder(PhotoComparison.this, android.R.style.Theme_Material_Light_Dialog_NoActionBar);
-            else
-                builder = new AlertDialog.Builder(PhotoComparison.this);
-            //set message
-            builder.setMessage("Please validate your poll for appropriate grammar, spellings and content before submitting it. Otherwise it will be rejected.");
-            builder.setNegativeButton("Cancel",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            //dialog
-                            dialog.dismiss();
-                        }
-                    });
 
-            builder.setPositiveButton("Create",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+            if(isgroupPoll)
+            {
+                create.setEnabled(false);
+                //deleteThePoll(mClickPosition);//This method is used to delete the poll
+                createPollSubmit();
+            }
+            else {
+                //Creates a builder for an alert dialog that uses the default alert dialog theme.
+                AlertDialog.Builder builder;
+                //Dialog text visible By NIKITA
+                if (Build.VERSION.SDK_INT >= 21)
+                    builder = new AlertDialog.Builder(PhotoComparison.this, android.R.style.Theme_Material_Light_Dialog_NoActionBar);
+                else
+                    builder = new AlertDialog.Builder(PhotoComparison.this);
+                //set message
+                builder.setMessage("Please validate your poll for appropriate grammar, spellings and content before submitting it. Otherwise it will be rejected.");
+                builder.setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //dialog
+                                dialog.dismiss();
+                            }
+                        });
 
-                            create.setEnabled(false);
-                            //deleteThePoll(mClickPosition);//This method is used to delete the poll
-                            createPollSubmit();
-                            dialog.dismiss();
-                        }
-                    });
-            //create
-            builder.create().show();
+                builder.setPositiveButton("Create",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                create.setEnabled(false);
+                                //deleteThePoll(mClickPosition);//This method is used to delete the poll
+                                createPollSubmit();
+                                dialog.dismiss();
+                            }
+                        });
+                //create
+                builder.create().show();
+            }
         }
     }
 public void createPollSubmit(){

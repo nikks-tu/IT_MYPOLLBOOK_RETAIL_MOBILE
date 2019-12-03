@@ -135,6 +135,7 @@ public class MultipleOptions extends Activity implements OnTaskCompleted {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.CAMERA
     };
+    boolean isgroupPoll=false;
     private final int PERMISSION_ALL = 1;
     ArrayList<GroupsNameObject> groupsList;
 
@@ -316,42 +317,56 @@ public class MultipleOptions extends Activity implements OnTaskCompleted {
                             Toast.LENGTH_SHORT).show();
                     editAnswer2.requestFocus();
                 } else {
-                    //Creates a builder for an alert dialog that uses the default alert dialog theme.
-                    AlertDialog.Builder builder;
-                    //Dialog text visible By NIKITA
-                    if (Build.VERSION.SDK_INT >= 21)
-                        builder = new AlertDialog.Builder(MultipleOptions.this, android.R.style.Theme_Material_Light_Dialog_NoActionBar);
+
+                    if(isgroupPoll)
+                    {
+                        create.setEnabled(false);
+                        googleNow.setVisibility(View.VISIBLE);
+                        googleNow.progressiveStart();
+                        imgTask.executeUpload(choose_file_path, "image", "","POLLS/");
+                        //deleteThePoll(mClickPosition);//This method is used to delete the poll
+                    }
                     else
-                        builder = new AlertDialog.Builder(MultipleOptions.this);
+                    {
+
+                        //Creates a builder for an alert dialog that uses the default alert dialog theme.
+                        AlertDialog.Builder builder;
+                        //Dialog text visible By NIKITA
+                        if (Build.VERSION.SDK_INT >= 21)
+                            builder = new AlertDialog.Builder(MultipleOptions.this, android.R.style.Theme_Material_Light_Dialog_NoActionBar);
+                        else
+                            builder = new AlertDialog.Builder(MultipleOptions.this);
 
 
-                    //set message
-                    builder.setMessage("Please validate your poll for appropriate grammar, spellings and content before submitting it. Otherwise it will be rejected.");
-                    builder.setNegativeButton("Cancel",
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    //dialog
-                                    dialog.dismiss();
-                                }
-                            });
+                        //set message
+                        builder.setMessage("Please validate your poll for appropriate grammar, spellings and content before submitting it. Otherwise it will be rejected.");
+                        builder.setNegativeButton("Cancel",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        //dialog
+                                        dialog.dismiss();
+                                    }
+                                });
 
-                    builder.setPositiveButton("Create",
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
+                        builder.setPositiveButton("Create",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
 
-                                    create.setEnabled(false);
-                                    googleNow.setVisibility(View.VISIBLE);
-                                    googleNow.progressiveStart();
-                                    imgTask.executeUpload(choose_file_path, "image", "","POLLS/");
-                                    //deleteThePoll(mClickPosition);//This method is used to delete the poll
+                                        create.setEnabled(false);
+                                        googleNow.setVisibility(View.VISIBLE);
+                                        googleNow.progressiveStart();
+                                        imgTask.executeUpload(choose_file_path, "image", "","POLLS/");
+                                        //deleteThePoll(mClickPosition);//This method is used to delete the poll
 
-                                    dialog.dismiss();
-                                }
-                            });
-                    //create
-                    builder.create().show();
+                                        dialog.dismiss();
+                                    }
+                                });
+                        //create
+                        builder.create().show();
+                    }
+
                 }
             }
             break;
@@ -404,12 +419,14 @@ public class MultipleOptions extends Activity implements OnTaskCompleted {
                 txtGroup.setTextColor(mMultipleOptions.getResources().getColor(R.color.blue_color));
                 mContact = "";
                 showPopUp(groupsList);
+                isgroupPoll=true;
             }
             break;
             case R.id.txtPublic: {
                 txtGroup.setTextColor(mMultipleOptions.getResources().getColor(R.color.grey_color));
                 txtPublic.setTextColor(mMultipleOptions.getResources().getColor(R.color.blue_color));
                 mContact = "Public";
+                isgroupPoll=false;
             }
             break;
             default:

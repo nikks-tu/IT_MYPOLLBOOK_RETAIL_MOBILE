@@ -87,8 +87,6 @@ public class GroupsFragment extends Fragment implements GroupPolls.GroupPollOnFr
         pref = getActivity().getSharedPreferences("MyPref", 0); // 0 - for private mode
         editor = pref.edit();
 
-
-
         fragment2 = view.findViewById(R.id.fragment2);
         initialize();
         internetConnection.setVisibility(View.GONE);
@@ -97,9 +95,7 @@ public class GroupsFragment extends Fragment implements GroupPolls.GroupPollOnFr
         /* Progress bar visibility**/
         userPollGoogleNow.setVisibility(View.VISIBLE);
         userPollGoogleNow.progressiveStart();
-
         serviceCallForGroups();
-
 
         groups_recyclerview.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), groups_recyclerview, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
@@ -197,6 +193,7 @@ public class GroupsFragment extends Fragment implements GroupPolls.GroupPollOnFr
         img_add_group = toolbar.findViewById(R.id.img_add_group);
         ImageView imgSearch = toolbar.findViewById(R.id.imgSearch);
         ImageView imgEdit = toolbar.findViewById(R.id.imgEdit);
+        toolbar.findViewById(R.id.imgEdit_group).setVisibility(View.GONE);
         imgSearch.setVisibility(View.GONE);
         imgEdit.setVisibility(View.GONE);
         img_add_group.setImageDrawable(mContext.getResources().getDrawable(R.drawable.add_group));

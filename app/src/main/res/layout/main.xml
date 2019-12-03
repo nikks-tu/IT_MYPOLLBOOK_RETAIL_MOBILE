@@ -68,12 +68,26 @@
                       android:src="@drawable/ic_create_new2" />
 
                   <ImageView
+                      android:contentDescription="@string/app_name"
+                      android:id="@+id/imgEdit_group"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:layout_gravity="center"
+                      android:layout_margin="10dp"
+                      android:visibility="gone"
+                      android:background="@drawable/background_menucolor_change"
+                      android:clickable="true"
+                      android:focusable="true"
+                      android:src="@drawable/ic_create_new2" />
+
+                  <ImageView
                       android:id="@+id/img_add_group"
                       android:layout_width="wrap_content"
                       android:layout_height="match_parent"
                       android:layout_gravity="right|center_vertical"
                       android:background="@drawable/background_menucolor_change"
                       android:layout_marginRight="15dp"
+                      android:padding="10dp"
                       android:src="@drawable/add_group"
                       android:visibility="gone"/>
               </LinearLayout>

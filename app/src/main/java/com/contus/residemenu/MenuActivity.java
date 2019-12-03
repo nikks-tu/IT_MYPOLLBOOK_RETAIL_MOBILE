@@ -442,7 +442,7 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
         resideMenu.addMenuItem(itemMyPolls, ResideMenu.DIRECTION_LEFT);
         //Adding home to the menu
         resideMenu.addMenuItem(itemProfile, ResideMenu.DIRECTION_LEFT);
-        //resideMenu.addMenuItem(itemEditGroups, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemEditGroups, ResideMenu.DIRECTION_LEFT);
         //Adding itemCategories to the menu
         resideMenu.addMenuItem(itemCategories, ResideMenu.DIRECTION_LEFT);
         //Adding itemSettings to the menu
@@ -718,7 +718,7 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
             //If user poll get visibility setting the text title as user poll
             //If Chats get visibility setting the text title as Chats
             //If Public Poll get visibility setting the text title as Public Poll
-
+            toolbar.findViewById(R.id.imgEdit).setVisibility(View.VISIBLE);
             layoutTop.setVisibility(View.GONE);
             //setting the text`
             txtTitle.setText(getResources().getString(R.string.activity_userpoll));
@@ -873,6 +873,12 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
             MApplication.setBoolean(this, "createpoll", false);
             //This view contains only create poll icon
             img_add_group.setVisibility(View.VISIBLE);
+
+            imgEdit1.setVisibility(View.VISIBLE);
+            //If user poll get visibility setting the text title as user poll
+            //If Chats get visibility setting the text title as Chats
+            //If Public Poll get visibility setting the text title as Public Poll
+            toolbar.findViewById(R.id.imgEdit).setVisibility(View.GONE);
 
             imageChangeFragment(new GroupsFragment());
         } else if (!view.equals(itemEditGroups)) {

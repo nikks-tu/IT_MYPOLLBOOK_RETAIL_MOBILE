@@ -124,7 +124,10 @@ public class GroupPolls extends Fragment implements EndLessListView.EndlessListe
         Toolbar toolbar = getActivity().findViewById(R.id.mToolbar);
 
         toolbar_title =  toolbar.findViewById(R.id.toolbar_title);
-        edit_group=toolbar.findViewById(R.id.imgEdit);
+        toolbar.findViewById(R.id.imgEdit).setVisibility(View.GONE);
+        toolbar.findViewById(R.id.imgEdit_group).setVisibility(View.VISIBLE);
+        edit_group=toolbar.findViewById(R.id.imgEdit_group);
+
 
         title.setVisibility(View.GONE);
         ImageView img_add_group = toolbar.findViewById(R.id.img_add_group);

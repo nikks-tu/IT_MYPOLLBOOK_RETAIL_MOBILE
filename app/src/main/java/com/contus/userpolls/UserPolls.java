@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -114,6 +116,11 @@ public class UserPolls extends Fragment implements EndLessListView.EndlessListen
 
         userPollsFragment = getActivity();
         mApplication = new MApplication();
+
+        Toolbar toolbar = getActivity().findViewById(R.id.mToolbar);
+        toolbar.findViewById(R.id.imgEdit_group ).setVisibility(View.GONE);
+        toolbar.findViewById(R.id.imgEdit).setVisibility(View.VISIBLE);
+        toolbar.findViewById(R.id.img_add_group).setVisibility(View.GONE);
 
         page = 1;
         MApplication.setBoolean(userPollsFragment, Constants.SEARCH_BACKPRESS_BOOLEAN, false);
