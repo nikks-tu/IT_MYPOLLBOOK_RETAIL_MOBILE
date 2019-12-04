@@ -123,6 +123,7 @@ public class AddGroupContactsAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, final View convertView, ViewGroup parent) {
 
+
         View view = convertView;
         try {
             holder = null;
@@ -144,6 +145,8 @@ public class AddGroupContactsAdapter extends BaseAdapter {
                 holder = (ViewHolder) view.getTag();
                // holder.checkbox_user.setOnCheckedChangeListener(null);
             }
+
+
 
             selectedPostion = position;
 

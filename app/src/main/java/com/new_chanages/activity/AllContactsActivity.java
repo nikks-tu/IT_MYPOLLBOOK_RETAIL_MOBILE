@@ -5,6 +5,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.provider.ContactsContract;
@@ -291,12 +292,19 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext,  LinearLayoutManager.HORIZONTAL, false);
         rcv_selected_contacts.setLayoutManager(layoutManager);
         fab_next = findViewById(R.id.fab_next);
+
+
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/Quicksand-Light.ttf");
+        title.setTypeface(face);
+
+
         searchView=findViewById(R.id.search_view);
         existingContacts = new ArrayList<>();
         contactList = new ArrayList<>();
         selectedContactList = new ArrayList<>();
        db = new MDatabaseHelper(mContext);
         norecords_tv =findViewById(R.id.norecords_tv);
+
 
 
         //Search view
@@ -315,11 +323,23 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
+        Boolean from=getIntent().getBooleanExtra("FROM",false);
         if (requestCode == 2128) {
             if(resultCode == Activity.RESULT_OK){
-                String result=data.getStringExtra("result");
-                finish();
+                if(from){
+                    Intent returnIntent = new Intent();
+                    setResult(Activity.RESULT_OK,returnIntent);
+                    finish();
+                }else{
+                    String result=data.getStringExtra("result");
+                    finish();
+
+                }
+
+
             }
+
+
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
             }
@@ -555,6 +575,11 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
                                     dbHelper.close();
                                  setadapter();
                                 }
+
+
+
+
+
                             }
                             else {
                                 boolean status = false;
@@ -603,8 +628,10 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
                         {
                             MApplication.setString(mContext, Constants.CONTACT_LIST, contacts);
                         }
+
                     }
                     else {
+                        norecords_tv.setVisibility(View.VISIBLE);
                         Toast.makeText(mContext, jsonObject.get("msg").getAsString(), Toast.LENGTH_SHORT).show();
                     }
                 }else {
@@ -629,6 +656,7 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
     }
 
     private void setadapter() {
+
         contactsAdapter = new AddGroupContactsAdapter(this,AllContactsActivity.this, myPollBookContactList,norecords_tv);
         lv_contacts.setAdapter(contactsAdapter);
     }

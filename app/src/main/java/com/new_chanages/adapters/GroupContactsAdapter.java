@@ -1,8 +1,10 @@
 package com.new_chanages.adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,11 +36,14 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
     private Context context;
     private GroupNameRCVHolder listHolder;
     String created_by;
+    AlertDialog.Builder builder;
+
 
     public GroupContactsAdapter(Context context, ArrayList<ContactDetailsModel> arrayList, String created_by) {
         this.context = context;
         this.arrayList = arrayList;
         this.created_by=created_by;
+        builder=new AlertDialog.Builder(context);
     }
 
     @Override
@@ -55,7 +60,7 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
         holder.tv_contact_num.setVisibility(View.VISIBLE);
         holder.tv_contact_num.setText(model.getMobile_number());
         holder.iv_arrow.setVisibility(View.VISIBLE);
-        Typeface face = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Medium.ttf");
+        final Typeface face = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Medium.ttf");
         Typeface faceRegular = Typeface.createFromAsset(context.getAssets(), "fonts/roboto_regular.ttf");
         holder.tv_contact_num.setTypeface(face);
         holder.tv_group_name.setTypeface(faceRegular);
@@ -72,7 +77,8 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
 
         if(created_by.equalsIgnoreCase(userId))
         {
-
+            builder.setTitle("Remove user from group");
+            builder.setMessage("Do you want to remove this user ?");
             holder.iv_arrow.setVisibility(View.VISIBLE);
         }
         else
@@ -83,6 +89,8 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
                 if(userId.equalsIgnoreCase(id))
                 {
 
+                    builder.setTitle("Exit from group");
+                    builder.setMessage("Do You want to exit from this group ?");
                     holder.iv_arrow.setImageResource(R.drawable.exit_app);
                     holder.iv_arrow.setVisibility(View.VISIBLE);
                 }
@@ -116,9 +124,39 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
         holder.iv_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              String  group_id = MApplication.getString(context, Constants.GET_GROUP_POLL_ID);
 
-                deleteservice(position,arrayList.get(position).getMobile_number(),group_id);
+
+
+
+
+             final String  group_id = MApplication.getString(context, Constants.GET_GROUP_POLL_ID);
+
+
+
+
+                      builder.setCancelable(false)
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                deleteservice(position,arrayList.get(position).getMobile_number(),group_id);
+                            }
+
+                        })
+
+                .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.show();
+
+
+
+
+
+
                 //arrayList.remove(position);
                 //notifyDataSetChanged();
 

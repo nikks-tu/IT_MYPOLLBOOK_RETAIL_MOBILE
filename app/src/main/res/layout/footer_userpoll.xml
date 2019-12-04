@@ -27,31 +27,31 @@
     </LinearLayout>
      <ImageView
                 android:contentDescription="@string/app_name"
-                android:id="@+id/imgPublicPoll"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:id="@+id/imgUserPoll"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="@dimen/activity_reside_menu_item_marginleft"
                 android:focusable="true"
                 android:clickable="true"
                 android:onClick="onClickButton"
-                android:src="@drawable/group_icon2"
+                android:src="@drawable/ic_user_polls_2"
                 android:layout_alignParentLeft="true"
                 android:layout_marginStart="@dimen/activity_reside_menu_item_marginleft" />
 
             <ImageView
                 android:contentDescription="@string/app_name"
-                android:id="@+id/imgUserPoll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/imgPublicPoll"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/activity_reside_menu_item_marginleft"
                 android:focusable="true"
                 android:clickable="true"
                 android:onClick="onClickButton"
-                android:src="@drawable/ic_user_polls_2"
+                android:src="@drawable/group_icon2"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/activity_reside_menu_item_marginleft" />
 

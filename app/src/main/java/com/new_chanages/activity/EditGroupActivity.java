@@ -53,6 +53,7 @@ import com.new_chanages.adapters.GroupContactsAdapter;
 import com.new_chanages.api_interface.GroupsApiInterface;
 import com.new_chanages.models.AppVersionPostParameters;
 import com.new_chanages.models.ContactDetailsModel;
+import com.new_chanages.models.ContactModel;
 import com.new_chanages.postParameters.GetGroupsPostParameters;
 import com.polls.polls.R;
 
@@ -164,7 +165,9 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                 MApplication.setString(mContext, Constants.CONTACT_LIST, "");
                 Intent intent = new Intent(mContext, AllContactsActivity.class);
                 intent.putExtra("fromActivity", "Edit");
-                startActivity(intent);
+                intent.putExtra("FROM", true);
+               // startActivity(intent);
+                startActivityForResult(intent,12);
             }
         });
 
@@ -392,6 +395,14 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                             editor.commit();
                             String image = resultObject.get("group_image").getAsString();
                             created_by = resultObject.get("created_by").getAsString();
+
+
+                            String userId = MApplication.getString(getApplicationContext(), Constants.USER_ID);
+
+                            if(created_by.equals(userId)){
+                                tv_add_participant.setVisibility(View.VISIBLE);
+                            }
+
                             if(image.contains("PROFILES")){
                                 is_image_present=1;
                             }
@@ -527,6 +538,16 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
+            case 12:
+                if(resultCode == Activity.RESULT_OK){
+
+                    finish();
+                }
+                if (resultCode == Activity.RESULT_CANCELED) {
+
+                }
+              break;
+
             case 15:
                 if (resultCode == RESULT_OK) {
                     //file uri
@@ -712,7 +733,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
         edt_group_name.setEnabled(true);
 
         iv_save.setVisibility(View.VISIBLE);
-        tv_add_participant.setVisibility(View.VISIBLE);
+        tv_add_participant.setVisibility(View.GONE);
         tv_add_participant.setEnabled(true);
 
         iv_group_icon.setEnabled(true);
@@ -864,6 +885,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                     if( jsonObject.get("success").getAsString().equals("1"))
                     {
                         String userId = MApplication.getString(getApplicationContext(), Constants.USER_ID);
+
                         JsonArray result = jsonObject.get("results").getAsJsonArray();
                         contactList = new ArrayList<>();
                         for (int i=0; i<result.size(); i++)
@@ -877,12 +899,14 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                             model.setId(userId);
                             contactList.add(model);
                         }
+
                         if(contactList.size()>0)
                         {
                             tv_members_count.setText(String.valueOf(contactList.size()));
                             contactsAdapter = new GroupContactsAdapter(mContext, contactList, created_by);
                             group_member_recyclr_view.setAdapter(contactsAdapter);
                         }
+
                     }
                     else {
                         Toast.makeText(mContext, jsonObject.get("msg").getAsString(), Toast.LENGTH_SHORT).show();
@@ -916,6 +940,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
             contacts = contacts +","+isContactAvailable;
             serviceCallForExistingContacts();
         }
+
         super.onResume();
     }
 

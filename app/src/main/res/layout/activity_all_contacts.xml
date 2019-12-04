@@ -7,6 +7,18 @@
     tools:context="com.new_chanages.activity.AllContactsActivity"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/norecords_tv"
+        android:layout_gravity="center"
+        android:text="No Records Found"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
     <ProgressBar
         android:layout_width="wrap_content"
         android:id="@+id/progressbar"
@@ -38,6 +50,7 @@
              android:paddingBottom="@dimen/margin_five"
              android:textColor="@color/color_white"
              android:id="@+id/tv_title"
+             android:textSize="18dp"
              android:text="@string/select_contacts"
              android:layout_gravity="center"
              android:gravity="center"/>
@@ -89,15 +102,7 @@
 
      </LinearLayout>
 
-     <TextView
-         android:layout_width="wrap_content"
-         android:id="@+id/norecords_tv"
-         android:layout_gravity="center"
-         android:text="No Records Found"
-         android:visibility="gone"
-         android:layout_height="wrap_content">
 
-     </TextView>
 
      <androidx.recyclerview.widget.RecyclerView
          android:layout_width="match_parent"
