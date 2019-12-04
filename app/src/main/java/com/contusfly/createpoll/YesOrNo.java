@@ -128,7 +128,6 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.CAMERA
     };
-    boolean isgroupPoll=false;
     String userType="users";
     ArrayList<GroupsNameObject> groupsList;
     final int PERMISSION_ALL = 1;
@@ -187,6 +186,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
             Toast.makeText(activity, activity.getResources().getString(R.string.check_internet_connection),
                     Toast.LENGTH_SHORT).show();
         }
+
 
     }
 
@@ -316,53 +316,11 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
                     editQuestion.requestFocus();
                 } else {
 
-                    if (isgroupPoll) {
-                        create.setEnabled(false);
-                        googleNow.setVisibility(View.VISIBLE);
-                        googleNow.progressiveStart();
-                        imgTask.executeUpload(choose_file_path, "image", "", "POLLS/");
 
-                    } else {
-                        //Creates a builder for an alert dialog that uses the default alert dialog theme.
-                        AlertDialog.Builder builder;
-                        //= new AlertDialog.Builder(YesOrNo.this);
-                        //set message
+                                    googleNow.setVisibility(View.VISIBLE);
+                                    googleNow.progressiveStart();
+                                    imgTask.executeUpload(choose_file_path, "image", "", "POLLS/");
 
-                        if (Build.VERSION.SDK_INT >= 21)
-                            builder = new AlertDialog.Builder(YesOrNo.this, android.R.style.Theme_Material_Light_Dialog_NoActionBar);
-                        else
-                            builder = new AlertDialog.Builder(YesOrNo.this);
-                        builder.setMessage("Please validate your poll for appropriate grammar, spellings and content before submitting it. Otherwise it will be rejected.");
-                        builder.setNegativeButton("Cancel",
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        //dialog
-                                        dialog.dismiss();
-                                    }
-                                });
-
-                        builder.setPositiveButton("Create",
-
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        //deleteThePoll(mClickPosition);//This method is used to delete the poll
-
-                                        create.setEnabled(false);
-
-                                        googleNow.setVisibility(View.VISIBLE);
-                                        googleNow.progressiveStart();
-                                        imgTask.executeUpload(choose_file_path, "image", "", "POLLS/");
-
-                                        dialog.dismiss();
-                                    }
-                                });
-                        //create
-                        builder.create().show();
-
-
-                    }
                 }
 
 
@@ -410,13 +368,10 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
                 txtPublic.setTextColor(mYesOrNo.getResources().getColor(R.color.grey_color));
                 txtGroup.setTextColor(mYesOrNo.getResources().getColor(R.color.blue_color));
                 mContact = "";
-                isgroupPoll =true;
                 showPopUp(groupsList);
             }
             break;
             case R.id.txtPublic: {
-
-                isgroupPoll =false;
                 txtGroup.setTextColor(mYesOrNo.getResources().getColor(R.color.grey_color));
                 txtPublic.setTextColor(mYesOrNo.getResources().getColor(R.color.blue_color));
                 mContact = "Public";

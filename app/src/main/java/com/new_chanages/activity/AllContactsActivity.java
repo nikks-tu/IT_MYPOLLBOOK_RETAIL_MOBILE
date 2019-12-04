@@ -6,9 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.provider.ContactsContract;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -43,6 +45,9 @@ import com.new_chanages.postParameters.GetGroupsPostParameters;
 import com.polls.polls.R;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -329,18 +334,27 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
     }
     private void getContacts() {
         // Run query
-        final ContentResolver cr = getContentResolver();
+   /*     final ContentResolver cr = getContentResolver();
         String selection = null;
         String[] selectionArgs = null;
         String sortOrder = ContactsContract.Contacts.DISPLAY_NAME +
                 " COLLATE LOCALIZED ASC";
         String[] projection = new String[] {ContactsContract.Contacts.DISPLAY_NAME, ContactsContract.CommonDataKinds.Phone.NUMBER};
         final Cursor c = cr.query(ContactsContract.Data.CONTENT_URI, projection, null, null, sortOrder);
-        /*final ContentResolver cr2 = getContentResolver();
+        *//*final ContentResolver cr2 = getContentResolver();
         String[] projection2 = new String[] {ContactsContract.CommonDataKinds.Phone.NUMBER};
-        final Cursor c2 = cr2.query(ContactsContract.Data.CONTENT_URI, projection2, null, null, null);*/
+        final Cursor c2 = cr2.query(ContactsContract.Data.CONTENT_URI, projection2, null, null, null);*//*
 
-        if(c.getCount()>0)
+*/
+
+
+        final ContentResolver cr = getContentResolver();
+        Cursor c = cr.query(ContactsContract.Contacts.CONTENT_URI,
+                null, null, null, null);
+
+
+
+/*        if(c.getCount()>0)
         {
 
             MDatabaseHelper dbHelper = new MDatabaseHelper(mContext);
@@ -351,6 +365,8 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
                     c.moveToNext();
                     ContactModel model = new ContactModel();
                     model.setContactName(c.getString(0));
+                    String name = c.getString(c.getColumnIndex(
+                            ContactsContract.Contacts.DISPLAY_NAME));
                     model.setContactSelected("false");
                     model.setContactNumber(c.getString(1));
 
@@ -389,6 +405,87 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
 
 
 
+                *//*  final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {}
+                }, 2000);*//*
+            }
+        }*/
+
+
+
+        if(c.getCount()>0)
+        {
+
+            MDatabaseHelper dbHelper = new MDatabaseHelper(mContext);
+            for (int i=0; i<c.getCount(); i++)
+            {
+                if(!c.isLast())
+                {
+                    c.moveToNext();
+                    ContactModel model = new ContactModel();
+                    String name = c.getString(c.getColumnIndex(
+                            ContactsContract.Contacts.DISPLAY_NAME));
+                    model.setContactName(name);
+                    model.setContactSelected("false");
+
+                    String id = c.getString(c.getColumnIndex(ContactsContract.Contacts._ID));
+
+                    if(c.getInt(c.getColumnIndex( ContactsContract.Contacts.HAS_PHONE_NUMBER)) > 0)
+                    {
+
+                        Cursor pCur = cr.query(
+                                ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                                null,
+                                ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
+                                new String[]{id}, null);
+                        while (pCur.moveToNext()) {
+
+                            String phoneNo = pCur.getString(pCur.getColumnIndex(
+                                    ContactsContract.CommonDataKinds.Phone.NUMBER));
+
+                            if(contactToSend.equals(""))
+                            {
+                                contactToSend = phoneNo;
+                                model.setContactNumber(phoneNo);
+                            }
+                            else {
+                                contactToSend = contactToSend +"," + phoneNo;
+                            }
+
+                            contactList.add(model);
+                            dbHelper.addContactToList(name, phoneNo, "false", "", "", "");
+
+                        }
+
+
+
+
+                        pCur.close();
+                    }
+
+
+
+                   /* if(!c.isLast())
+                    {
+                        i=i+1;
+                        c.moveToNext();
+                    }*/
+                }
+            }
+            if(!contactToSend.equals(""))
+            {
+                dbHelper.close();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressBar.setVisibility(View.VISIBLE);
+                    }
+                });
+
+
+
                 /*  final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -410,6 +507,7 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
 
         Call<JsonElement> call = service.checkExistingContacts(new GetGroupsPostParameters(checkContactAction, contactToSend));
         call.enqueue(new Callback<JsonElement>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 if(response.body()!=null){
