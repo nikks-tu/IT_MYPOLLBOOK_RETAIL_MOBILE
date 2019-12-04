@@ -116,6 +116,7 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
     //access token
     private String accessToken;
     //chosen photo
+    Boolean from;
     String updatedPhoto;
     //edit profile list dialog
     private Dialog editProfileListDialog;
@@ -140,6 +141,11 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
         group_member_recyclr_view = findViewById(R.id.group_member_recyclr_view);
         group_member_recyclr_view.setLayoutManager(new LinearLayoutManager(this));
         initialize();
+        from=getIntent().getBooleanExtra("FROM",false);
+
+
+            tv_add_participant.setVisibility(View.GONE);
+
         MDatabaseHelper db = new MDatabaseHelper(mContext);
         contactList = db.getAllSelectedContacts();
         if(contactList.size()>0)

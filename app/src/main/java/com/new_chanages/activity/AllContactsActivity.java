@@ -79,6 +79,7 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
     String checkContactAction="existingcontactsapi";
     boolean isEdit = false;
     TextView norecords_tv;
+    Boolean from;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +95,7 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
         }
         //contactList = getContacts();
 
+         from=getIntent().getBooleanExtra("FROM",false);
 
         AysncTask task=new AysncTask();
         task.execute();
@@ -153,6 +155,7 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, GroupCreate.class);
+                intent.putExtra("FROM",from);
                 startActivityForResult(intent,2128);
             }
         });
@@ -323,7 +326,7 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-        Boolean from=getIntent().getBooleanExtra("FROM",false);
+
         if (requestCode == 2128) {
             if(resultCode == Activity.RESULT_OK){
                 if(from){
