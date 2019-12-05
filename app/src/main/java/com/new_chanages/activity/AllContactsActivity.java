@@ -468,45 +468,40 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
 
                             String phoneNo = pCur.getString(pCur.getColumnIndex(
                                     ContactsContract.CommonDataKinds.Phone.NUMBER));
-                            phoneNo.replaceAll("\\s", "");
-                            phoneNo.replaceAll("\\-","");
+                            phoneNo= phoneNo.replaceAll("\\s", "");
+                            phoneNo=phoneNo.replaceAll("-","");
 
-                            contactToSend.replaceAll("\\s", "");
-                            contactToSend.replaceAll("\\-","");
+                            if(phoneNo.length()>8) {
 
-                            if (phoneNo.equals(lastnumber))
-                            {
+                                if (phoneNo.equals(lastnumber)) {
 
-                            }
-                            else {
-                                lastnumber = phoneNo;
+                                } else {
+                                    lastnumber = phoneNo;
 
-                                Log.e("lastnumber ", lastnumber);
-                                int type = pCur.getInt(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE));
-                                switch (type)
-                                {
-                                    case ContactsContract.CommonDataKinds.Phone.TYPE_HOME:
-                                        Log.e("Not Inserted", "Not inserted");
-                                        break;
-                                    case ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE:
-                                        if(contactToSend.equals(""))
-                                        {
-                                            contactToSend = phoneNo;
-                                            model.setContactNumber(phoneNo);
-                                        }
-                                        else {
-                                            if(!contactToSend.contains(phoneNo)) {
-                                                contactToSend = contactToSend + "," + phoneNo;
+                                    Log.e("lastnumber ", lastnumber);
+                                    int type = pCur.getInt(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE));
+                                    switch (type) {
+                                        case ContactsContract.CommonDataKinds.Phone.TYPE_HOME:
+                                            Log.e("Not Inserted", "Not inserted");
+                                            break;
+                                        case ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE:
+                                            if (contactToSend.equals("")) {
+                                                contactToSend = phoneNo;
+                                                model.setContactNumber(phoneNo);
+                                            } else {
+                                                if (!contactToSend.contains(phoneNo)) {
+                                                    contactToSend = contactToSend + "," + phoneNo;
+                                                }
                                             }
-                                        }
                                             contactList.add(model);
                                             dbHelper.addContactToList(name, phoneNo, "false", "", "", "");
-                                        break;
-                                    case ContactsContract.CommonDataKinds.Phone.TYPE_WORK:
-                                        Log.e("Not Inserted", "Not inserted");
-                                        break;
-                                }
+                                            break;
+                                        case ContactsContract.CommonDataKinds.Phone.TYPE_WORK:
+                                            Log.e("Not Inserted", "Not inserted");
+                                            break;
+                                    }
 
+                                }
                             }
 
                         }
