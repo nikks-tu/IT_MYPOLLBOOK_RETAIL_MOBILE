@@ -819,8 +819,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
         prefrenceUserPollLikeCount = MApplication
                 .loadArray(userPollActivity, userPollLikeCount, Constants.USER_POLL_LIKES_COUNT_ARRAY, Constants
                         .USER_POLL_LIKES_COUNT_SIZE); //Load the like count from  the saved prefernce
-        prefrenceUserPollCommentsCount = MApplication
-                .loadArray(userPollActivity, userPollcommentsCount, Constants.USER_POLL_COMMENTS_COUNT, Constants
+        prefrenceUserPollCommentsCount = MApplication.loadArray(userPollActivity, userPollcommentsCount, Constants.USER_POLL_COMMENTS_COUNT, Constants
                         .USER_POLL_COMMENTS_SIZE); //Load the COMMENTS count from  the saved prefernce
         preferenceUserPollLikeUser = MApplication
                 .loadArray(userPollActivity, userPollLikesUser, Constants.USER_POLL_LIKES_USER_ARRAY, Constants
@@ -1137,7 +1136,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
 
     private void likeClickAction(GroupPollDataObject myPollResponse) {
         //Poll id from the response
-        String id = String.valueOf(myPollResponse.getId());
+        String id = String.valueOf(myPollResponse.getPollId());
         // It can be used with startActivity to launch an Activity
         Intent details = new Intent(userPollActivity, PollLikes.class);
         //Passing the id form one activity to another
@@ -2163,7 +2162,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
     private void commentClickAction(int clickPosition) {
         //response from the server
         userPollResponse = getItem(clickPosition);
-        String id = String.valueOf(userPollResponse.getId());
+        String id = String.valueOf(userPollResponse.getPollId());
         //Moving from one activity to another activity
         Intent details = new Intent(userPollActivity, PollComments.class);
         //Passing the value from one activity to another
