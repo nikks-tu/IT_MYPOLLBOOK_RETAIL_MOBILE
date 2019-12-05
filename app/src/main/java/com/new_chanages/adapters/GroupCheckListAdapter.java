@@ -114,6 +114,30 @@ public class GroupCheckListAdapter extends ArrayAdapter<GroupsNameObject> {
 
          });
 
+        holder.cb_group_selected.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(model.getGroupStatus().equalsIgnoreCase("TRUE")){
+                    model.setGroupStatus("FALSE");
+                    AppConstents.GROUPlIST.get(position).setGroupStatus("FALSE");
+                    dbHelper.deleteGroupFromList(String.valueOf(groupList.get(position).getGroupId()));
+                    notifyDataSetChanged();
+                }else{
+                    model.setGroupStatus("TRUE");
+                    dbHelper.addGroupsToList(groupList.get(position).getGroupName(), String.valueOf(groupList.get(position).getGroupId()), "true");
+                    //Toast.makeText(context, "Test "+dbHelper.GetGroupListSize(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, "Test "+position, Toast.LENGTH_SHORT).show();
+                    //notifyDataSetChanged();
+                    AppConstents.GROUPlIST.get(position).setGroupStatus("TRUE");
+                    notifyDataSetChanged();
+
+                }
+                dbHelper.close();
+            }
+
+        });
+
+
 
 
     /*    holder.cb_group_selected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
