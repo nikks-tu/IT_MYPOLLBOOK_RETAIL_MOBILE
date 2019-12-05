@@ -193,7 +193,7 @@ public class GroupSelection extends AppCompatActivity {
 
         Typeface face = Typeface.createFromAsset(getAssets(), "fonts/Quicksand-Light.ttf");
         title.setTypeface(face);
-        title.setText("Select Contact");
+        title.setText("Select Group");
         done=findViewById(R.id.done);
         groupSelectionrecycler=findViewById(R.id.group_selection_list_view);
 

@@ -155,9 +155,31 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
         fab_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, GroupCreate.class);
-                intent.putExtra("FROM",from);
-                startActivityForResult(intent,2128);
+
+
+                boolean isselected=false;
+                if(myPollBookContactList!=null&&myPollBookContactList.size()>0)
+                {
+                    for (ContactModel obj : myPollBookContactList) {
+                        if (obj.getIsContactSelected().equals("TRUE")) {
+                            isselected=true;
+                            break;
+                        }
+
+                    }
+                }
+
+                if(myPollBookContactList!=null&&isselected&&myPollBookContactList.size()>0)
+                {
+                    Intent intent = new Intent(mContext, GroupCreate.class);
+                    intent.putExtra("FROM",from);
+                    startActivityForResult(intent,2128);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Please select atleast one contact",Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

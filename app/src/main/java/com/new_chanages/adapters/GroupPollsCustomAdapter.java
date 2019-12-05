@@ -442,6 +442,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
                     .findViewById(R.id.singleOption);
             holderUserView2.imgShareMultipleOptionsUserPoll =  mMyPollsView.findViewById(R.id.imgShare);
             //Binding the data into the views in android
+            holderUserView2.imgShareMultipleOptionsUserPoll.setVisibility(View.GONE);
             validateViewLayoutTwo(holderUserView2, position);
         } else if (Integer.parseInt(idRefrenceView) == Constants.LAYOUT_THREE) {
              /* create a new view of my layout and inflate it in the row */
@@ -483,8 +484,10 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
             holderUserView3.imgProfilePhotoComparisonUserPoll =  mMyPollsView.findViewById(R.id.imgProfile);
             holderUserView3.imgSharePhotoComparisonUserPoll =  mMyPollsView.findViewById(R.id.imgShare);
             holderUserView3.categoryImageViewThird =  mMyPollsView.findViewById(R.id.imgCategory);
+            holderUserView3.imgSharePhotoComparisonUserPoll.setVisibility(View.GONE);
             //Binding the data into the views in android
             validateViewLayoutThree(holderUserView3, position);
+
         } else if (Integer.parseInt(idRefrenceView) == Constants.LAYOUT_FOUR) {
             /* create a new view of my layout and inflate it in the row */
             mMyPollsView = LayoutInflater.from(userPollActivity).inflate(R.layout.userpoll_fourthview, null);
@@ -515,6 +518,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
             holderUserView4.categoryImageViewFourth =  mMyPollsView.findViewById(R.id.imgCategory);
             holderUserView4.imgShareYouTubeUrlUserPoll =  mMyPollsView.findViewById(R.id.imgShare);
 
+            holderUserView4.imgShareYouTubeUrlUserPoll.setVisibility(View.GONE);
             //Binding the data into the views in android
             validateViewLayoutFour(holderUserView4, position);
         }

@@ -12,6 +12,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
@@ -735,6 +736,10 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
         tv_add_participant.setEnabled(true);
 
         iv_group_icon.setEnabled(true);
+
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/Quicksand-Light.ttf");
+        tv_title.setTypeface(face);
+        tv_title.setText("Group info");
 
         //Uploading an image in S3 bucket
         imageS3Bucket = new ImageUploadS3(getApplicationContext());
