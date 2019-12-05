@@ -53,7 +53,6 @@ import com.new_chanages.adapters.GroupContactsAdapter;
 import com.new_chanages.api_interface.GroupsApiInterface;
 import com.new_chanages.models.AppVersionPostParameters;
 import com.new_chanages.models.ContactDetailsModel;
-import com.new_chanages.models.ContactModel;
 import com.new_chanages.postParameters.GetGroupsPostParameters;
 import com.polls.polls.R;
 
@@ -74,7 +73,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompleted {
+public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompleted,Update {
     RecyclerView group_member_recyclr_view;
     CardView cv_profile_card;
     EditText edt_group_name;
@@ -438,8 +437,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                                 }
                                 db.close();
                                 tv_members_count.setText(String.valueOf(contactList.size()));
-                                contactsAdapter = new GroupContactsAdapter(mContext, contactList,created_by);
-                                group_member_recyclr_view.setAdapter(contactsAdapter);
+                               setadapter();
                             }
                             // Toast.makeText(mContext, contacts, Toast.LENGTH_SHORT).show();
                             disableViews();
@@ -903,8 +901,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
                         if(contactList.size()>0)
                         {
                             tv_members_count.setText(String.valueOf(contactList.size()));
-                            contactsAdapter = new GroupContactsAdapter(mContext, contactList, created_by);
-                            group_member_recyclr_view.setAdapter(contactsAdapter);
+                          setadapter();
                         }
 
                     }
@@ -930,6 +927,12 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
 
     }
 
+    private void setadapter() {
+        contactsAdapter = new GroupContactsAdapter(mContext, contactList, created_by,this);
+        group_member_recyclr_view.setAdapter(contactsAdapter);
+
+    }
+
     @Override
     protected void onResume() {
         String isContactAvailable = MApplication.getString(mContext, Constants.CONTACT_LIST);
@@ -944,4 +947,9 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
         super.onResume();
     }
 
+    @Override
+    public void delete(String numb) {
+        contacts= contacts.replace( numb+",","");
+    }
 }
+

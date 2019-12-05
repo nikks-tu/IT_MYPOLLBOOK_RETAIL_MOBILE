@@ -16,6 +16,8 @@ import com.contusfly.MApplication;
 import com.contusfly.utils.Utils;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.new_chanages.activity.EditGroupActivity;
+import com.new_chanages.activity.Update;
 import com.new_chanages.api_interface.GroupsApiInterface;
 import com.new_chanages.holders.GroupNameRCVHolder;
 import com.new_chanages.models.ContactDetailsModel;
@@ -37,17 +39,20 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
     private GroupNameRCVHolder listHolder;
     String created_by;
     AlertDialog.Builder builder;
+    Update update;
 
 
-    public GroupContactsAdapter(Context context, ArrayList<ContactDetailsModel> arrayList, String created_by) {
+    public GroupContactsAdapter(Context context, ArrayList<ContactDetailsModel> arrayList, String created_by,EditGroupActivity edit) {
         this.context = context;
         this.arrayList = arrayList;
         this.created_by=created_by;
         builder=new AlertDialog.Builder(context);
+        update=edit;
+
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount(){
         // return (null != arrayList ? arrayList.size() : 0);
         return arrayList.size();
     }
@@ -105,10 +110,16 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
 
 
         }
+
+
         if (created_by.equals(model.getId())){
             holder.group_admin.setVisibility(View.VISIBLE);
             holder.iv_arrow.setVisibility(View.GONE);
 
+        }
+        else
+        {
+            holder.group_admin.setVisibility(View.GONE);
         }
 
 
@@ -168,7 +179,7 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
        //  holder.iv_group_icon.setImageBitmap(imageUrl);
     }
 
-    private void deleteservice(final int position, String mobile_number, String group_id) {
+    private void deleteservice(final int position, final String mobile_number, String group_id) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.LIVE_BASE_URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
@@ -189,7 +200,7 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
                         Toast toast = Toast.makeText(context , "Contact removed Successfully", Toast.LENGTH_LONG);
                         toast.show();
 
-
+                        update.delete(mobile_number);
 
                        try
                        {
