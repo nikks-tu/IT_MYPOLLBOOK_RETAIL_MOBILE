@@ -54,6 +54,8 @@ import com.google.android.gms.ads.AdView;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.new_chanages.AppConstents;
+import com.new_chanages.activity.GroupSelection;
 import com.new_chanages.adapters.GroupCheckListAdapter;
 import com.new_chanages.api_interface.GroupsApiInterface;
 import com.new_chanages.models.GroupsNameObject;
@@ -162,6 +164,7 @@ public class PhotoComparison extends Activity implements OnTaskCompleted {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
             builder.detectFileUriExposure();
         }
+        serviceCallForGroups();
     }
 
     private void init() {
@@ -347,12 +350,21 @@ public class PhotoComparison extends Activity implements OnTaskCompleted {
 
         }
         else if(clickedView.getId() == R.id.txtGroup)  {
-            //Toast.makeText(mYesOrNo, "Test "+groupsList.size() , Toast.LENGTH_SHORT).show();
-            txtPublic.setTextColor(mPhotoComparison.getResources().getColor(R.color.grey_color));
-            txtGroup.setTextColor(mPhotoComparison.getResources().getColor(R.color.blue_color));
-            mContact = "";
-            showPopUp(groupsList);
-            isgroupPoll=true;
+            mContact="";
+            if(AppConstents.GROUPlIST.size()>0)
+            {
+                Intent intent=new Intent(PhotoComparison.this, GroupSelection.class);
+                intent.putExtra("DATA",AppConstents.GROUPlIST);
+                startActivityForResult(intent,20);
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(),"Please wait data loading",Toast.LENGTH_SHORT).show();
+            }
+
+
+
+
         }
         else if(clickedView.getId() == R.id.txtPublic) {
             txtGroup.setTextColor(mPhotoComparison.getResources().getColor(R.color.grey_color));
@@ -572,6 +584,8 @@ public void createPollSubmit(){
                     createPollMultipelImagesEmpty();
                 }
             }*/
+
+
 }
 
     private void upLoad(int position) {
@@ -595,7 +609,7 @@ public void createPollSubmit(){
         mContactName.clear();
         listGroupid.clear();
         mGroupName.clear();
-        serviceCallForGroups();
+
         DatabaseHelper db = new DatabaseHelper(this);
         if (mCategory.contains("Public")) {
             txtPublic.setVisibility(View.VISIBLE);
@@ -632,6 +646,15 @@ public void createPollSubmit(){
         } else {
             txtContacts.setVisibility(View.GONE);
         }
+
+        if(AppConstents.GROUPlIST.size()>0)
+        {
+            txtGroup.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            txtGroup.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -639,6 +662,42 @@ public void createPollSubmit(){
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
+            case 20:
+
+                if (resultCode == RESULT_OK) {
+                    txtPublic.setTextColor(mPhotoComparison.getResources().getColor(R.color.grey_color));
+                    txtGroup.setTextColor(mPhotoComparison.getResources().getColor(R.color.blue_color));
+                    mContact = "";
+                    isgroupPoll = true;
+
+                    if(AppConstents.GROUPlIST.size()>0)
+                    {
+                        for (int i = 0; i < AppConstents.GROUPlIST.size(); i++) {
+                            if(AppConstents.GROUPlIST.get(i).getGroupStatus().equalsIgnoreCase("TRUE"))
+                            {
+                                if (i == 0) {
+                                    mContact = String.valueOf(AppConstents.GROUPlIST.get(i).getGroupId());
+                                } else {
+                                    mContact = mContact + "," + AppConstents.GROUPlIST.get(i).getGroupId();
+                                }
+                            }
+                        }
+                    }
+
+                    /*DatabaseHelper dbhelper = new DatabaseHelper(getApplicationContext());
+                    ArrayList<GroupsNameObject> list = new ArrayList<>();
+                    list = dbhelper.getAllGroupList();
+                    if (list.size() > 0) {
+                        for (int i = 0; i < list.size(); i++) {
+                            if (i == 0) {
+                                mContact = String.valueOf(list.get(i).getGroupId());
+                            } else {
+                                mContact = mContact + "," + list.get(i).getGroupId();
+                            }
+                        }
+                    }*/
+                }
+                break;
             case 15:
                 if (resultCode == RESULT_OK) {
                     mPhotoComaprisonImageUri = data.getData();
@@ -1948,6 +2007,7 @@ public void createPollSubmit(){
                         if(success.equals("1"))
                         {
                             groupsList = new ArrayList<>();
+                            AppConstents.GROUPlIST =new ArrayList<>();
                             JsonArray jsonArray = result.get("results").getAsJsonArray();
                             if(jsonArray.size()>0)
                             {
@@ -1958,9 +2018,12 @@ public void createPollSubmit(){
                                     object.setGroupId(jsonObject.get("group_id").getAsInt());
                                     object.setGroupImage(jsonObject.get("group_image").getAsString());
                                     object.setGroupName(jsonObject.get("group_name").getAsString());
+                                    object.setGroupStatus("FALSE");
                                     groupsList.add(object);
                                 }
                                 // Toast.makeText(mYesOrNo, "Test"+groupsList.size(), Toast.LENGTH_SHORT).show();
+
+                                AppConstents.GROUPlIST=groupsList;
                             }
                             if(groupsList.size()>0)
                             {

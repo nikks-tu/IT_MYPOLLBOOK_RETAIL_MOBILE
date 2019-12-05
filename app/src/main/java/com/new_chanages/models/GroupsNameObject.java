@@ -3,7 +3,9 @@ package com.new_chanages.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class GroupsNameObject{
+import java.io.Serializable;
+
+public class GroupsNameObject implements Serializable {
 
     @SerializedName("group_id")
     @Expose

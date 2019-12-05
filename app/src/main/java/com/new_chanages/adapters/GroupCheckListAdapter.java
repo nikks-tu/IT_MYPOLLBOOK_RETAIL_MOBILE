@@ -15,6 +15,7 @@ import com.contus.app.Constants;
 import com.contus.responsemodel.CategoryPollResponseModel;
 import com.contusfly.MApplication;
 import com.contusfly.chooseContactsDb.DatabaseHelper;
+import com.new_chanages.AppConstents;
 import com.new_chanages.models.GroupsNameObject;
 import com.polls.polls.R;
 
@@ -36,6 +37,7 @@ public class GroupCheckListAdapter extends ArrayAdapter<GroupsNameObject> {
     //View holder class
     private ViewHolder holder;
     private View mViews;
+    DatabaseHelper dbHelper ;
 
     /**
      * initializes a new instance of the ListView class.
@@ -47,6 +49,7 @@ public class GroupCheckListAdapter extends ArrayAdapter<GroupsNameObject> {
         super(context, 0, category);
         this.context = context;
         this.groupList = category;
+        dbHelper= new DatabaseHelper(context);
         //Initializing the array list
         //groupList = new ArrayList<String>();
     }
@@ -60,7 +63,7 @@ public class GroupCheckListAdapter extends ArrayAdapter<GroupsNameObject> {
         mViews = mCategory;
         // The old view to reuse, if possible.If convertView is NOT null, we can simple re-use the convertView as the new View.
         // It will happen when a new row appear and a old row in the other end roll out.
-        if (mViews == null) {
+        //if (mViews == null) {
               /* create a new view of my layout and inflate it in the row */
             mViews = mInflater.inflate(R.layout.group_check_list, null);
             //view holder class
@@ -68,19 +71,41 @@ public class GroupCheckListAdapter extends ArrayAdapter<GroupsNameObject> {
             holder.tv_group_name = (TextView) mViews.findViewById(R.id.tv_group_name);
             holder.cb_group_selected = mViews.findViewById(R.id.cb_group_selected);
             mViews.setTag(holder);
-        } else {
+        /*} else {
             holder = (ViewHolder) mViews.getTag();
-        }
+
+        }*/
         final GroupsNameObject model = groupList.get(position);
 
         holder.tv_group_name.setText(model.getGroupName());
 
 
+         holder.cb_group_selected.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 if(model.getGroupStatus().equalsIgnoreCase("TRUE")){
+                     model.setGroupStatus("FALSE");
+                     AppConstents.GROUPlIST.get(position).setGroupStatus("FALSE");
+                     dbHelper.deleteGroupFromList(String.valueOf(groupList.get(position).getGroupId()));
+                     notifyDataSetChanged();
+                 }else{
+                     model.setGroupStatus("TRUE");
+                     dbHelper.addGroupsToList(groupList.get(position).getGroupName(), String.valueOf(groupList.get(position).getGroupId()), "true");
+                     //Toast.makeText(context, "Test "+dbHelper.GetGroupListSize(), Toast.LENGTH_SHORT).show();
+                     //Toast.makeText(context, "Test "+position, Toast.LENGTH_SHORT).show();
+                     //notifyDataSetChanged();
+                     AppConstents.GROUPlIST.get(position).setGroupStatus("TRUE");
+                     notifyDataSetChanged();
+
+                 }
+                 dbHelper.close();
+             }
+
+         });
 
 
 
-
-        holder.cb_group_selected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+    /*    holder.cb_group_selected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(!buttonView.isChecked())
@@ -102,14 +127,14 @@ public class GroupCheckListAdapter extends ArrayAdapter<GroupsNameObject> {
                     dbHelper.close();
                 }
             }
-        });
+        });*/
 
 
 
 
 
 
-// Newly Edited
+       // Newly Edited
         try{
             if(model.getGroupStatus().equals("TRUE")){
                 holder.cb_group_selected.setChecked(true);

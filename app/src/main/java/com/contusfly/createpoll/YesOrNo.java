@@ -18,6 +18,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcelable;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import androidx.annotation.RequiresApi;
@@ -54,6 +55,8 @@ import com.google.android.gms.ads.AdView;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.new_chanages.AppConstents;
+import com.new_chanages.activity.GroupSelection;
 import com.new_chanages.adapters.GroupCheckListAdapter;
 import com.new_chanages.api_interface.GroupsApiInterface;
 import com.new_chanages.models.GroupsNameObject;
@@ -94,6 +97,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
     File question1;
     File question2;
     private EditText editQuestion;
+    boolean isgroupPoll=false;
     String category;
     private String question;
     private Dialog listDialog;
@@ -203,6 +207,9 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
+
+
+
     }
 
     private void init() {
@@ -233,6 +240,8 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
         imgTask = new ImageUploadS3(getApplicationContext());
         //call back method
         imgTask.uplodingCallback(this);
+
+        serviceCallForGroups();
     }
 
     @Override
@@ -246,7 +255,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
         listGroupid.clear();
         mGroupName.clear();
         DatabaseHelper db = new DatabaseHelper(this);
-        serviceCallForGroups();
+
         if (mCategory.contains("Public")) {
             txtPublic.setVisibility(View.VISIBLE);
         } else {
@@ -317,9 +326,50 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
                 } else {
 
 
-                                    googleNow.setVisibility(View.VISIBLE);
-                                    googleNow.progressiveStart();
-                                    imgTask.executeUpload(choose_file_path, "image", "", "POLLS/");
+                    if(isgroupPoll){
+                        googleNow.setVisibility(View.VISIBLE);
+                        googleNow.progressiveStart();
+                        imgTask.executeUpload(choose_file_path, "image", "", "POLLS/");
+                    }
+                    else{
+                        //Creates a builder for an alert dialog that uses the default alert dialog theme.
+                        AlertDialog.Builder builder;
+                        //= new AlertDialog.Builder(YesOrNo.this);
+                        //set message
+
+                        if (Build.VERSION.SDK_INT >= 21)
+                            builder = new AlertDialog.Builder(YesOrNo.this, android.R.style.Theme_Material_Light_Dialog_NoActionBar);
+                        else
+                            builder = new AlertDialog.Builder(YesOrNo.this);
+                        builder.setMessage("Please validate your poll for appropriate grammar, spellings and content before submitting it. Otherwise it will be rejected.");
+                        builder.setNegativeButton("Cancel",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        //dialog
+                                        dialog.dismiss();
+                                    }
+                                });
+
+                        builder.setPositiveButton("Create",
+
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        //deleteThePoll(mClickPosition);//This method is used to delete the poll
+
+                                        create.setEnabled(false);
+
+                                        googleNow.setVisibility(View.VISIBLE);
+                                        googleNow.progressiveStart();
+                                        imgTask.executeUpload(choose_file_path, "image", "", "POLLS/");
+
+                                        dialog.dismiss();
+                                    }
+                                });
+                        //create
+                        builder.create().show();
+                    }
 
                 }
 
@@ -364,14 +414,22 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
             }
             break;
             case R.id.txtGroup: {
-                //Toast.makeText(mYesOrNo, "Test "+groupsList.size() , Toast.LENGTH_SHORT).show();
-                txtPublic.setTextColor(mYesOrNo.getResources().getColor(R.color.grey_color));
-                txtGroup.setTextColor(mYesOrNo.getResources().getColor(R.color.blue_color));
-                mContact = "";
-                showPopUp(groupsList);
+                mContact="";
+                if(AppConstents.GROUPlIST.size()!=0) {
+                    Intent intent = new Intent(YesOrNo.this, GroupSelection.class);
+                    intent.putExtra("DATA", AppConstents.GROUPlIST);
+                    startActivityForResult(intent, 20);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Please wait data loading",Toast.LENGTH_SHORT).show();
+                }
+
+
             }
             break;
             case R.id.txtPublic: {
+                isgroupPoll=false;
                 txtGroup.setTextColor(mYesOrNo.getResources().getColor(R.color.grey_color));
                 txtPublic.setTextColor(mYesOrNo.getResources().getColor(R.color.blue_color));
                 mContact = "Public";
@@ -430,6 +488,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
                         if(success.equals("1"))
                         {
                             groupsList = new ArrayList<>();
+                            AppConstents.GROUPlIST=new ArrayList<>();
                             JsonArray jsonArray = result.get("results").getAsJsonArray();
                             if(jsonArray.size()>0)
                             {
@@ -437,11 +496,15 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
                                 {
                                     JsonObject jsonObject = jsonArray.get(i).getAsJsonObject();
                                     GroupsNameObject object = new GroupsNameObject();
+
                                     object.setGroupId(jsonObject.get("group_id").getAsInt());
                                     object.setGroupImage(jsonObject.get("group_image").getAsString());
                                     object.setGroupName(jsonObject.get("group_name").getAsString());
+                                    object.setGroupStatus("FALSE");
                                     groupsList.add(object);
                                 }
+
+                                AppConstents.GROUPlIST =groupsList;
                                // Toast.makeText(mYesOrNo, "Test"+groupsList.size(), Toast.LENGTH_SHORT).show();
                             }
                             if(groupsList.size()>0)
@@ -464,7 +527,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
 
             @Override
             public void onFailure(Call<JsonElement> call, Throwable t) {
-                Toast.makeText(mYesOrNo, ""+t, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mYesOrNo, ""+t, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -475,6 +538,33 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
+
+            case 20:
+
+                if (resultCode == RESULT_OK) {
+                    txtPublic.setTextColor(mYesOrNo.getResources().getColor(R.color.grey_color));
+                    txtGroup.setTextColor(mYesOrNo.getResources().getColor(R.color.blue_color));
+
+                    isgroupPoll = true;
+                    mContact="";
+
+                    if(AppConstents.GROUPlIST.size()>0)
+                    {
+                        for (int i = 0; i < AppConstents.GROUPlIST.size(); i++) {
+                            if(AppConstents.GROUPlIST.get(i).getGroupStatus().equalsIgnoreCase("TRUE"))
+                            {
+                                if (i == 0) {
+                                    mContact = String.valueOf(AppConstents.GROUPlIST.get(i).getGroupId());
+                                } else {
+                                    mContact = mContact + "," + AppConstents.GROUPlIST.get(i).getGroupId();
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+                break;
             case 15:
                 if (resultCode == RESULT_OK) {
                     Log.e("mImageCaptureUri", "");
@@ -1225,7 +1315,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
         alertDialog.show();
 
     }
-    private void showPopUp(final ArrayList<GroupsNameObject> groupsList)
+/*    private void showPopUp(final ArrayList<GroupsNameObject> groupsList)
     {
         DatabaseHelper dbhelper = new DatabaseHelper(mYesOrNo);
         dbhelper.deleteGroupList();
@@ -1277,7 +1367,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
 
         });
 
-    }
+    }*/
 }
 
 

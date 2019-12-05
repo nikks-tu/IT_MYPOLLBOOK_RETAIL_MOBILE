@@ -52,6 +52,8 @@ import com.google.android.gms.ads.AdView;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.new_chanages.AppConstents;
+import com.new_chanages.activity.GroupSelection;
 import com.new_chanages.adapters.GroupCheckListAdapter;
 import com.new_chanages.api_interface.GroupsApiInterface;
 import com.new_chanages.models.GroupsNameObject;
@@ -190,6 +192,7 @@ public class MultipleOptions extends Activity implements OnTaskCompleted {
         imgTask = new ImageUploadS3(getApplicationContext());
         //call back method
         imgTask.uplodingCallback(this);
+        serviceCallForGroups();
 
     }
 
@@ -203,7 +206,7 @@ public class MultipleOptions extends Activity implements OnTaskCompleted {
         listGroupid.clear();
         mGroupName.clear();
         DatabaseHelper db = new DatabaseHelper(this);
-        serviceCallForGroups();
+
         if (mCategory.contains("Public")) {
             txtPublic.setVisibility(View.VISIBLE);
         } else {
@@ -239,6 +242,17 @@ public class MultipleOptions extends Activity implements OnTaskCompleted {
         } else {
             txtContacts.setVisibility(View.GONE);
         }
+
+
+        if(AppConstents.GROUPlIST.size()>0)
+        {
+          txtGroup.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            txtGroup.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override
@@ -414,12 +428,20 @@ public class MultipleOptions extends Activity implements OnTaskCompleted {
             }
             break;
             case R.id.txtGroup: {
-                //Toast.makeText(mYesOrNo, "Test "+groupsList.size() , Toast.LENGTH_SHORT).show();
-                txtPublic.setTextColor(mMultipleOptions.getResources().getColor(R.color.grey_color));
-                txtGroup.setTextColor(mMultipleOptions.getResources().getColor(R.color.blue_color));
-                mContact = "";
-                showPopUp(groupsList);
-                isgroupPoll=true;
+                mContact="";
+                if(AppConstents.GROUPlIST.size()>0)
+                {
+                    Intent intent=new Intent(MultipleOptions.this, GroupSelection.class);
+                    intent.putExtra("DATA",AppConstents.GROUPlIST);
+                    startActivityForResult(intent,20);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Please wait data loading",Toast.LENGTH_SHORT).show();
+                }
+
+
+
             }
             break;
             case R.id.txtPublic: {
@@ -752,6 +774,41 @@ public void createPollSubmit(){
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
+            case 20:
+                if (resultCode == RESULT_OK) {
+                    txtPublic.setTextColor(mMultipleOptions.getResources().getColor(R.color.grey_color));
+                    txtGroup.setTextColor(mMultipleOptions.getResources().getColor(R.color.blue_color));
+                    mContact = "";
+                    //  showPopUp(groupsList);
+                    isgroupPoll = true;
+                    /*DatabaseHelper dbhelper = new DatabaseHelper(getApplicationContext());
+                    ArrayList<GroupsNameObject> list = new ArrayList<>();
+                    list = dbhelper.getAllGroupList();
+                    if (list.size() > 0) {
+                        for (int i = 0; i < list.size(); i++) {
+                            if (i == 0) {
+                                mContact = String.valueOf(list.get(i).getGroupId());
+                            } else {
+                                mContact = mContact + "," + list.get(i).getGroupId();
+                            }
+                        }
+                    }*/
+
+                    if(AppConstents.GROUPlIST.size()>0)
+                    {
+                        for (int i = 0; i < AppConstents.GROUPlIST.size(); i++) {
+                            if(AppConstents.GROUPlIST.get(i).getGroupStatus().equalsIgnoreCase("TRUE"))
+                            {
+                                if (i == 0) {
+                                    mContact = String.valueOf(AppConstents.GROUPlIST.get(i).getGroupId());
+                                } else {
+                                    mContact = mContact + "," + AppConstents.GROUPlIST.get(i).getGroupId();
+                                }
+                            }
+                        }
+                    }
+                }
+                break;
             case 15:
                 if (resultCode == RESULT_OK) {
                     mImageCaptureUri = data.getData();
@@ -1303,6 +1360,7 @@ public void createPollSubmit(){
                         if(success.equals("1"))
                         {
                             groupsList = new ArrayList<>();
+                            AppConstents.GROUPlIST =new ArrayList<>();
                             JsonArray jsonArray = result.get("results").getAsJsonArray();
                             if(jsonArray.size()>0)
                             {
@@ -1313,8 +1371,11 @@ public void createPollSubmit(){
                                     object.setGroupId(jsonObject.get("group_id").getAsInt());
                                     object.setGroupImage(jsonObject.get("group_image").getAsString());
                                     object.setGroupName(jsonObject.get("group_name").getAsString());
+                                    object.setGroupStatus("FALSE");
                                     groupsList.add(object);
                                 }
+
+                                AppConstents.GROUPlIST=groupsList;
                                 // Toast.makeText(mYesOrNo, "Test"+groupsList.size(), Toast.LENGTH_SHORT).show();
                             }
                             if(groupsList.size()>0)

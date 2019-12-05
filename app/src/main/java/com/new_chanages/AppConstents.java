@@ -1,5 +1,9 @@
 package com.new_chanages;
 
+import com.new_chanages.models.GroupsNameObject;
+
+import java.util.ArrayList;
+
 /**
  * Created by kishore.i on 2/22/2018.
  */
@@ -16,6 +20,7 @@ public class AppConstents {
     public static final String REWARD_INFO =BASE_URL+"api/v1/earningsactions" ;
     public static final String TOTAL_POINTS =BASE_URL+"api/v1/rewards" ;
     public static final String TOP_10_USERS = BASE_URL+"/api/v1/topusers";
+    public static ArrayList<GroupsNameObject> GROUPlIST=new ArrayList<>();
     ;
   //http://admin.mypollbook.com/
 
