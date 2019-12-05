@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ import com.contus.app.Constants;
 import com.contus.responsemodel.CategoryPollResponseModel;
 import com.contusfly.MApplication;
 import com.contusfly.chooseContactsDb.DatabaseHelper;
+import com.contusfly.utils.Utils;
 import com.new_chanages.AppConstents;
 import com.new_chanages.models.GroupsNameObject;
 import com.polls.polls.R;
@@ -69,6 +71,8 @@ public class GroupCheckListAdapter extends ArrayAdapter<GroupsNameObject> {
             //view holder class
             holder = new ViewHolder();
             holder.tv_group_name = (TextView) mViews.findViewById(R.id.tv_group_name);
+            holder.iv_group_icon=(ImageView) mViews.findViewById(R.id.iv_group_icon);
+            holder.root_linear=(LinearLayout) mViews.findViewById(R.id.root_linear);
             holder.cb_group_selected = mViews.findViewById(R.id.cb_group_selected);
             mViews.setTag(holder);
         /*} else {
@@ -80,7 +84,14 @@ public class GroupCheckListAdapter extends ArrayAdapter<GroupsNameObject> {
         holder.tv_group_name.setText(model.getGroupName());
 
 
-         holder.cb_group_selected.setOnClickListener(new View.OnClickListener() {
+        String imageUrl = model.getGroupImage();
+        if(imageUrl!=null && !imageUrl.equals(""))
+        {
+            Utils.loadImageWithGlideSingleImageRounderCorner(context, imageUrl, holder.iv_group_icon, R.drawable.img_ic_user);
+        }
+
+
+         holder.root_linear.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
                  if(model.getGroupStatus().equalsIgnoreCase("TRUE")){
@@ -102,6 +113,30 @@ public class GroupCheckListAdapter extends ArrayAdapter<GroupsNameObject> {
              }
 
          });
+
+        holder.cb_group_selected.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(model.getGroupStatus().equalsIgnoreCase("TRUE")){
+                    model.setGroupStatus("FALSE");
+                    AppConstents.GROUPlIST.get(position).setGroupStatus("FALSE");
+                    dbHelper.deleteGroupFromList(String.valueOf(groupList.get(position).getGroupId()));
+                    notifyDataSetChanged();
+                }else{
+                    model.setGroupStatus("TRUE");
+                    dbHelper.addGroupsToList(groupList.get(position).getGroupName(), String.valueOf(groupList.get(position).getGroupId()), "true");
+                    //Toast.makeText(context, "Test "+dbHelper.GetGroupListSize(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, "Test "+position, Toast.LENGTH_SHORT).show();
+                    //notifyDataSetChanged();
+                    AppConstents.GROUPlIST.get(position).setGroupStatus("TRUE");
+                    notifyDataSetChanged();
+
+                }
+                dbHelper.close();
+            }
+
+        });
+
 
 
 
@@ -151,6 +186,8 @@ public class GroupCheckListAdapter extends ArrayAdapter<GroupsNameObject> {
     private class ViewHolder {
         //Imageview
         private CheckBox cb_group_selected;
+        private ImageView iv_group_icon;
+        private LinearLayout root_linear;
         //Textview
         private TextView tv_group_name;
     }

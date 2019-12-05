@@ -51,6 +51,7 @@ public class GroupsAdapter  extends RecyclerView.Adapter<GroupNameRCVHolder> {
        //  holder.iv_group_icon.setImageBitmap(imageUrl);
     }
 
+
     @Override
     public GroupNameRCVHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // This method will inflate the custom layout and return as viewholder

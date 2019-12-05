@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/lin01"
+    android:id="@+id/root_linear"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#fff"
     android:padding="10dp"
     android:orientation="horizontal">
+    <com.contusfly.views.CircularImageView
+        android:layout_width="50dp"
+        android:id="@+id/iv_group_icon"
+        android:src="@drawable/img_ic_user"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/margin_two"/>
 
     <TextView
         android:id="@+id/tv_group_name"
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:gravity="left|center_vertical"
+        android:gravity="center_vertical"
+        android:layout_margin="8dp"
         android:layout_marginLeft="10dp"
         android:textSize="@dimen/activity_textSize_small_16"
         android:textColor="#000"
