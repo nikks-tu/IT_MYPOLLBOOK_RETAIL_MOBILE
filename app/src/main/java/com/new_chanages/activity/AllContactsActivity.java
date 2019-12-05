@@ -371,10 +371,11 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
 
 */
 
-
+        String sortOrder = ContactsContract.Contacts.DISPLAY_NAME +
+                " COLLATE LOCALIZED ASC";
         final ContentResolver cr = getContentResolver();
         Cursor c = cr.query(ContactsContract.Contacts.CONTENT_URI,
-                null, null, null, null);
+                null, null, null, sortOrder);
         String lastnumber = "0";
         contactToSend="";
 
