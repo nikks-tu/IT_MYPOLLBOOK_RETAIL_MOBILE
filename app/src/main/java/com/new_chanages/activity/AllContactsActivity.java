@@ -84,6 +84,7 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_contacts);
+        contactToSend="";
 
         initialize();
         if(getIntent().getExtras()!=null)
@@ -374,8 +375,8 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
         final ContentResolver cr = getContentResolver();
         Cursor c = cr.query(ContactsContract.Contacts.CONTENT_URI,
                 null, null, null, null);
-
-
+        String lastnumber = "0";
+        contactToSend="";
 
 /*        if(c.getCount()>0)
         {
@@ -467,24 +468,48 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
 
                             String phoneNo = pCur.getString(pCur.getColumnIndex(
                                     ContactsContract.CommonDataKinds.Phone.NUMBER));
+                            phoneNo.replaceAll("\\s", "");
+                            phoneNo.replaceAll("\\-","");
 
-                            if(contactToSend.equals(""))
+                            contactToSend.replaceAll("\\s", "");
+                            contactToSend.replaceAll("\\-","");
+
+                            if (phoneNo.equals(lastnumber))
                             {
-                                contactToSend = phoneNo;
-                                model.setContactNumber(phoneNo);
+
                             }
                             else {
-                                contactToSend = contactToSend +"," + phoneNo;
+                                lastnumber = phoneNo;
+
+                                Log.e("lastnumber ", lastnumber);
+                                int type = pCur.getInt(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE));
+                                switch (type)
+                                {
+                                    case ContactsContract.CommonDataKinds.Phone.TYPE_HOME:
+                                        Log.e("Not Inserted", "Not inserted");
+                                        break;
+                                    case ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE:
+                                        if(contactToSend.equals(""))
+                                        {
+                                            contactToSend = phoneNo;
+                                            model.setContactNumber(phoneNo);
+                                        }
+                                        else {
+                                            if(!contactToSend.contains(phoneNo)) {
+                                                contactToSend = contactToSend + "," + phoneNo;
+                                            }
+                                        }
+                                            contactList.add(model);
+                                            dbHelper.addContactToList(name, phoneNo, "false", "", "", "");
+                                        break;
+                                    case ContactsContract.CommonDataKinds.Phone.TYPE_WORK:
+                                        Log.e("Not Inserted", "Not inserted");
+                                        break;
+                                }
+
                             }
 
-                            contactList.add(model);
-                            dbHelper.addContactToList(name, phoneNo, "false", "", "", "");
-
                         }
-
-
-
-
                         pCur.close();
                     }
 
