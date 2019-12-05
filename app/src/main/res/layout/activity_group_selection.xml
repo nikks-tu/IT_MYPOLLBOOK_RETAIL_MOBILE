@@ -36,7 +36,7 @@
                 android:src="@drawable/ic_back" />
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/title_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -44,7 +44,6 @@
                 android:background="@color/blue_color"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Select Group"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white" />
 

@@ -2,6 +2,7 @@ package com.new_chanages.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -21,11 +22,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.new_chanages.AppConstents;
 import com.new_chanages.adapters.GroupCheckListAdapter;
 import com.new_chanages.api_interface.GroupsApiInterface;
 import com.new_chanages.models.GroupPollDataObject;
@@ -47,8 +50,10 @@ public class GroupSelection extends AppCompatActivity {
     String action="getgroupsapi";
     private String userId;
     Button done;
+    Boolean check_status=false;
     DatabaseHelper dbhelper;
     ImageView imagBackArrow;
+    TextView title;
 
     GroupCheckListAdapter adapter;
     private static Activity activity;
@@ -61,6 +66,7 @@ public class GroupSelection extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         dbhelper = new DatabaseHelper(activity);
+
         groupsList = (ArrayList<GroupsNameObject>)  getIntent().getSerializableExtra("DATA");
 
         userId = MApplication.getString(getApplicationContext(), Constants.USER_ID);
@@ -76,9 +82,25 @@ public class GroupSelection extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent returnIntent = new Intent();
-                setResult(Activity.RESULT_OK,returnIntent);
-                finish();
+
+                for(int i=0;i<AppConstents.GROUPlIST.size();){
+                    if(AppConstents.GROUPlIST.get(i).getGroupStatus().equals("TRUE")){
+                        check_status=true;
+                        break;
+                    }
+                  else{
+                        i++;
+                    }
+                }
+
+                if(check_status){
+                    Intent returnIntent = new Intent();
+                    setResult(Activity.RESULT_OK,returnIntent);
+                    finish();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Please select atleast one group..", Toast.LENGTH_SHORT).show();
+                }
+
 
             }
         });
@@ -167,6 +189,11 @@ public class GroupSelection extends AppCompatActivity {
     private void initialize() {
         activity = this;
         imagBackArrow=findViewById(R.id.imagBackArrow);
+        title=findViewById(R.id.title_group);
+
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/Quicksand-Light.ttf");
+        title.setTypeface(face);
+        title.setText("Select Contact");
         done=findViewById(R.id.done);
         groupSelectionrecycler=findViewById(R.id.group_selection_list_view);
 
