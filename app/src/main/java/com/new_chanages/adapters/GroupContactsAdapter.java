@@ -212,8 +212,8 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
 
             @Override
             public void onFailure(Call<JsonElement> call, Throwable t) {
-                Toast toast = Toast.makeText(context , ""+t, Toast.LENGTH_LONG);
-                toast.show();
+               // Toast toast = Toast.makeText(context , ""+t, Toast.LENGTH_LONG);
+               // toast.show();
             }
         });
     }

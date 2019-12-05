@@ -271,7 +271,7 @@ public class GroupsFragment extends Fragment implements GroupPolls.GroupPollOnFr
 
             @Override
             public void onFailure(Call<JsonElement> call, Throwable t) {
-                Toast.makeText(getContext(), ""+t, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), ""+t, Toast.LENGTH_SHORT).show();
             }
         });
 
