@@ -716,7 +716,7 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
         edt_group_name.setFocusable(true);
         iv_group_icon = findViewById(R.id.iv_group_icon);
         grid_contacts = findViewById(R.id.grid_contacts);
-        tv_title = findViewById(R.id.tv_title);
+        tv_title = findViewById(R.id.title);
         tv_add_participant = findViewById(R.id.tv_add_participant);
         iv_back = findViewById(R.id.iv_back);
         iv_save = findViewById(R.id.iv_save);
