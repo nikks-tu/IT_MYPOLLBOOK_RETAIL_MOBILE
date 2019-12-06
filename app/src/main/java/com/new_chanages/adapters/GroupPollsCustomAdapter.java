@@ -543,7 +543,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
         //Poll id from the response
         String pollId = String.valueOf(userPollResponse.getPollId());
         if (!preferenceUserPollIdAnswer.isEmpty()) {
-            if (preferenceUserPollIdAnswer.contains(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getId()))) {
+            if (preferenceUserPollIdAnswer.contains(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getPollId()))) {
                 //Load the participate count from  the saved prefernce
                 preferenceUserPollParticipateCount = MApplication
                         .loadArray(userPollActivity, userPollParticipateCount, Constants
@@ -611,9 +611,9 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
                         Constants.USER_POLL_PARTICIPATE_COUNT_SIZE);
         //If the loaded poll id matches with the response id based on the position
         //then the radio option will be checked otherwise it wont be checked
-        if (preferenceUserPollIdAnswer.contains(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getId()))) {
+        if (preferenceUserPollIdAnswer.contains(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getPollId()))) {
             //Getting the position of the particular value saved in preference
-            int answeredPosition = preferenceUserPollIdAnswer.indexOf(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getId()));
+            int answeredPosition = preferenceUserPollIdAnswer.indexOf(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getPollId()));
             //Selected answer from the position
             String value = preferenceUserPollIdAnswerSelected.get(answeredPosition);
             //If the value matches then the radio option will be checked ,text color will be black and clickable will
@@ -904,9 +904,9 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
         }
         //If the loaded poll id matches with the response id based on the position
         //then the radio option will be checked otherwise it woont be checked
-        if (preferenceUserPollIdAnswer.contains(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getId()))) {
+        if (preferenceUserPollIdAnswer.contains(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getPollId()))) {
             //Getting the position of the particular value saved in preference
-            int answeredPosition = preferenceUserPollIdAnswer.indexOf(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getId()));
+            int answeredPosition = preferenceUserPollIdAnswer.indexOf(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getPollId()));
             //Selected answer from the position
             String value = preferenceUserPollIdAnswerSelected.get(answeredPosition);
             //If the value matches then the radio option willbec cheked ,text color will be black and clickable will
@@ -1274,9 +1274,9 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
         }
         //If the loaded poll id matches with the response id based on the position
         //then the radio option will be checked otherwise it woont be checked
-        if (preferenceUserPollIdAnswer.contains(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getId()))) {
+        if (preferenceUserPollIdAnswer.contains(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getPollId()))) {
             //Getting the position of the particular value saved in preference
-            int answeredPosition = preferenceUserPollIdAnswer.indexOf(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getId()));
+            int answeredPosition = preferenceUserPollIdAnswer.indexOf(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getPollId()));
             //Selected answer from the position
             String value = preferenceUserPollIdAnswerSelected.get(answeredPosition);
             //If the value matches then the radio option willbec cheked ,text color will be black and clickable will
@@ -1636,9 +1636,9 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
         }
         //If the loaded poll id matches with the response id based on the position
         //then the radio option will be checked otherwise it woont be checked
-        if (preferenceUserPollIdAnswer.contains(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getId()))) {
+        if (preferenceUserPollIdAnswer.contains(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getPollId()))) {
             //Getting the position of the particular value saved in preference
-            int answeredPosition = preferenceUserPollIdAnswer.indexOf(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getId()));
+            int answeredPosition = preferenceUserPollIdAnswer.indexOf(String.valueOf(userPollResponse.getUserPollsQuestion().getPollAnswers().getPollId()));
             //Selected answer from the position
             String value = preferenceUserPollIdAnswerSelected.get(answeredPosition);
             //If the value matches then the radio option willbec cheked ,text color will be black and clickable will
@@ -1983,7 +1983,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
         //Getting the id from the response
         String pollId = String.valueOf(this.userPollResponse.getPollId());
         //Getting the poll answer id from the response
-        String pollAnswerId = String.valueOf(this.userPollResponse.getUserPollsQuestion().getPollAnswers().getId());
+        String pollAnswerId = String.valueOf(this.userPollResponse.getUserPollsQuestion().getPollAnswers().getPollId());
         PollParticipateRestClient.getInstance()
                                  .postParticipateApi("polls_participate", userId, pollId, pollAnswerId, pollAnswer, pollAnswerSelectedId, "1"
                                          , new Callback<PollParticipateResponseModel>() {
