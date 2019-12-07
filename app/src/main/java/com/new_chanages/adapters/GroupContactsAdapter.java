@@ -5,7 +5,11 @@ import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.database.Cursor;
 import android.graphics.Typeface;
+import android.net.Uri;
+import android.provider.ContactsContract;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +65,16 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
     public void onBindViewHolder(GroupNameRCVHolder holder, final int position) {
         ContactDetailsModel model = arrayList.get(position);
 
-        holder.tv_group_name.setText(model.getName());
+        String name =Utils.getContactName(model.getMobile_number(),context);
+        if(TextUtils.isEmpty(name))
+        {
+           name=model.getName();
+        }
+        else
+        {
+
+        }
+        holder.tv_group_name.setText(name);
         holder.tv_contact_num.setVisibility(View.VISIBLE);
         holder.tv_contact_num.setText(model.getMobile_number());
         holder.iv_arrow.setVisibility(View.VISIBLE);
@@ -240,6 +253,9 @@ public class GroupContactsAdapter extends RecyclerView.Adapter<GroupNameRCVHolde
         return listHolder;
 
     }
+
+
+
 
 
 

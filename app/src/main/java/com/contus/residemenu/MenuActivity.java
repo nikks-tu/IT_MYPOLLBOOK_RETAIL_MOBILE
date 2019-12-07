@@ -63,6 +63,7 @@ import com.contusfly.views.CircularImageView;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.new_chanages.activity.Rewards_Activty;
 import com.new_chanages.fragment.EditGroupsFragment;
+import com.new_chanages.fragment.GroupPolls;
 import com.new_chanages.fragment.GroupsFragment;
 import com.new_chanages.models.GetErnigsInputModel;
 import com.polls.polls.R;
@@ -1400,7 +1401,51 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
             //View gone
             publicPoll.setVisibility(View.GONE);
 
-        } else if (selectedTag.equals(PublicPoll.class.getName())) {
+        }
+        else if (selectedTag.equals(GroupPolls.class.getName()))
+        {
+            toolbar.setVisibility(View.VISIBLE);
+            layoutTop.setVisibility(View.GONE);
+            //view gone
+            imageAddComments.setVisibility(View.GONE);
+            //image profile gone
+            imgProfile.setVisibility(View.GONE);
+            //image edit gone
+            imgEdit1.setVisibility(View.GONE);
+            //image more visibility gone
+            imgMore.setVisibility(View.GONE);
+            //view visible
+            frame1.setVisibility(View.GONE);
+            //view visible
+            btnCreatePoll.setVisibility(View.GONE);
+            //view visible
+            imgSearch.setVisibility(View.GONE);
+            //view gone
+            bDone.setVisibility(View.GONE);
+            titleBarLeftMenu1.setVisibility(View.GONE);
+            //View visible
+            userPoll.setVisibility(View.GONE);
+            //View gone
+            chat.setVisibility(View.GONE);
+            //title
+            title =  itemHome.findViewById(R.id.tv_title);
+            //icon
+            icon =  itemHome.findViewById(R.id.iv_icon);
+            //divider line
+            dividerLine = itemHome.findViewById(R.id.view);
+            //setting the text color
+            title.setTextColor(getResources().getColor(R.color.color_white));
+            //Setting the icon color
+            icon.setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.SRC_ATOP);
+            //divider line visible
+            dividerLine.setVisibility(View.VISIBLE);
+            //View gone
+            publicPoll.setVisibility(View.GONE);
+            //view gone
+
+
+        }
+        else if (selectedTag.equals(PublicPoll.class.getName())) {
             toolbar.setVisibility(View.VISIBLE);
             layoutTop.setVisibility(View.GONE);
             //view gone

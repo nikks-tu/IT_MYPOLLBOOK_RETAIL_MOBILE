@@ -161,7 +161,7 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
             @Override
             public void onClick(View v) {
                 DatabaseHelper dbHelper = new DatabaseHelper(mContext);
-                dbHelper.deletContactList();
+                //dbHelper.deletContactList();
                 MApplication.setString(mContext, Constants.CONTACT_LIST, "");
                 Intent intent = new Intent(mContext, AllContactsActivity.class);
                 intent.putExtra("fromActivity", "Edit");
