@@ -84,6 +84,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:padding="@dimen/margin_five"
+        android:inputType="text"
+        android:digits="0123456789,abcdefghijklmnopqrstuvwxyz, ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         android:layout_marginLeft="@dimen/view_margin"
         android:layout_marginRight="@dimen/view_margin"
         android:gravity="center"

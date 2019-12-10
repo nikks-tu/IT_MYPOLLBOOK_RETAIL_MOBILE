@@ -964,6 +964,8 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
                             @Override
                             public void success(CreatePollResponseModel createResponseModel, Response response) {
                                 if (createResponseModel.getSuccess().equals("1")) {
+
+
                                     finish();
                                 }
                                 Toast.makeText(mYesOrNo, createResponseModel.getMsg(),
@@ -1107,6 +1109,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
                             @Override
                             public void success(CreatePollResponseModel createResponseModel, Response response) {
                                 if (createResponseModel.getSuccess().equals("1")) {
+
                                     finish();
                                 }
                                 Toast.makeText(mYesOrNo, createResponseModel.getMsg(),

@@ -63,7 +63,8 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
     ListView lv_contacts;
     Context mContext;
     ImageView iv_back, iv_save;
-    FloatingActionButton fab_next,refresh_fab;
+    FloatingActionButton fab_next;
+    ImageView refresh_fab;
     ArrayList<ContactModel> contactList;
     MDatabaseHelper db;
     SearchView searchView;
@@ -269,6 +270,8 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
             @Override
             public void onClick(View view) {
 
+
+                rcv_selected_contacts.setAdapter(null);
                 db.deleteContactList();
                 db.close();
                 refreshAllContacs();
