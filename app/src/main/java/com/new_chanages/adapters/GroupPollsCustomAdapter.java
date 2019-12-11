@@ -358,7 +358,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
         //Geeting the json response based on the position
         userPollResponse = getItem(position);
         //poll type from the response
-        if(userPollResponse!=null) {
+        if(userPollResponse!=null&&userPollResponse.getUserPollsQuestion()!=null) {
             idRefrenceView = userPollResponse.getUserPollsQuestion().getPollType();
             //Poll question from the response
             pollQuestion = userPollResponse.getUserPollsQuestion().getPollQuestion();
@@ -386,7 +386,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
             MApplication.setString(userPollActivity, Constants.YOUTUBE_URL, youTubeUrl);
         }
         //If the value matches the the layout one view is binded.
-        if (Integer.parseInt(idRefrenceView) == Constants.LAYOUT_ONE) {
+        if (idRefrenceView!=null&&Integer.parseInt(idRefrenceView) == Constants.LAYOUT_ONE) {
             /* create a new view of my layout and inflate it in the row */
             mMyPollsView = LayoutInflater.from(userPollActivity).inflate(R.layout.userpoll_firstview, null);
             //view holder class
@@ -413,7 +413,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
             //Binding the data into the views in android
             validateViewLayoutOne(holderUserView1, position);
             //If the value matches the the layout one view is bind.
-        } else if (Integer.parseInt(idRefrenceView) == Constants.LAYOUT_TWO) {
+        } else if (idRefrenceView!=null&&Integer.parseInt(idRefrenceView) == Constants.LAYOUT_TWO) {
             /* create a new view of my layout and inflate it in the row */
             mMyPollsView = LayoutInflater.from(userPollActivity).inflate(R.layout.userpoll_secondview, null);
             //view holder class
@@ -444,7 +444,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
             //Binding the data into the views in android
             holderUserView2.imgShareMultipleOptionsUserPoll.setVisibility(View.GONE);
             validateViewLayoutTwo(holderUserView2, position);
-        } else if (Integer.parseInt(idRefrenceView) == Constants.LAYOUT_THREE) {
+        } else if (idRefrenceView!=null&&Integer.parseInt(idRefrenceView) == Constants.LAYOUT_THREE) {
              /* create a new view of my layout and inflate it in the row */
             mMyPollsView = LayoutInflater.from(userPollActivity).inflate(R.layout.userpoll_thirdview, null);
             //view holder class
@@ -488,7 +488,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
             //Binding the data into the views in android
             validateViewLayoutThree(holderUserView3, position);
 
-        } else if (Integer.parseInt(idRefrenceView) == Constants.LAYOUT_FOUR) {
+        } else if (idRefrenceView!=null&&Integer.parseInt(idRefrenceView) == Constants.LAYOUT_FOUR) {
             /* create a new view of my layout and inflate it in the row */
             mMyPollsView = LayoutInflater.from(userPollActivity).inflate(R.layout.userpoll_fourthview, null);
             //view holder class
@@ -521,6 +521,10 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
             holderUserView4.imgShareYouTubeUrlUserPoll.setVisibility(View.GONE);
             //Binding the data into the views in android
             validateViewLayoutFour(holderUserView4, position);
+        }
+        else
+        {
+
         }
         return mMyPollsView;
     }

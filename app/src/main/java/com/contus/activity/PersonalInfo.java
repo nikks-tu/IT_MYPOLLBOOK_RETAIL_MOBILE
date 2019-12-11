@@ -285,7 +285,9 @@ public class PersonalInfo extends ActivityBase implements Constants,OnTaskComple
         imgLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent a = new Intent(PersonalInfo.this, LocationActivity.class);
+               /* Intent a = new Intent(PersonalInfo.this, LocationActivity.class);
+                startActivity(a);*/
+                Intent a = new Intent(PersonalInfo.this, GooglePlacesAutocompleteActivity.class);
                 startActivity(a);
             }
         });
@@ -681,14 +683,14 @@ public class PersonalInfo extends ActivityBase implements Constants,OnTaskComple
                         @Override
                         public void failure(RetrofitError retrofitError) {
                             MApplication.materialdesignDialogStop();//materiald dialog
-                            MApplication.errorMessage(retrofitError, mPersonalInfo);//error message
+                           // MApplication.errorMessage(retrofitError, mPersonalInfo);//error message
                         }
                     });
                 }
             else {
             //toast message will display
-                Toast.makeText(mPersonalInfo, getResources().getString(R.string.check_internet_connection),
-                        Toast.LENGTH_SHORT).show();
+               // Toast.makeText(mPersonalInfo, getResources().getString(R.string.check_internet_connection),
+                   //     Toast.LENGTH_SHORT).show();
         }
     }
 

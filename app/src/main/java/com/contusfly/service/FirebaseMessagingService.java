@@ -2,7 +2,11 @@ package com.contusfly.service;
 
 import android.content.Context;
 import android.content.Intent;
+
+import androidx.annotation.NonNull;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -23,6 +27,16 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
     private static final String TAG = FirebaseMessagingService.class.getSimpleName();
 
     private NotificationUtils notificationUtils;
+
+    @Override
+    public void onNewToken(@NonNull String s) {
+        super.onNewToken(s);
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences(Config.SHARED_PREF, 0);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("regId", s);
+        editor.commit();
+    }
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {

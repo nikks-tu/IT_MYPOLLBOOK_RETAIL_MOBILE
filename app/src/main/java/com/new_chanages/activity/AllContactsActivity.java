@@ -270,7 +270,7 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
             @Override
             public void onClick(View view) {
 
-
+                refresh_fab.setEnabled(false);
                 rcv_selected_contacts.setAdapter(null);
                 db.deleteContactList();
                 db.close();
@@ -674,17 +674,20 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             progressBar.setVisibility(View.INVISIBLE);
-
+            refresh_fab.setEnabled(true);
             serviceCall();
         }
     }
 
 
     public void update(String phonenumber, int i){
-        ArrayList<ContactModel> list = new ArrayList<>();
+
 
 
         if(i==0) {
+
+            ArrayList<ContactModel> list = new ArrayList<>();
+
             for (ContactModel obj : myPollBookContactList) {
                 if (obj.getIsContactSelected().equals("TRUE")) {
                     list.add(obj);

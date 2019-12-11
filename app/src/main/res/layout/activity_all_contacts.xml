@@ -94,7 +94,7 @@
              android:textSize="12dp"
              android:inputType="textCapSentences"
              android:singleLine="true"
-             app:searchIcon="@drawable/ic_search"
+             app:searchIcon="@drawable/ic_searchwhite"
              app:queryBackground="@color/color_white"
              app:closeIcon="@drawable/search_close"
              app:queryHint="Search Contacts"
@@ -104,12 +104,11 @@
              />
          <ImageView
              android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
+             android:layout_height="match_parent"
              android:src="@drawable/ic_refresh"
              android:tint="@color/color_white"
              android:background="@color/colorPrimary"
              android:layout_gravity="end"
-             android:paddingTop="15dp"
              android:layout_marginRight="20dp"
              android:id="@+id/refresh"
               />

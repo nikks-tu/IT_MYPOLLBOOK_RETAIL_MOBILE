@@ -83,13 +83,13 @@ public class GroupSelection extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                for(int i=0;i<AppConstents.GROUPlIST.size();){
+                for(int i=0;i<AppConstents.GROUPlIST.size();i++){
                     if(AppConstents.GROUPlIST.get(i).getGroupStatus().equals("TRUE")){
                         check_status=true;
                         break;
                     }
                   else{
-                        i++;
+                        check_status=false;
                     }
                 }
 
@@ -109,6 +109,10 @@ public class GroupSelection extends AppCompatActivity {
         imagBackArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                for(int i=0;i<AppConstents.GROUPlIST.size();i++){
+                    AppConstents.GROUPlIST.get(i).setGroupStatus("FALSE");
+                }
                 finish();
             }
         });

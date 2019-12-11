@@ -43,7 +43,7 @@ public class PersonalInfoRestClient {
         // Doing HTTP efficiently makes your stuff load faster and saves bandwidth
         OkHttpClient okHttp = new OkHttpClient();
         //y to set the read timeout as well
-        okHttp.setConnectTimeout(180, TimeUnit.SECONDS);
+        okHttp.setConnectTimeout(1000, TimeUnit.SECONDS);
         //HTTP is the way modern applications network. It�s how we exchange data & media.
         // Doing HTTP efficiently makes your stuff load faster and saves bandwidth.
         RestAdapter.Builder builder = new RestAdapter.Builder()

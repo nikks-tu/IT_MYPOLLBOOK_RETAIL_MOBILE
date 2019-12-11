@@ -30,6 +30,7 @@
         android:id="@+id/cb_group_selected"
         android:layout_width="wrap_content"
         android:text=""
+        style="@style/MyRadioButtonStyle"
         android:gravity="center_vertical|right"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_five"/>
