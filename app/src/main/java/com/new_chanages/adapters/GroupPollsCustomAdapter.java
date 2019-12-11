@@ -568,6 +568,9 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
                 a.putExtra(Constants.ARRAY_POSITION, clickPosition);
                 a.putExtra(Constants.PARTICIPATE_COUNT, String
                         .valueOf(preferenceUserPollParticipateCount.get(clickPosition)));
+                    a.putExtra("SHARE", true);
+
+
                 //Starting the activity
                 userPollActivity.startActivity(a);
             } else {

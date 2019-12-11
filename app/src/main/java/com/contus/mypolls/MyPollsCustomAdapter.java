@@ -608,6 +608,8 @@ public class MyPollsCustomAdapter extends ArrayAdapter<UserPollResponseModel.Res
         //Setting the userprofile in preference
         MApplication.setString(myPollActivity, Constants.CAMPAIGN_LOGO, myPollResponse.getUserInfo().getUserProfileImg());
         //It can be used with startActivity to launch an Activity.
+
+
         Intent a = new Intent(myPollActivity, MyPollsReview.class);
         //Pushing the values from one activity to another activity
         a.putExtra(Constants.POLL_TYPE, pollType);
@@ -615,6 +617,15 @@ public class MyPollsCustomAdapter extends ArrayAdapter<UserPollResponseModel.Res
         a.putExtra(Constants.TYPE, Constants.POLLS);
         a.putExtra(Constants.ARRAY_POSITION, clickPosition);
         a.putExtra(Constants.PARTICIPATE_COUNT, String.valueOf(preferencemyParticipateCount.get(clickPosition)));
+
+        if (!(("1").equals(myPollResponse.getStatus()))) {
+            //public
+            a.putExtra("SHARE" ,false);
+        } else {
+            //group
+            a.putExtra("SHARE", true);
+        }
+
         //Starting the activity
         myPollActivity.startActivity(a);
     }
