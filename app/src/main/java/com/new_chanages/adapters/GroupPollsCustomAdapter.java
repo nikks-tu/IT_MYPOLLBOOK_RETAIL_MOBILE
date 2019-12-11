@@ -2033,7 +2033,7 @@ public class GroupPollsCustomAdapter extends ArrayAdapter<GroupPollDataObject> i
                                                          //Setting the radio options as false
                                                          holder1.radioNoUserPoll.setClickable(false);
                                                          //If it is checked,then the text view sis set as black
-                                                         if (holder1.radioYesUserPoll.isChecked()) {
+                                                          if (holder1.radioYesUserPoll.isChecked()) {
                                                              holder1.radioYesUserPoll.setTextColor(Color.BLACK);
                                                          } else if (holder1.radioNoUserPoll.isChecked()) {
                                                              holder1.radioNoUserPoll.setTextColor(Color.BLACK);
