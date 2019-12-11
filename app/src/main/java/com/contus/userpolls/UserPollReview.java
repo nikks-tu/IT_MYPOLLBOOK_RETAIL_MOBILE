@@ -83,6 +83,7 @@ public class UserPollReview extends Activity {
     //userId
     private String userId;
     //mlikes
+    private Boolean share_id;
     private int mlikes;
     //Adview
     private AdView mAdView;
@@ -295,6 +296,8 @@ public class UserPollReview extends Activity {
     public void init() {
         /**Initializing the activity**/
         mUserPollReview = this;
+
+        share_id=getIntent().getExtras().getBoolean("SHARE",false);
         //Retrieves a map of extended data from the intent.
         userPollId = getIntent().getExtras().getString(Constants.POLL_ID);
         //Retrieves a map of extended data from the intent.
@@ -415,6 +418,10 @@ public class UserPollReview extends Activity {
         userPollView4.userPollrelativePrgressBar4YouTubeLayout =(RelativeLayout)findViewById(R.id.relativeProgressbar4);
         userPollView4.userPolltxtCountsYouTubeLayout = (TextView) findViewById(R.id.txtParticcipation);
         userPollView4.imgShareYouTubeLayout =(ImageView)findViewById(R.id.imgShare);
+
+        if(share_id){
+            userPollView4.imgShareYouTubeLayout.setVisibility(View.GONE);
+        }
         userPollView4.txtLikeYouTubeLayout = (TextView)findViewById(R.id.txtLike2);
         userPollView4.userPolloption1YouTubeLayoutYouTubeLayout = (TextView)findViewById(R.id.option1);
         userPollView4.userPolloption2YouTubeLayout = (TextView) findViewById(R.id.option2);
@@ -718,6 +725,10 @@ public class UserPollReview extends Activity {
         userPollView3.userPollPhotoComparisonGroupAnswer3 = (TextView) findViewById(R.id.pollGroupAnswer3);
         userPollView3.userPollPhotoComparisonGroupAnswer4 = (TextView) findViewById(R.id.pollGroupAnswer4);
         userPollView3.userPollPhotoComparisonimgShare = (ImageView) findViewById(R.id.imgShare);
+
+        if(share_id){
+            userPollView3.userPollPhotoComparisonimgShare.setVisibility(View.GONE);
+        }
         //view visible
         userPollView3.scrollView.setVisibility(View.VISIBLE);
         //Setting the poll like count
@@ -1004,6 +1015,11 @@ public class UserPollReview extends Activity {
         viewHolder2.userPollGroupAnswer3MultipleOptions =(TextView)findViewById(R.id.pollGroupAnswer3);
         viewHolder2.userPollGroupAnswer4MultipleOptions =(TextView)findViewById(R.id.pollGroupAnswer4);
         viewHolder2.imgShareMultipleOptions =(ImageView)findViewById(R.id.imgShare);
+
+        if(share_id){
+            viewHolder2.imgShareMultipleOptions.setVisibility(View.GONE);
+        }
+
         viewHolder2.txtLikeMultipleOptions = (TextView)findViewById(R.id.txtLike2);
         viewHolder2.userPolloption1MultipleOptions = (TextView)findViewById(R.id.option1);
         viewHolder2.userPolloption2MultipleOptions = (TextView) findViewById(R.id.option2);
@@ -1284,6 +1300,10 @@ public class UserPollReview extends Activity {
         viewHolder1.userPollprogressbarFirstOptionYesOrNO = (ProgressBar) findViewById(R.id.progressbarFirstOption);
         viewHolder1.userPollprogressbarSecondOptionYesOrNO = (ProgressBar) findViewById(R.id.progressbarSecondOption);
         viewHolder1.imgShareYesOrNO = (ImageView) findViewById(R.id.imgShare);
+
+        if(share_id){
+            viewHolder1.imgShareYesOrNO.setVisibility(View.GONE);
+        }
         //Setting the visiblity
         viewHolder1.scrollViewYesOrNO.setVisibility(View.VISIBLE);
         //setting the participate count

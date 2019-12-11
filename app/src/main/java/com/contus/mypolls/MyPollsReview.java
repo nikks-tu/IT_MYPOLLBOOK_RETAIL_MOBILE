@@ -83,6 +83,8 @@ public class MyPollsReview extends Activity {
     //likeUserMyPoll
     private String likeUserMyPoll;
     //userId
+
+    private Boolean Shareid;
     private String userId;
     //mlikes
     private int mlikes;
@@ -277,6 +279,8 @@ public class MyPollsReview extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         //Get the user poll type from another activity
         myPollType = getIntent().getExtras().getString(Constants.POLL_TYPE);
         if(("1").equals(myPollType)){
@@ -297,6 +301,8 @@ public class MyPollsReview extends Activity {
     public void init() {
         /**Initializing the activity**/
         myPollsReviewActivity = this;
+
+        Shareid=getIntent().getExtras().getBoolean("SHARE",false);
         //Retrieves a map of extended data from the intent.
         pollIdMyPoll = getIntent().getExtras().getString(Constants.POLL_ID);
         //Retrieves a map of extended data from the intent.
@@ -416,6 +422,14 @@ public class MyPollsReview extends Activity {
         myPollView4.myPollrelativePrgressBar4YouTubeLayout =(RelativeLayout)findViewById(R.id.relativeProgressbar4);
         myPollView4.myPolltxtCountsYouTubeLayout = (TextView) findViewById(R.id.txtParticcipation);
         myPollView4.imgShareYouTubeLayout =(ImageView)findViewById(R.id.imgShare);
+
+        if(Shareid){
+            myPollView4.imgShareYouTubeLayout.setVisibility(View.GONE);
+        }else{
+            myPollView4.imgShareYouTubeLayout.setVisibility(View.VISIBLE);
+        }
+
+
         myPollView4.txtLikeYouTubeLayout = (TextView)findViewById(R.id.txtLike2);
         myPollView4.myPolloption1YouTubeLayoutYouTubeLayout = (TextView)findViewById(R.id.option1);
         myPollView4.myPolloption2YouTubeLayout = (TextView) findViewById(R.id.option2);
@@ -716,6 +730,13 @@ public class MyPollsReview extends Activity {
         myPollView3.myPollPhotoComparisonGroupAnswer3 = (TextView) findViewById(R.id.pollGroupAnswer3);
         myPollView3.myPollPhotoComparisonGroupAnswer4 = (TextView) findViewById(R.id.pollGroupAnswer4);
         myPollView3.myPollPhotoComparisonimgShare = (ImageView) findViewById(R.id.imgShare);
+
+        if(Shareid){
+            myPollView3.myPollPhotoComparisonimgShare .setVisibility(View.GONE);
+        }else{
+            myPollView3.myPollPhotoComparisonimgShare .setVisibility(View.VISIBLE);
+        }
+
         //view visible
         myPollView3.scrollView.setVisibility(View.VISIBLE);
         //Setting the poll like count
@@ -1008,6 +1029,12 @@ public class MyPollsReview extends Activity {
         myPollView2.myPollGroupAnswer3MultipleOptions =(TextView)findViewById(R.id.pollGroupAnswer3);
         myPollView2.myPollGroupAnswer4MultipleOptions =(TextView)findViewById(R.id.pollGroupAnswer4);
         myPollView2.imgShareMultipleOptions =(ImageView)findViewById(R.id.imgShare);
+        if(Shareid){
+            myPollView2.imgShareMultipleOptions.setVisibility(View.GONE);
+        }else{
+            myPollView2.imgShareMultipleOptions.setVisibility(View.VISIBLE);
+        }
+
         myPollView2.txtLikeMultipleOptions = (TextView)findViewById(R.id.txtLike2);
         myPollView2.myPolloption1MultipleOptions = (TextView)findViewById(R.id.option1);
         myPollView2.myPolloption2MultipleOptions = (TextView) findViewById(R.id.option2);
@@ -1285,6 +1312,13 @@ public class MyPollsReview extends Activity {
         myPollView1.myPollprogressbarFirstOptionYesOrNO = (ProgressBar) findViewById(R.id.progressbarFirstOption);
         myPollView1.myPollprogressbarSecondOptionYesOrNO = (ProgressBar) findViewById(R.id.progressbarSecondOption);
         myPollView1.imgShareYesOrNO = (ImageView) findViewById(R.id.imgShare);
+
+      if(Shareid){
+          myPollView1.imgShareYesOrNO.setVisibility(View.GONE);
+      }else{
+          myPollView1.imgShareYesOrNO.setVisibility(View.VISIBLE);
+      }
+
         //Setting the visiblity
         myPollView1.scrollViewYesOrNO.setVisibility(View.VISIBLE);
         //setting the participate count
