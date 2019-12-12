@@ -618,7 +618,7 @@ public class MyPollsCustomAdapter extends ArrayAdapter<UserPollResponseModel.Res
         a.putExtra(Constants.ARRAY_POSITION, clickPosition);
         a.putExtra(Constants.PARTICIPATE_COUNT, String.valueOf(preferencemyParticipateCount.get(clickPosition)));
 
-        if (!(("1").equals(myPollResponse.getStatus()))) {
+        if (!(("1").equals(myPollResponse.getGroup_poll()))) {
             //public
             a.putExtra("SHARE" ,false);
         } else {
@@ -748,10 +748,18 @@ public class MyPollsCustomAdapter extends ArrayAdapter<UserPollResponseModel.Res
                 return false;
             }
         });
-        if (!(("1").equals(myPollResponse.getStatus()))) {
+        if ((("1").equals(myPollResponse.getStatus()))) {
             holder.txtNameYesOrNoMyPOll.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_approved, 0);
             //////////////////
-            holder.imgShareYesOrNoMyPOll.setVisibility(View.VISIBLE);
+            if(!("1").equals(myPollResponse.getGroup_poll()))
+            {
+                holder.imgShareYesOrNoMyPOll.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                holder.imgShareYesOrNoMyPOll.setVisibility(View.GONE);
+            }
+
         } else {
             holder.txtNameYesOrNoMyPOll.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_pending, 0);
             holder.imgShareYesOrNoMyPOll.setVisibility(View.GONE);
@@ -985,9 +993,15 @@ public class MyPollsCustomAdapter extends ArrayAdapter<UserPollResponseModel.Res
 
     @SuppressLint("ClickableViewAccessibility")
     private void holderView2MyPollOnClickListner(final ViewHolderLayoutTwo holder, final int position) {
-        if (!(("1").equals(myPollResponse.getStatus()))){
+        if ((("1").equals(myPollResponse.getStatus()))){
             holder.txtNameMultipleOptionsMyPoll.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_approved, 0);
-            holder.imgShareMultipleOptionsMyPoll.setVisibility(View.VISIBLE);
+            if(!("1").equals(myPollResponse.getGroup_poll())) {
+                holder.imgShareMultipleOptionsMyPoll.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                holder.imgShareMultipleOptionsMyPoll.setVisibility(View.GONE);
+            }
         } else {
             holder.txtNameMultipleOptionsMyPoll.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_pending, 0);
             holder.imgShareMultipleOptionsMyPoll.setVisibility(View.GONE);
@@ -1374,9 +1388,17 @@ public class MyPollsCustomAdapter extends ArrayAdapter<UserPollResponseModel.Res
     @SuppressLint("ClickableViewAccessibility")
     private void holderView3OnClickListner(final ViewHolderLayoutThree holder, final int position) {
         //If status is 1 then the poll is approved
-        if (!(("1").equals(myPollResponse.getStatus()))){
+        if ((("1").equals(myPollResponse.getStatus()))){
             holder.txtNamePhotoComparisonMyPoll.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_approved, 0);
-            holder.imgSharePhotoComparisonMyPoll.setVisibility(View.VISIBLE);
+            if(!("1").equals(myPollResponse.getGroup_poll()))
+            {
+                holder.imgSharePhotoComparisonMyPoll.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                holder.imgSharePhotoComparisonMyPoll.setVisibility(View.GONE);
+            }
+
         } else {
             holder.txtNamePhotoComparisonMyPoll.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_pending, 0);
             holder.imgSharePhotoComparisonMyPoll.setVisibility(View.GONE);
@@ -1742,9 +1764,17 @@ public class MyPollsCustomAdapter extends ArrayAdapter<UserPollResponseModel.Res
 
     private void holderView4OnClickListner(final ViewHolderLayoutFour holder, final int position) {
         //If poll is approved by admin
-        if (!(("1").equals(myPollResponse.getStatus()))) {
+        if ((("1").equals(myPollResponse.getStatus()))) {
             holder.txtNameYouTubeUrlMyPoll.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_approved, 0);
-            holder.imgShareYouTubeUrlMyPoll.setVisibility(View.VISIBLE);
+            if(!("1").equals(myPollResponse.getGroup_poll()))
+            {
+                holder.imgShareYouTubeUrlMyPoll.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                holder.imgShareYouTubeUrlMyPoll.setVisibility(View.GONE);
+            }
+
         } else {
             holder.txtNameYouTubeUrlMyPoll.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_pending, 0);
             holder.imgShareYouTubeUrlMyPoll.setVisibility(View.GONE);
