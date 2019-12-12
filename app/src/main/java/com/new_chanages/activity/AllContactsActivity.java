@@ -681,13 +681,8 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
 
 
     public void update(String phonenumber, int i){
-
-
-
         if(i==0) {
-
             ArrayList<ContactModel> list = new ArrayList<>();
-
             for (ContactModel obj : myPollBookContactList) {
                 if (obj.getIsContactSelected().equals("TRUE")) {
                     list.add(obj);

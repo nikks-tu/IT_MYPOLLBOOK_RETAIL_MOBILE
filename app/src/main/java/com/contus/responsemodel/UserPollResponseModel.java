@@ -98,6 +98,17 @@ public class UserPollResponseModel {
             @SerializedName("adminCount")
             private String adminCount;
 
+            public String getGroup_poll() {
+                return group_poll;
+            }
+
+            public void setGroup_poll(String group_poll) {
+                this.group_poll = group_poll;
+            }
+
+            @SerializedName("group_poll")
+            private String group_poll;
+
             public String getUserCount() {
                 return userCount;
             }
