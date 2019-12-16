@@ -143,7 +143,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
             android:textColor="@android:color/black"
             android:textSize="@dimen/activity_textSize_small" />
 
