@@ -456,6 +456,28 @@ public class MultipleOptions extends Activity implements OnTaskCompleted {
         }
     }
 
+
+
+    private void navigate() {
+
+        if (mContact.contains("Public"))
+        {
+            Intent data = new Intent();
+            data.putExtra("is_from_groupPoll",false);
+            setResult(RESULT_OK, data);
+            finish();
+        }
+        else
+        {
+            Intent data = new Intent();
+            data.putExtra("is_from_groupPoll",true);
+            setResult(RESULT_OK, data);
+            finish();
+        }
+
+    }
+
+
 public void createPollSubmit(){
 
     question1 = new File(MApplication.getString(mMultipleOptions, "imageMultipleOptionFilePathQuestion1"));
@@ -531,7 +553,7 @@ public void createPollSubmit(){
                         @Override
                         public void success(CreatePollResponseModel createResponseModel, Response response) {
                             if (createResponseModel.getSuccess().equals("1")) {
-                                finish();
+                                navigate();
                             }
                             Toast.makeText(mMultipleOptions, createResponseModel.getMsg(),
                                     Toast.LENGTH_SHORT).show();
@@ -590,7 +612,7 @@ public void createPollSubmit(){
                         @Override
                         public void success(CreatePollResponseModel createResponseModel, Response response) {
                             if (createResponseModel.getSuccess().equals("1")) {
-                                finish();
+                                navigate();
                             }
                             Toast.makeText(mMultipleOptions, createResponseModel.getMsg(),
                                     Toast.LENGTH_SHORT).show();
@@ -656,7 +678,7 @@ public void createPollSubmit(){
                         @Override
                         public void success(CreatePollResponseModel createResponseModel, Response response) {
                             if (createResponseModel.getSuccess().equals("1")) {
-                                finish();
+                                navigate();
                             }
                             Toast.makeText(mMultipleOptions, createResponseModel.getMsg(),
                                     Toast.LENGTH_SHORT).show();
@@ -723,7 +745,7 @@ public void createPollSubmit(){
                         @Override
                         public void success(CreatePollResponseModel createResponseModel, Response response) {
                             if (createResponseModel.getSuccess().equals("1")) {
-                                finish();
+                                navigate();
                             }
                             Toast.makeText(mMultipleOptions, createResponseModel.getMsg(),
                                     Toast.LENGTH_SHORT).show();

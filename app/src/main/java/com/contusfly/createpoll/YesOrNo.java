@@ -890,7 +890,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
                             @Override
                             public void success(CreatePollResponseModel createResponseModel, Response response) {
                                 if (createResponseModel.getSuccess().equals("1")) {
-                                    finish();
+                                   navigate();
                                 }
                                 Toast.makeText(mYesOrNo, createResponseModel.getMsg(),
                                         Toast.LENGTH_SHORT).show();
@@ -939,6 +939,25 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
         }
     }
 
+    private void navigate() {
+
+        if (mContact.contains("Public"))
+        {
+            Intent data = new Intent();
+            data.putExtra("is_from_groupPoll",false);
+            setResult(RESULT_OK, data);
+            finish();
+        }
+        else
+        {
+            Intent data = new Intent();
+            data.putExtra("is_from_groupPoll",true);
+            setResult(RESULT_OK, data);
+            finish();
+        }
+
+    }
+
 
     /**
      * Sending the request and getting the response using the method
@@ -965,8 +984,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
                             public void success(CreatePollResponseModel createResponseModel, Response response) {
                                 if (createResponseModel.getSuccess().equals("1")) {
 
-
-                                    finish();
+                                    navigate();
                                 }
                                 Toast.makeText(mYesOrNo, createResponseModel.getMsg(),
                                         Toast.LENGTH_SHORT).show();
@@ -1040,7 +1058,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
                             @Override
                             public void success(CreatePollResponseModel createResponseModel, Response response) {
                                 if (createResponseModel.getSuccess().equals("1")) {
-                                    finish();
+                                    navigate();
                                 }
                                 Toast.makeText(mYesOrNo, createResponseModel.getMsg(),
                                         Toast.LENGTH_SHORT).show();
@@ -1110,7 +1128,7 @@ public class YesOrNo extends Activity implements OnTaskCompleted {
                             public void success(CreatePollResponseModel createResponseModel, Response response) {
                                 if (createResponseModel.getSuccess().equals("1")) {
 
-                                    finish();
+                                    navigate();
                                 }
                                 Toast.makeText(mYesOrNo, createResponseModel.getMsg(),
                                         Toast.LENGTH_SHORT).show();

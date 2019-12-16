@@ -303,7 +303,9 @@ public class AllContactsActivity extends AppCompatActivity implements SendEvent 
                         model.setContactSelected(contactList.get(i).getContactSelected());
                         model.setContactNumber(contactList.get(i).getContactNumber());
                         model.setContactId(contactList.get(i).getContactId());
-                           myPollBookContactList.add(model);
+
+                            myPollBookContactList.add(model);
+
                     }
                 }
 

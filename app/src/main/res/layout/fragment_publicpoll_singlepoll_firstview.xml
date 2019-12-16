@@ -73,7 +73,6 @@
             android:layout_marginLeft="10dp"
             android:layout_toEndOf="@+id/imgProfile"
             android:layout_toRightOf="@+id/imgProfile"
-            android:text="@string/dummy_text"
             android:layout_marginRight="20dp"
             android:textColor="@color/blue_color"
             android:ellipsize="end"

@@ -954,7 +954,15 @@ public class EditGroupActivity extends AppCompatActivity  implements OnTaskCompl
 
     @Override
     public void delete(String numb) {
-        contacts= contacts.replace( numb+",","");
+        if(contacts.contains("numb"+","))
+        {
+            contacts= contacts.replace( numb+",","");
+        }
+        else
+        {
+            contacts= contacts.replace( numb,"");
+        }
+
     }
 }
 

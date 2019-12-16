@@ -278,7 +278,7 @@
     <string name="text_kb" translatable="false">KB</string>
     <string name="text_mb" translatable="false">MB</string>
     <string name="text_error_occured" translatable="false">Error Occurred. Please try again.</string>
-    <string name="text_demo" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie. Fusce quis mauris a enim sollicitudin ultrices non eget velit. Aliquam eu pulvinar enim. Praesent libero nisl, ultricies vel maximus eu, maximus et nisi. Phasellus pharetra nec ligula vitae mollis. Quisque porttitor ornare magna, quis dignissim libero aliquam id. Donec sollicitudin ultrices ante, a semper erat tristique in. Vivamus sodales in ligula at sodales. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tempus bibendum nibh, ac tincidunt quam convallis non. Proin dolor nunc, egestas et tortor consequat, dignissim lacinia odio. Ut ut aliquet erat.  Ut non scelerisque elit. Morbi dolor neque, iaculis eu justo rutrum, aliquet dictum mauris. Phasellus quis massa ut ligula feugiat congue a et dolor. Etiam a dui a sapien ornare accumsan ac ut lorem. Suspendisse vehicula lorem dapibus nibh rhoncus ultricies. Proin sem nulla, elementum quis pharetra quis, commodo vitae nisi. Donec urna orci, posuere et iaculis sit amet, fringilla quis sapien. Pellentesque nec posuere felis. Praesent malesuada tellus nisi, non dictum justo interdum eget. Quisque mollis euismod libero, non aliquam lorem interdum vitae. Aliquam vehicula efficitur purus eget rutrum. Sed pulvinar fermentum risus ac viverra. Cras laoreet ligula quam, ac lacinia nisl elementum in. Aenean velit arcu, euismod a venenatis non, pulvinar pulvinar massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie. Fusce quis mauris a enim sollicitudin ultrices non eget velit. Aliquam eu pulvinar enim. Praesent libero nisl, ultricies vel maximus eu, maximus et nisi. Phasellus pharetra nec ligula vitae mollis. Quisque porttitor ornare magna, quis dignissim libero aliquam id. Donec sollicitudin ultrices ante, a semper erat tristique in. Vivamus sodales in ligula at sodales. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tempus bibendum nibh, ac tincidunt quam convallis non. Proin dolor nunc, egestas et tortor consequat, dignissim lacinia odio. Ut ut aliquet erat.  Ut non scelerisque elit. Morbi dolor neque, iaculis eu justo rutrum, aliquet dictum mauris. Phasellus quis massa ut ligula feugiat congue a et dolor. Etiam a dui a sapien ornare accumsan ac ut lorem. Suspendisse vehicula lorem dapibus nibh rhoncus ultricies. Proin sem nulla, elementum quis pharetra quis, commodo vitae nisi. Donec urna orci, posuere et iaculis sit amet, fringilla quis sapien. Pellentesque nec posuere felis. Praesent malesuada tellus nisi, non dictum justo interdum eget. Quisque mollis euismod libero, non aliquam lorem interdum vitae. Aliquam vehicula efficitur purus eget rutrum. Sed pulvinar fermentum risus ac viverra. Cras laoreet ligula quam, ac lacinia nisl elementum in. Aenean velit arcu, euismod a venenatis non, pulvinar pulvinar massa.</string>
+    <string name="text_demo" translatable="false">Loding...</string>
     <string name="font_roboto_light" translatable="false">fonts/roboto_light.ttf</string>
 
     <!-- Fonts -->
@@ -291,7 +291,7 @@
     <string name="hello_world" translatable="false">Hello world!</string>
 
     <string name="action_settings" translatable="false">Settings</string>
-    <string name="sample_text" translatable="false"><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry.</string>
+    <string name="sample_text" translatable="false"></string>
     <string name="select_your_country" translatable="false">Please select your country</string>
     <string name="enter_your_country_code" translatable="false">Please enter the code</string>
 
@@ -542,7 +542,7 @@
     <string name="female" translatable="false">Female</string>
     <string name="male" translatable="false">Male</string>
     <string name="user_name" translatable="false">User Name</string>
-    <string name="dummy_text" translatable="false">Dummy</string>
+    <string name="dummy_text" translatable="false">Loding...</string>
     <string name="broadcast_contacts" translatable="false">Please enter the broadcast name and choose the contacts</string>
     <string name="broadcast_name" translatable="false">Type your broadcast name</string>
     <string name="provide_your_broadcast_name" translatable="false">Please provide your broadcast name</string>

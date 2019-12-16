@@ -84,7 +84,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
+public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted,Update {
     RecyclerView group_member_recyclr_view;
     EditText edt_group_name;
     GridView grid_contacts;
@@ -199,11 +199,11 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
                             iv_save.setEnabled(false);
 
                             group_id = MApplication.getString(mContext, Constants.GET_GROUP_POLL_ID);
-                            if(group_id!=null&&group_id.length()>0){
+                           /* if(group_id!=null&&group_id.length()>0){
                                updateservice(group_id);
-                            }else{
+                            }else{*/
                                 serviceCall();
-                            }
+                           // }
                         }
                         else {
 
@@ -864,6 +864,11 @@ public class GroupCreate extends AppCompatActivity  implements OnTaskCompleted {
     }
 
 
+    @Override
+    public void delete(String numb) {
+        contacts= contacts.replace( numb+",","");
 
+       MApplication.setString(mContext, Constants.PHONE_NUMBER,contacts);
+    }
 
 }

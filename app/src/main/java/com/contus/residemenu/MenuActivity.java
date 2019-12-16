@@ -541,21 +541,21 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
                         //Intents are objects of the android.content.Intent type. Your code can send them to the Android system defining the components you are targeting.
                         // For example, via the startActivity() method you can define that the intent should be used to start an activity.
                         Intent a = new Intent(MenuActivity.this, YesOrNo.class);
-                        startActivity(a);
+                        startActivityForResult(a,112);
                         return true;
                     case R.id.item_multiple_options:
                         MApplication.setBoolean(MenuActivity.this, "createpoll", true);
                         //Intents are objects of the android.content.Intent type. Your code can send them to the Android system defining the components you are targeting.
                         // For example, via the startActivity() method you can define that the intent should be used to start an activity.
                         Intent b = new Intent(MenuActivity.this, MultipleOptions.class);
-                        startActivity(b);
+                        startActivityForResult(b,112);
                         return true;
                     case R.id.item_photocomparison:
                         MApplication.setBoolean(MenuActivity.this, "createpoll", true);
                         //Intents are objects of the android.content.Intent type. Your code can send them to the Android system defining the components you are targeting.
                         // For example, via the startActivity() method you can define that the intent should be used to start an activity.
                         Intent c = new Intent(MenuActivity.this, PhotoComparison.class);
-                        startActivity(c);
+                        startActivityForResult(c,112);
                         return true;
                 }
                 return false;
@@ -563,6 +563,22 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
         });
         popup.show();//s
         //}
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==112&&resultCode==RESULT_OK)
+        {
+         if(data.getBooleanExtra("is_from_groupPoll",false))
+         {
+             itemEditGroups.performClick();
+         }
+         else
+         {
+             itemHome.performClick();
+         }
+        }
     }
 
     /**
@@ -1401,6 +1417,9 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
             //View gone
             publicPoll.setVisibility(View.GONE);
 
+            dividerLine = itemEditGroups.findViewById(R.id.view);
+            dividerLine.setVisibility(View.GONE);
+
         }
         else if (selectedTag.equals(GroupPolls.class.getName()))
         {
@@ -1428,11 +1447,11 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
             //View gone
             chat.setVisibility(View.GONE);
             //title
-            title =  itemHome.findViewById(R.id.tv_title);
+            title =  itemEditGroups.findViewById(R.id.tv_title);
             //icon
-            icon =  itemHome.findViewById(R.id.iv_icon);
+            icon =  itemEditGroups.findViewById(R.id.iv_icon);
             //divider line
-            dividerLine = itemHome.findViewById(R.id.view);
+            dividerLine = itemEditGroups.findViewById(R.id.view);
             //setting the text color
             title.setTextColor(getResources().getColor(R.color.color_white));
             //Setting the icon color
@@ -1470,11 +1489,11 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
             //View gone
             chat.setVisibility(View.GONE);
             //title
-            title =  itemHome.findViewById(R.id.tv_title);
+            title =  itemCampains.findViewById(R.id.tv_title);
             //icon
-            icon =  itemHome.findViewById(R.id.iv_icon);
+            icon =  itemCampains.findViewById(R.id.iv_icon);
             //divider line
-            dividerLine = itemHome.findViewById(R.id.view);
+            dividerLine = itemCampains.findViewById(R.id.view);
             //setting the text color
             title.setTextColor(getResources().getColor(R.color.color_white));
             //Setting the icon color
@@ -1486,7 +1505,15 @@ public class MenuActivity extends AppCompatActivity implements FragmentManager.O
             //view gone
             mTitle.setText(getResources().getString(R.string.campaigns));
 
-        } else if (selectedTag.equals(HomeChat.class.getName())) {
+        }
+        else if (!selectedTag.equals(PublicPoll.class.getName()))
+        {
+            icon =  itemCampains.findViewById(R.id.iv_icon);
+            //divider line
+            dividerLine = itemCampains.findViewById(R.id.view);
+            dividerLine.setVisibility(View.GONE);
+        }
+        else if (selectedTag.equals(HomeChat.class.getName())) {
             toolbar.setVisibility(View.VISIBLE);
             //view gone
             imageAddComments.setVisibility(View.GONE);
